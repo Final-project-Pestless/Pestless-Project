@@ -16,6 +16,8 @@
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
 		9B074DDA290112FA00569B13 /* PestlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DD9290112FA00569B13 /* PestlessUITests.swift */; };
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
+		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
+		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		9B074DD5290112FA00569B13 /* PestlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DD9290112FA00569B13 /* PestlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITests.swift; sourceTree = "<group>"; };
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
+				9BE1982C2909830200A19697 /* ViewModel */,
+				9BE198272909202D00A19697 /* View */,
 				9B074DB8290112F900569B13 /* Pestless */,
 				9B074DCE290112FA00569B13 /* PestlessTests */,
 				9B074DD8290112FA00569B13 /* PestlessUITests */,
@@ -131,6 +137,30 @@
 				9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */,
 			);
 			path = PestlessUITests;
+			sourceTree = "<group>";
+		};
+		9BE198272909202D00A19697 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BE1982D290983BB00A19697 /* Onboarding */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9BE1982C2909830200A19697 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9BE1982D290983BB00A19697 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9BE19828290920D500A19697 /* OnboardingView.swift */,
+				9BE1982A2909301F00A19697 /* OnboardingViews.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
+				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
 				9B074DC3290112FA00569B13 /* Persistence.swift in Sources */,
 				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
+				9BE19829290920D500A19697 /* OnboardingView.swift in Sources */,
 				9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
