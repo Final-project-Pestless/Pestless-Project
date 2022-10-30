@@ -12,9 +12,9 @@ struct OnboardingData: Hashable, Identifiable {
     let text: String
     
     static let dataList: [OnboardingData] = [
-        OnboardingData(id: 0, image: "onboarding1", text: "Pestless is a revolutionary app that will tell you exactly what pests are plaguing your plants, and help you to get rid of them."),
-        OnboardingData(id: 1, image: "onboarding2", text: "It scans your plants in a few seconds and tells you exactly what pests are on them, giving tips step by step to control pests."),
-        OnboardingData(id: 2, image: "onboarding3", text: "Save your time, money, and help you grow healthy food")
+        OnboardingData(id: 0, image: "onboard1", text: "Pestless is a revolutionary app that will tell you exactly what pests are plaguing your plants, and help you to get rid of them."),
+        OnboardingData(id: 1, image: "onboard2", text: "It scans your plants in a few seconds and tells you exactly what pests are on them, giving tips step by step to control pests."),
+        OnboardingData(id: 2, image: "onboard3", text: "Save your time, money, and help you grow healthy food")
         
     ]
 }
@@ -30,7 +30,11 @@ struct OnboardingView: View {
             ZStack{
                 Circle()
                     .frame(width: 373, height: 299)
-                    .foregroundColor(Color.green)
+//                    .background(content: {
+//                        Color("green2")
+//                    })
+                    .foregroundColor(Color("green2"))
+                
                 Image(data.image)
             }
             Text(data.text)
