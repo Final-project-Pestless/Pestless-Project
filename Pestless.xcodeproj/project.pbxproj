@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1723A07D290B3F46000E11FD /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1723A07C290B3F46000E11FD /* ImagePickerView.swift */; };
-		1723A07F290B3F6F000E11FD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1723A07E290B3F6F000E11FD /* Coordinator.swift */; };
-		1723A081290B3F8E000E11FD /* CameraUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1723A080290B3F8E000E11FD /* CameraUIView.swift */; };
 		9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DB9290112F900569B13 /* PestlessApp.swift */; };
 		9B074DBC290112F900569B13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DBB290112F900569B13 /* ContentView.swift */; };
 		9B074DBE290112FA00569B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B074DBD290112FA00569B13 /* Assets.xcassets */; };
@@ -39,9 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1723A07C290B3F46000E11FD /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
-		1723A07E290B3F6F000E11FD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		1723A080290B3F8E000E11FD /* CameraUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUIView.swift; sourceTree = "<group>"; };
 		9B074DB6290112F900569B13 /* Pestless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pestless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DB9290112F900569B13 /* PestlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessApp.swift; sourceTree = "<group>"; };
 		9B074DBB290112F900569B13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,9 +100,6 @@
 			children = (
 				9B074DB9290112F900569B13 /* PestlessApp.swift */,
 				9B074DBB290112F900569B13 /* ContentView.swift */,
-				1723A080290B3F8E000E11FD /* CameraUIView.swift */,
-				1723A07E290B3F6F000E11FD /* Coordinator.swift */,
-				1723A07C290B3F46000E11FD /* ImagePickerView.swift */,
 				9B074DBD290112FA00569B13 /* Assets.xcassets */,
 				9B074DC2290112FA00569B13 /* Persistence.swift */,
 				9B074DC4290112FA00569B13 /* Pestless.xcdatamodeld */,
@@ -274,11 +265,8 @@
 			files = (
 				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
 				9B074DC3290112FA00569B13 /* Persistence.swift in Sources */,
-				1723A07F290B3F6F000E11FD /* Coordinator.swift in Sources */,
 				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
 				9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */,
-				1723A081290B3F8E000E11FD /* CameraUIView.swift in Sources */,
-				1723A07D290B3F46000E11FD /* ImagePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
