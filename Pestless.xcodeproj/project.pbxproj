@@ -19,6 +19,7 @@
 		9B259862290F56B800E15B49 /* PestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259861290F56B800E15B49 /* PestService.swift */; };
 		9B259864290F57E300E15B49 /* PestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259863290F57E300E15B49 /* PestViewModel.swift */; };
 		9B259867290F5A5D00E15B49 /* Pest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259866290F5A5D00E15B49 /* Pest.swift */; };
+		9B25986B290F793700E15B49 /* pestClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 9B25986A290F793700E15B49 /* pestClassifier.mlpackage */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		9B259861290F56B800E15B49 /* PestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestService.swift; sourceTree = "<group>"; };
 		9B259863290F57E300E15B49 /* PestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestViewModel.swift; sourceTree = "<group>"; };
 		9B259866290F5A5D00E15B49 /* Pest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pest.swift; sourceTree = "<group>"; };
+		9B25986A290F793700E15B49 /* pestClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = pestClassifier.mlpackage; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
+				9B25986A290F793700E15B49 /* pestClassifier.mlpackage */,
 				9B259865290F5A5000E15B49 /* Model */,
 				9B259860290F56A400E15B49 /* Service */,
 				9B25985D290F509D00E15B49 /* System */,
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B25986B290F793700E15B49 /* pestClassifier.mlpackage in Sources */,
 				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
 				9B259867290F5A5D00E15B49 /* Pest.swift in Sources */,
