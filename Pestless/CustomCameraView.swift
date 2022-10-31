@@ -32,6 +32,8 @@ struct CustomCameraView: View {
                     print(err.localizedDescription)
                 }
             }
+            .ignoresSafeArea(.all)
+            
             VStack {
                 
                 HStack {
@@ -58,6 +60,7 @@ struct CustomCameraView: View {
                     .italic()
                     .font(.system(size: 16))
                     .fontWeight(.bold)
+                    .foregroundColor(.white)
                     
                 
                 Spacer()
