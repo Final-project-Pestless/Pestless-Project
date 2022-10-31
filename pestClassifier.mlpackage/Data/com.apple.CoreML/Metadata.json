@@ -1,0 +1,12 @@
+{
+  "MLModelVersionStringKey" : "1.0",
+  "MLModelDescriptionKey" : "pest image classifier",
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.createml.app.tag" : "99.2",
+    "com.apple.createml.version" : "13.0.0",
+    "com.apple.createml.app.version" : "4.0",
+    "com.apple.coreml.model.preview.type" : "imageClassifier"
+  },
+  "MLModelAuthorKey" : "Nadia Ramadhani",
+  "MLModelLicenseKey" : "--"
+}
