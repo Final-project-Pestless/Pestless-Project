@@ -16,6 +16,7 @@
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
 		9B074DDA290112FA00569B13 /* PestlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DD9290112FA00569B13 /* PestlessUITests.swift */; };
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
+		9B259869290F74E800E15B49 /* pestClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 9B259868290F74E800E15B49 /* pestClassifier.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9B074DD5290112FA00569B13 /* PestlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DD9290112FA00569B13 /* PestlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITests.swift; sourceTree = "<group>"; };
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B259868290F74E800E15B49 /* pestClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = pestClassifier.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
+				9B259868290F74E800E15B49 /* pestClassifier.mlpackage */,
 				9B074DB8290112F900569B13 /* Pestless */,
 				9B074DCE290112FA00569B13 /* PestlessTests */,
 				9B074DD8290112FA00569B13 /* PestlessUITests */,
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B259869290F74E800E15B49 /* pestClassifier.mlpackage in Sources */,
 				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
 				9B074DC3290112FA00569B13 /* Persistence.swift in Sources */,
 				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
