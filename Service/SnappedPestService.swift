@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class PestService {
+class SnappedPestService {
     private let persistenceController: PersistenceController
     init(persistenceController: PersistenceController) {
         self.persistenceController = persistenceController
@@ -16,7 +16,7 @@ class PestService {
     
     var pestFetchRequest: NSFetchRequest<Pest> {
         let fetchRequest : NSFetchRequest<Pest> = Pest.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "pestId", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "imageId", ascending: false)]
         fetchRequest.returnsObjectsAsFaults = false
         
         return fetchRequest
@@ -24,6 +24,5 @@ class PestService {
 
     var context: NSManagedObjectContext {
         persistenceController.container.viewContext
-        
     }
 }

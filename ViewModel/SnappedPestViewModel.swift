@@ -8,16 +8,16 @@
 import Foundation
 import CoreData
 
-class PestViewModel: NSObject, NSFetchedResultsControllerDelegate, ObservableObject {
+class SnappedPestViewModel: NSObject, NSFetchedResultsControllerDelegate, ObservableObject {
     @Published var pest : [Pest] = []
     @Published var pestExist: Bool = false
     
-    static let shared = PestViewModel(pestService: PestService(persistenceController: PersistenceController.shared))
+    static let shared = SnappedPestViewModel(pestService: SnappedPestService(persistenceController: PersistenceController.shared))
     
-    private let pestService: PestService
+    private let pestService: SnappedPestService
     private let fetchedResultsController: NSFetchedResultsController<Pest>
     
-    init(pestService: PestService) {
+    init(pestService: SnappedPestService) {
         self.pestService = pestService
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: pestService.pestFetchRequest, managedObjectContext: pestService.context, sectionNameKeyPath: nil, cacheName: nil)
     }
