@@ -1,24 +1,45 @@
-//
-//  Pest.swift
-//  Pestless
-//
-//  Created by Local Administrator on 31/10/22.
-//
-
 import Foundation
-import SwiftUI
 
-
-public class PestData {
-    var pestId: Int32?
-    var pestName: String?
-    var pestDetail: String?
-    var pestImage: UIImage?
+struct PestData: Identifiable {
+    let id = UUID()
+    var name: String = ""
+    var description: String = ""
+    var identity: String = ""
+    var plant: [String] = [""]
+    var image: String = ""
     
-    init(pestId: Int32, pestName: String, pestDetail: String, pestImage: UIImage) {
-        self.pestId = pestId
-        self.pestName = pestName
-        self.pestDetail = pestDetail
-        self.pestImage = pestImage
-    }
 }
+
+let PestList: [PestData] = [
+    PestData(name: "Thistle Caterpillar",
+             description: "",
+             identity: "",
+             plant: [""],
+             image: ""
+            ),
+    PestData(name: "Aphid",
+             description: "",
+             identity: "",
+             plant: [""],
+             image: ""
+            ),
+    PestData(name: "Grasshopper",
+             description: "",
+             identity: "",
+             plant: [""],
+             image: ""
+            ),
+    PestData(name: "Mealybug",
+             description: "",
+             identity: "",
+             plant: [""],
+             image: ""
+            ),
+    PestData(name: "True bug",
+             description: "",
+             identity: "",
+             plant: [""],
+             image: ""
+            )
+]
+

@@ -28,6 +28,7 @@
 		9B2598792910BED100E15B49 /* PestClassifier2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598772910BED100E15B49 /* PestClassifier2.mlmodel */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
+		BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9B2598772910BED100E15B49 /* PestClassifier2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PestClassifier2.mlmodel; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
+		BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biopesticide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				9B259866290F5A5D00E15B49 /* Pest.swift */,
+				BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,7 +359,10 @@
 				172CD917290F141300D9F471 /* CameraView.swift in Sources */,
 				9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */,
 				172CD915290F13FD00D9F471 /* CameraService.swift in Sources */,
+				9B25986B290F793700E15B49 /* pestClassifier.mlpackage in Sources */,
+				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
+				BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */,
 				9B259867290F5A5D00E15B49 /* Pest.swift in Sources */,
 				9B259862290F56B800E15B49 /* SnappedPestService.swift in Sources */,
 				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
