@@ -9,33 +9,25 @@ import Foundation
 import CoreData
 
 class SnappedPestViewModel: NSObject, NSFetchedResultsControllerDelegate, ObservableObject {
-    @Published var pest : PestImage?
+    @Published var pest : [Pest] = []
     @Published var pestExist: Bool = false
-    @Published var imageId: UUID?
-    @Published var pestImage: Data?
-    @Published var pestName: String = ""
-    @Published var date: Date?
-        
+    
     static let shared = SnappedPestViewModel(pestService: SnappedPestService(persistenceController: PersistenceController.shared))
     
     private let pestService: SnappedPestService
-    private let fetchedResultsController: NSFetchedResultsController<PestImage>
+    private let fetchedResultsController: NSFetchedResultsController<Pest>
     
     init(pestService: SnappedPestService) {
         self.pestService = pestService
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: pestService.pestFetchRequest, managedObjectContext: pestService.context, sectionNameKeyPath: nil, cacheName: nil)
     }
-    
-    func save() {
-        guard let snappedPest = self.pest else {return}
-        snappedPest.imageId = self.imageId
-        snappedPest.pestName = self.pestName
-        snappedPest.pestImage = self.pestImage
-        snappedPest.date = self.date
-        pestService.saveChanges()
+    func fetch() {
+        fetchedResultsController.delegate = self
+        try? fetchedResultsController.performFetch()
+        self.pest = fetchedResultsController.fetchedObjects ?? []
     }
     
-    func cancelChanges() {
-        pestService.rollback()
+    func save() {
+        
     }
 }
