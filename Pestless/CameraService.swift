@@ -7,8 +7,12 @@
 
 import Foundation
 import AVFoundation
+import CoreML
+import UIKit
 
 class CameraService {
+    let model = PestClassifier2()
+    var prediction = String()
     
     var session: AVCaptureSession?
     var delegate: AVCapturePhotoCaptureDelegate?
@@ -72,5 +76,60 @@ class CameraService {
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
         output.capturePhoto(with: settings, delegate: delegate!)
     }
-}
+    
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        guard let data = photo.fileDataRepresentation() else{
+            return
+        }
+        
+        let image = UIImage(data: data)?.cgImage
+        let pixel = getCVPixelBuffer(image!)
+        let predict = try? model.prediction(image: pixel!)
+        prediction = predict!.classLabel
+        print(predict!.classLabel)
+        print("hello")
+        
+        //performSegue(withIdentifier: "informationSegue", sender: UIButton.self)
+    }
+    
 
+    func getCVPixelBuffer(_ image: CGImage) -> CVPixelBuffer? {
+            let imageWidth = Int(image.width)
+            let imageHeight = Int(image.height)
+            let attributes : [NSObject:AnyObject] = [
+                kCVPixelBufferCGImageCompatibilityKey : true as AnyObject,
+                kCVPixelBufferCGBitmapContextCompatibilityKey : true as AnyObject
+            ]
+            var pxbuffer: CVPixelBuffer? = nil
+            CVPixelBufferCreate(kCFAllocatorDefault,
+                                imageWidth,
+                                imageHeight,
+                                kCVPixelFormatType_32ARGB,
+                                attributes as CFDictionary?,
+                                &pxbuffer)
+            if let _pxbuffer = pxbuffer {
+                let flags = CVPixelBufferLockFlags(rawValue: 0)
+                CVPixelBufferLockBaseAddress(_pxbuffer, flags)
+                let pxdata = CVPixelBufferGetBaseAddress(_pxbuffer)
+                let rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+                let context = CGContext(data: pxdata,
+                                        width: imageWidth,
+                                        height: imageHeight,
+                                        bitsPerComponent: 8,
+                                        bytesPerRow: CVPixelBufferGetBytesPerRow(_pxbuffer),
+                                        space: rgbColorSpace,
+                                        bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue)
+                if let _context = context {
+                    _context.draw(image, in: CGRect.init(x: 0, y: 0, width: imageWidth, height: imageHeight))
+                }
+                else {
+                    CVPixelBufferUnlockBaseAddress(_pxbuffer, flags);
+                    return nil
+                }
+                CVPixelBufferUnlockBaseAddress(_pxbuffer, flags);
+                return _pxbuffer;
+            }
+            return nil
+        }
+}

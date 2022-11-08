@@ -7,15 +7,15 @@
 
 import Foundation
 import SwiftUI
+import PhotosUI
 
 struct CustomCameraView: View {
-    
+    //  @ObservedObject var viewModel = SnappedPestViewModel(pestService: SnappedPestRepository(persistenceController: PersistenceController()))
     let cameraService = CameraService()
-    @Binding var capturedImage: UIImage?
-
-    
+    @Binding var capturedData: Data?
     @Environment(\.presentationMode) private var presentationMode
-    
+    @State private var selectedItem: PhotosPickerItem?
+    @Binding var selectedImageData: Data?
     var body: some View {
         ZStack {
             CameraView(cameraService: cameraService) { result in
@@ -23,7 +23,9 @@ struct CustomCameraView: View {
                     
                 case .success(let photo):
                     if let data = photo.fileDataRepresentation() {
-                        capturedImage = UIImage(data: data)
+                        //   capturedImage = UIImage(data: data)
+                        capturedData = data
+                        
                         presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Error: no image data found")
@@ -45,11 +47,21 @@ struct CustomCameraView: View {
                             .padding(.leading, 20)
                             .font(.system(size: 30))
                             .foregroundColor(.white)
-                })
+                    })
                     Spacer()
+                    PhotosPicker(selection: $selectedItem) {
+                        Image(systemName: "photo.fill")
+                    }
+                    
+                    .onChange(of: selectedItem) { newValue in
+                        Task{
+                            if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                                selectedImageData = data
+                            }
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
-                
-                
                 
                 Image(systemName: "viewfinder")
                     .font(.system(size: 350, weight: .ultraLight))
@@ -61,25 +73,22 @@ struct CustomCameraView: View {
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    
+                
                 
                 Spacer()
                 ZStack {
-                
                     Image(systemName: "circle.fill")
                         .font(.system(size: 80))
                         .foregroundColor(.hijauShutter)
                     
                     Button( action:  {
                         cameraService.capturePhoto()
+                      
                     }, label: {
                         Image(systemName: "circle")
                             .font(.system(size: 72))
                             .foregroundColor(.white)
                     })
-                   // .padding(.bottom)
-                    
-                   
                 }
             }
         }
