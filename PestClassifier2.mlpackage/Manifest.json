@@ -1,0 +1,24 @@
+{
+    "fileFormatVersion": "1.0.0",
+    "itemInfoEntries": {
+        "226AA37B-CCDC-47B0-A0B0-7011AAE81CA5": {
+            "author": "com.apple.CoreML",
+            "description": "External FeatureDescription Overlay",
+            "name": "FeatureDescriptions.json",
+            "path": "com.apple.CoreML/FeatureDescriptions.json"
+        },
+        "3314D0DC-31E2-4EE7-A040-475A9EFFB0EB": {
+            "author": "com.apple.CoreML",
+            "description": "CoreML Model Specification",
+            "name": "PestClassifier2.mlmodel",
+            "path": "com.apple.CoreML/PestClassifier2.mlmodel"
+        },
+        "84CD1D07-74EE-43CB-98A0-E436A3510DA7": {
+            "author": "com.apple.CoreML",
+            "description": "External Metadata Overlay",
+            "name": "Metadata.json",
+            "path": "com.apple.CoreML/Metadata.json"
+        }
+    },
+    "rootModelIdentifier": "3314D0DC-31E2-4EE7-A040-475A9EFFB0EB"
+}

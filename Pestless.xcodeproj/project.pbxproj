@@ -19,13 +19,14 @@
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
 		9B074DDA290112FA00569B13 /* PestlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DD9290112FA00569B13 /* PestlessUITests.swift */; };
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
-		9B259862290F56B800E15B49 /* SnappedPestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259861290F56B800E15B49 /* SnappedPestService.swift */; };
+		9B259862290F56B800E15B49 /* SnappedPestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259861290F56B800E15B49 /* SnappedPestRepository.swift */; };
 		9B259864290F57E300E15B49 /* SnappedPestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259863290F57E300E15B49 /* SnappedPestViewModel.swift */; };
 		9B259867290F5A5D00E15B49 /* Pest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B259866290F5A5D00E15B49 /* Pest.swift */; };
 		9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25986F290FCD7D00E15B49 /* SnappedLocalDataStore.swift */; };
 		9B2598722910023E00E15B49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598712910023E00E15B49 /* Persistence.swift */; };
 		9B2598752910044800E15B49 /* Pestless.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598732910044800E15B49 /* Pestless.xcdatamodeld */; };
-		9B2598792910BED100E15B49 /* PestClassifier2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598772910BED100E15B49 /* PestClassifier2.mlmodel */; };
+		9B25987C291368C600E15B49 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25987B291368C600E15B49 /* PhotoPreview.swift */; };
+		9B25987E29136B7100E15B49 /* PestClassifier2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 9B25987D29136B7100E15B49 /* PestClassifier2.mlpackage */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
 		BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */; };
@@ -64,13 +65,15 @@
 		9B074DD5290112FA00569B13 /* PestlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DD9290112FA00569B13 /* PestlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITests.swift; sourceTree = "<group>"; };
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9B259861290F56B800E15B49 /* SnappedPestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappedPestService.swift; sourceTree = "<group>"; };
+		9B259861290F56B800E15B49 /* SnappedPestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappedPestRepository.swift; sourceTree = "<group>"; };
 		9B259863290F57E300E15B49 /* SnappedPestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappedPestViewModel.swift; sourceTree = "<group>"; };
 		9B259866290F5A5D00E15B49 /* Pest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pest.swift; sourceTree = "<group>"; };
 		9B25986F290FCD7D00E15B49 /* SnappedLocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappedLocalDataStore.swift; sourceTree = "<group>"; };
 		9B2598712910023E00E15B49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9B2598742910044800E15B49 /* Pestless.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pestless.xcdatamodel; sourceTree = "<group>"; };
-		9B2598772910BED100E15B49 /* PestClassifier2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PestClassifier2.mlmodel; sourceTree = "<group>"; };
+		9B25987A2912B30500E15B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9B25987B291368C600E15B49 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
+		9B25987D29136B7100E15B49 /* PestClassifier2.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PestClassifier2.mlpackage; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
 		BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biopesticide.swift; sourceTree = "<group>"; };
@@ -104,7 +107,7 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
-				9B2598772910BED100E15B49 /* PestClassifier2.mlmodel */,
+				9B25987D29136B7100E15B49 /* PestClassifier2.mlpackage */,
 				9B259865290F5A5000E15B49 /* Model */,
 				9B259860290F56A400E15B49 /* Service */,
 				9B25985D290F509D00E15B49 /* System */,
@@ -130,12 +133,14 @@
 		9B074DB8290112F900569B13 /* Pestless */ = {
 			isa = PBXGroup;
 			children = (
+				9B25987A2912B30500E15B49 /* Info.plist */,
 				9B074DB9290112F900569B13 /* PestlessApp.swift */,
 				9B074DBB290112F900569B13 /* ContentView.swift */,
 				172CD91A290F143F00D9F471 /* MainView.swift */,
+				9B25987B291368C600E15B49 /* PhotoPreview.swift */,
+				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
 				172CD916290F141300D9F471 /* CameraView.swift */,
 				172CD914290F13FD00D9F471 /* CameraService.swift */,
-				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
 				172CD912290F139000D9F471 /* Color+Extensions.swift */,
 				9B074DBD290112FA00569B13 /* Assets.xcassets */,
 				9B074DBF290112FA00569B13 /* Preview Content */,
@@ -181,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				9B25986F290FCD7D00E15B49 /* SnappedLocalDataStore.swift */,
-				9B259861290F56B800E15B49 /* SnappedPestService.swift */,
+				9B259861290F56B800E15B49 /* SnappedPestRepository.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -352,19 +357,20 @@
 			files = (
 				9B2598752910044800E15B49 /* Pestless.xcdatamodeld in Sources */,
 				9B2598722910023E00E15B49 /* Persistence.swift in Sources */,
-				9B2598792910BED100E15B49 /* PestClassifier2.mlmodel in Sources */,
 				172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */,
 				172CD91B290F143F00D9F471 /* MainView.swift in Sources */,
 				172CD913290F139000D9F471 /* Color+Extensions.swift in Sources */,
 				172CD917290F141300D9F471 /* CameraView.swift in Sources */,
+				9B25987C291368C600E15B49 /* PhotoPreview.swift in Sources */,
 				9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */,
+				9B25987E29136B7100E15B49 /* PestClassifier2.mlpackage in Sources */,
 				172CD915290F13FD00D9F471 /* CameraService.swift in Sources */,
 				9B25986B290F793700E15B49 /* pestClassifier.mlpackage in Sources */,
 				9B074DC6290112FA00569B13 /* Pestless.xcdatamodeld in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
 				BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */,
 				9B259867290F5A5D00E15B49 /* Pest.swift in Sources */,
-				9B259862290F56B800E15B49 /* SnappedPestService.swift in Sources */,
+				9B259862290F56B800E15B49 /* SnappedPestRepository.swift in Sources */,
 				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
 				9BE19829290920D500A19697 /* OnboardingView.swift in Sources */,
 				9B259864290F57E300E15B49 /* SnappedPestViewModel.swift in Sources */,
@@ -530,10 +536,11 @@
 				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pestless/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera for pest detection";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -559,10 +566,11 @@
 				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pestless/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera for pest detection";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
