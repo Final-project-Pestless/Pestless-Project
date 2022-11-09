@@ -11,7 +11,7 @@ import CoreML
 struct MainView: View {
     
     @State private var capturedImage: UIImage? = nil
-    @State private var isCustomCameraViewPresented = false
+  //  @State private var isCustomCameraViewPresented = false
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var imageViewModel = SnappedPestViewModel.shared
     @State private var image: Data?
@@ -61,22 +61,40 @@ struct MainView: View {
                 
                 VStack {
                     Spacer()
-                    Button(action: {
-                        isCustomCameraViewPresented.toggle()
-                    }, label: {
-                        Image(systemName: "camera.fill")
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.orangeCamera)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                    })
-                    .padding(.bottom)
-                    .fullScreenCover(isPresented: $isCustomCameraViewPresented, content: {
+                    //coba pake navigate
+                    
+                    NavigationLink {
                         CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
-                            .environment(\.managedObjectContext, self.viewContext)
-                        
-                    })
+                    } label: {
+                            Image(systemName: "camera.fill")
+                                .font(.largeTitle)
+                                .padding()
+                                .background(Color.orange)
+                                .foregroundColor(.black)
+                                .clipShape(Circle())
+                      
+                    }
+
+                    
+                    
+                    
+                    //versi sheet
+//                    Button(action: {
+//                        isCustomCameraViewPresented.toggle()
+//                    }, label: {
+//                        Image(systemName: "camera.fill")
+//                            .font(.largeTitle)
+//                            .padding()
+//                            .background(Color.orangeCamera)
+//                            .foregroundColor(.black)
+//                            .clipShape(Circle())
+//                    })
+//                    .padding(.bottom)
+//                    .fullScreenCover(isPresented: $isCustomCameraViewPresented, content: {
+//                        CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
+//                            .environment(\.managedObjectContext, self.viewContext)
+//
+//                    })
                     
                 }
             }

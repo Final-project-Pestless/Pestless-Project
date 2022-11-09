@@ -11,4 +11,5 @@ import SwiftUI
 extension Color {
     static let hijauShutter = Color("HijauShutter")
     static let orangeCamera = Color("OrangeCamera")
+    static let yellowbg = Color("yellowbg")
 }
