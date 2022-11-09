@@ -16,6 +16,8 @@ struct OnboardingViews: View {
                     .tag(data.id)
                 
             }
+            LoginView()
+                .tag(4)
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))

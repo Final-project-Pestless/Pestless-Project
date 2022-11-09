@@ -59,7 +59,8 @@ struct CustomCameraView: View {
                                 selectedImageData = data
                             }
                         }
-                        presentationMode.wrappedValue.dismiss()
+                        
+                      //  presentationMode.wrappedValue.dismiss()
                     }
                 }
                 
@@ -79,7 +80,7 @@ struct CustomCameraView: View {
                 ZStack {
                     Image(systemName: "circle.fill")
                         .font(.system(size: 80))
-                        .foregroundColor(.hijauShutter)
+                        .foregroundColor(.orange)
                     
                     Button( action:  {
                         cameraService.capturePhoto()
@@ -92,5 +93,6 @@ struct CustomCameraView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
