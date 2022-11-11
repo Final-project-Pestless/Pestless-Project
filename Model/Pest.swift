@@ -15,31 +15,31 @@ let PestList: [PestData] = [
              description: "",
              identity: "",
              plant: [""],
-             image: ""
+             image: "thistle"
             ),
     PestData(name: "Aphid",
              description: "",
              identity: "",
              plant: [""],
-             image: ""
+             image: "arphid"
             ),
     PestData(name: "Grasshopper",
              description: "",
              identity: "",
              plant: [""],
-             image: ""
+             image: "grasshopper"
             ),
     PestData(name: "Mealybug",
              description: "",
              identity: "",
              plant: [""],
-             image: ""
+             image: "mealybug"
             ),
     PestData(name: "True bug",
              description: "",
              identity: "",
              plant: [""],
-             image: ""
+             image: "truebug"
             )
 ]
 
