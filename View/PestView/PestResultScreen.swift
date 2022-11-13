@@ -14,7 +14,21 @@ struct PestResultScreen: View {
     var body: some View {
         NavigationView {
             VStack {
-                    
+//                HStack {
+//                    NavigationLink {
+//                        ContentView()
+//                    } label: {
+//                        Image(systemName: "xmark")
+//                            .font(.system(size: 24))
+//                    }
+//                    .padding()
+//                    Spacer()
+//
+//                }
+                Text("\(pestName)")
+                    .foregroundColor(.accentColor)
+                    .font(.system(.headline, design: .rounded))
+                    .padding()
                 Image("\(pestName)")
                     .resizable()
                     .frame(width: 150, height: 150)
@@ -34,14 +48,16 @@ struct PestResultScreen: View {
                 if selected == 1 {
                     PestScreen()
                 } else if selected == 2 {
-                    Text("Biopestisida")
+                    BiopestScreen()
+                    
                 }
                 
          
             }
+
             
         }
-            .navigationTitle("\(pestName)")
+        .navigationBarBackButtonHidden()
         
     }
 }
@@ -109,37 +125,48 @@ Musuh alami: ladybird
                     .padding(.trailing, 80)
                     .foregroundColor(.pestTitleGreen)
                 ScrollView(.horizontal, showsIndicators: false) {
+                    
+
                     HStack{
                         //Ganti ke biopesticides default data
-                        ForEach(PestList) { pest in
-                            VStack(alignment: .center){
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.yellowbg)
+                        NavigationLink {
+                            BiopesticideView()
+                        } label: {
+                            ForEach(PestList) { pest in
+                                VStack(alignment: .center){
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .frame(width: 100, height: 100)
+                                            .foregroundColor(.yellowbg)
+                                            .padding(.leading, 20)
+                                        Image(pest.image)
+                                            .padding(.leading, 20)
+                                    }
+                                    Text(pest.name)
                                         .padding(.leading, 20)
-                                    Image(pest.image)
-                                        .padding(.leading, 20)
+                                        .font(.system(.caption, design: .rounded))
+                                        .bold()
+                                        .foregroundColor(.pestGreen)
                                 }
-                                Text(pest.name)
-                                    .padding(.leading, 20)
-                                    .font(.system(.caption, design: .rounded))
-                                    .bold()
-                                    .foregroundColor(.pestGreen)
                             }
                         }
+                     
                     }
-                    .padding(.trailing)
                 }
             }
             .padding()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 struct BiopestScreen: View {
     var body: some View {
-        Text("Biopest")
+        VStack{
+            
+            Text("Biopest")
+        Spacer()
+        }
     }
 
 }

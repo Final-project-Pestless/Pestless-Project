@@ -49,16 +49,14 @@ struct ContentView: View {
                     NavigationView {
                         PestMainView()
                     }
+                    .navigationTitle("Pest")
                 case 2:
                     NavigationView {
-//                        CustomCameraView()
+                        CustomCameraView()
                     }
                 case 3:
                     NavigationView {
-                        VStack {
-                            Text("fourth screen")
-                        }
-                        .navigationTitle("Bioesticides")
+                        BiopesticideView()
                     }
                 case 4:
                     NavigationView {
