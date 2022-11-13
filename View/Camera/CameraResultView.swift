@@ -17,7 +17,7 @@ struct CameraResultView: View {
     @Binding var image: Data?
     @State var prediction = String()
     let cameraService = CameraService()
-    let model = PestClassifier2()
+    let model = PestClassifier()
     @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false

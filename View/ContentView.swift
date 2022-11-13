@@ -55,10 +55,8 @@ struct ContentView: View {
                     }
                 case 3:
                     NavigationView {
-                        VStack {
-                            Text("fourth screen")
-                        }
-                        .navigationTitle("Bioesticides")
+                        BiopesticideView()
+                        .navigationTitle("Biopesticides")
                     }
                 case 4:
                     NavigationView {
