@@ -8,42 +8,56 @@
 import SwiftUI
 import CoreML
 
-struct MainView: View {
+struct CameraResultView: View {
     
-    @State private var capturedImage: UIImage? = nil
+    @State var capturedImage: UIImage? = nil
   //  @State private var isCustomCameraViewPresented = false
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var imageViewModel = SnappedPestViewModel.shared
-    @State private var image: Data?
+    @Binding var image: Data?
     @State var prediction = String()
     let cameraService = CameraService()
     let model = PestClassifier2()
-    @State private var selectedImage: Data? = nil
-    
+    @Binding var selectedImage: Data?
+    @State var isDetected: Bool = false
+    @State var isResult: Bool = false
     var body: some View {
         NavigationView{
             ZStack {
                 if image != nil {
                     VStack{
                         HStack{
-                            Button("Predict") {
+                            NavigationLink {
+                                CustomCameraView()
+                            } label: {
+                                Text("Retake")
+                            }
+                            Spacer()
+                            
+                            //coba pake navigate
+                           
+                          
+                            Button("Save") {
+
+                                imageViewModel.save(id: UUID(), imageData: image!)
                                 let image = UIImage(data: image!)?.cgImage
                                 let pixel = cameraService.getCVPixelBuffer(image!)
                                 let predict = try? model.prediction(image: pixel!)
                                 prediction = predict!.classLabel
-                                print(predict!.classLabel)
+                                print("\(predict!.classLabel) detected")
+                                isDetected = true
                             }
-                            Text(prediction)
-                            Button("Save") {
-                                imageViewModel.save(id: UUID(), imageData: image!)
+                            
+                            Spacer()
+                            
+                            NavigationLink {
+                                PestResultScreen()
+                            } label: {
+                                Text("Next")
+                            }
 
-                            }
-                            
-                            NavigationLink("Next", destination: PhotoPreview()
-                                .environment(\.managedObjectContext, self.viewContext)
-                            
-                            )
                         }
+                        .frame(width: 350)
                         Image(uiImage: UIImage(data: image!)!)
                             .resizable()
                             .scaledToFit()
@@ -59,21 +73,22 @@ struct MainView: View {
                     Color(UIColor.systemBackground)
                 }
                 
-                VStack {
-                    Spacer()
+//                VStack {
+//                    Spacer()
                     //coba pake navigate
                     
-                    NavigationLink {
-                        CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
-                    } label: {
-                            Image(systemName: "camera.fill")
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.orange)
-                                .foregroundColor(.black)
-                                .clipShape(Circle())
-                      
-                    }
+//                    NavigationLink {
+//                        CustomCameraView()
+//                  //      CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
+//                    } label: {
+//                            Image(systemName: "camera.fill")
+//                                .font(.largeTitle)
+//                                .padding()
+//                                .background(Color.orange)
+//                                .foregroundColor(.black)
+//                                .clipShape(Circle())
+//
+//                    }
 
                     
                     
@@ -96,8 +111,13 @@ struct MainView: View {
 //
 //                    })
                     
-                }
+      //          }
             }
+        }
+       
+        .alert("\(prediction) detected", isPresented: $isDetected) {
+           
+                Text("Ok")
         }
         
     }

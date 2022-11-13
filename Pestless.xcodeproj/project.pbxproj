@@ -11,7 +11,7 @@
 		172CD915290F13FD00D9F471 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD914290F13FD00D9F471 /* CameraService.swift */; };
 		172CD917290F141300D9F471 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD916290F141300D9F471 /* CameraView.swift */; };
 		172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD918290F142F00D9F471 /* CustomCameraView.swift */; };
-		172CD91B290F143F00D9F471 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD91A290F143F00D9F471 /* MainView.swift */; };
+		172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD91A290F143F00D9F471 /* CameraResultView.swift */; };
 		17C53363291B5CAD00B67073 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C53362291B5CAD00B67073 /* HomeView.swift */; };
 		9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DB9290112F900569B13 /* PestlessApp.swift */; };
 		9B074DBC290112F900569B13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DBB290112F900569B13 /* ContentView.swift */; };
@@ -31,6 +31,7 @@
 		9B460740291A3BFE004CD2B1 /* PestMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46073F291A3BFE004CD2B1 /* PestMainView.swift */; };
 		9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */; };
 		9B460745291A47A2004CD2B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460744291A47A2004CD2B1 /* LoginView.swift */; };
+		9B9B71B2291E21EA006D0226 /* PestResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B71B1291E21EA006D0226 /* PestResultScreen.swift */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
 		BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */; };
@@ -58,7 +59,7 @@
 		172CD914290F13FD00D9F471 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		172CD916290F141300D9F471 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		172CD918290F142F00D9F471 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
-		172CD91A290F143F00D9F471 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		172CD91A290F143F00D9F471 /* CameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultView.swift; sourceTree = "<group>"; };
 		17C53362291B5CAD00B67073 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B074DB6290112F900569B13 /* Pestless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pestless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DB9290112F900569B13 /* PestlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessApp.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		9B46073F291A3BFE004CD2B1 /* PestMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestMainView.swift; sourceTree = "<group>"; };
 		9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		9B460744291A47A2004CD2B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9B9B71B1291E21EA006D0226 /* PestResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultScreen.swift; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
 		BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biopesticide.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
+				9B2134F62920FA5300107204 /* Extension */,
 				9B25987D29136B7100E15B49 /* PestClassifier2.mlpackage */,
 				9B259865290F5A5000E15B49 /* Model */,
 				9B259860290F56A400E15B49 /* Service */,
@@ -143,14 +146,6 @@
 			children = (
 				9B25987A2912B30500E15B49 /* Info.plist */,
 				9B074DB9290112F900569B13 /* PestlessApp.swift */,
-				9B074DBB290112F900569B13 /* ContentView.swift */,
-				17C53362291B5CAD00B67073 /* HomeView.swift */,
-				172CD91A290F143F00D9F471 /* MainView.swift */,
-				9B25987B291368C600E15B49 /* PhotoPreview.swift */,
-				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
-				172CD916290F141300D9F471 /* CameraView.swift */,
-				172CD914290F13FD00D9F471 /* CameraService.swift */,
-				172CD912290F139000D9F471 /* Color+Extensions.swift */,
 				9B074DBD290112FA00569B13 /* Assets.xcassets */,
 				9B074DBF290112FA00569B13 /* Preview Content */,
 				9B2598732910044800E15B49 /* Pestless.xcdatamodeld */,
@@ -183,6 +178,25 @@
 			path = PestlessUITests;
 			sourceTree = "<group>";
 		};
+		9B2134F52920FA1800107204 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				172CD91A290F143F00D9F471 /* CameraResultView.swift */,
+				9B25987B291368C600E15B49 /* PhotoPreview.swift */,
+				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
+				172CD916290F141300D9F471 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		9B2134F62920FA5300107204 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				172CD912290F139000D9F471 /* Color+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		9B25985D290F509D00E15B49 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +208,7 @@
 		9B259860290F56A400E15B49 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				172CD914290F13FD00D9F471 /* CameraService.swift */,
 				9B460741291A3EA6004CD2B1 /* PestImage */,
 			);
 			path = Service;
@@ -211,6 +226,7 @@
 		9B46073E291A3BEA004CD2B1 /* PestView */ = {
 			isa = PBXGroup;
 			children = (
+				9B9B71B1291E21EA006D0226 /* PestResultScreen.swift */,
 				9B46073F291A3BFE004CD2B1 /* PestMainView.swift */,
 			);
 			path = PestView;
@@ -228,6 +244,9 @@
 		9BE198272909202D00A19697 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B074DBB290112F900569B13 /* ContentView.swift */,
+				17C53362291B5CAD00B67073 /* HomeView.swift */,
+				9B2134F52920FA1800107204 /* Camera */,
 				9B46073E291A3BEA004CD2B1 /* PestView */,
 				9BE1982D290983BB00A19697 /* Onboarding */,
 			);
@@ -386,7 +405,7 @@
 				9B2598752910044800E15B49 /* Pestless.xcdatamodeld in Sources */,
 				9B2598722910023E00E15B49 /* Persistence.swift in Sources */,
 				172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */,
-				172CD91B290F143F00D9F471 /* MainView.swift in Sources */,
+				172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */,
 				172CD913290F139000D9F471 /* Color+Extensions.swift in Sources */,
 				172CD917290F141300D9F471 /* CameraView.swift in Sources */,
 				9B25987C291368C600E15B49 /* PhotoPreview.swift in Sources */,
@@ -404,6 +423,7 @@
 				9B460740291A3BFE004CD2B1 /* PestMainView.swift in Sources */,
 				9B259864290F57E300E15B49 /* SnappedPestViewModel.swift in Sources */,
 				9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */,
+				9B9B71B2291E21EA006D0226 /* PestResultScreen.swift in Sources */,
 				17C53363291B5CAD00B67073 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
