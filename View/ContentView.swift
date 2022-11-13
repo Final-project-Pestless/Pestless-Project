@@ -84,10 +84,12 @@ struct ContentView: View {
                 Button(action: {
                     self.selectedIndex = 0
                 }, label: {
-                    Image(systemName: "house.fill")
-                        .resizable()
-                        .frame(width: 36, height: 36)
-                        .foregroundColor(.accentColor)
+                        Image(systemName: "tree")
+                            .resizable()
+                            .frame(width: 36, height: 36)
+                            .foregroundColor((selectedIndex == 0) ? .orange : .accentColor)
+                   
+                    
                 })
                 Spacer()
                 
@@ -97,7 +99,7 @@ struct ContentView: View {
                     Image(systemName: "ant.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor((selectedIndex == 1) ? .orange : .accentColor)
                 })
                 Spacer()
                 
@@ -121,7 +123,7 @@ struct ContentView: View {
                     Image(systemName: "leaf.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor((selectedIndex == 3) ? .orange : .accentColor)
                 })
                 Spacer()
                 
@@ -131,28 +133,13 @@ struct ContentView: View {
                     Image(systemName: "shield.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor((selectedIndex == 4) ? .orange : .accentColor)
                 })
-                
-                
-                
-                //                ForEach(0..<3, id: \.self) { number in
-                //                    Spacer()
-                //                    Button(action: {
-                //
-                //                    }, label: {
-                //                        Text("house")
-                //                        Image(systemName: "house")
-                //                            .font(.system(size: 25, weight: .regular, design: .default))
-                //                            .foregroundColor(.black)
-                //                    })
-                //                    Spacer()
-                //                }
-                //                .padding()
             }
             .padding(.leading)
             .padding(.trailing)
         }
+        .navigationBarBackButtonHidden()
         .fullScreenCover(isPresented: $isCamera) {
             CustomCameraView()
         }

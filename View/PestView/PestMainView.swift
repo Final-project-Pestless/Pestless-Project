@@ -114,6 +114,7 @@ struct PestMainView: View {
             }
 
         }
+        .navigationBarBackButtonHidden()
         .searchable(text: $searchPest, prompt: "Search")
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreML
 
-struct MainView: View {
+struct CameraResultView: View {
     
     @State var capturedImage: UIImage? = nil
   //  @State private var isCustomCameraViewPresented = false
