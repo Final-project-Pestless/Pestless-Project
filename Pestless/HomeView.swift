@@ -10,12 +10,12 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack {
-            Color.yellow
+//            Color.yellowbg
             VStack {
                 HStack {
                     Text("Welcome, Eugenia!")
                         .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.teal)
+                        .foregroundColor(.accentColor)
                         .padding(.top)
                         .padding(.bottom)
                     
@@ -25,7 +25,7 @@ struct HomeView: View {
                             .resizable()
                             .frame(width: 16, height: 16)
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
+                            .foregroundColor(.accentColor)
                             .padding(.top)
                             .padding(.bottom)
                     })
@@ -107,13 +107,13 @@ struct HomeView: View {
                 }
                 
                 .background(RoundedRectangle(cornerRadius: 16)
-                    .fill(.teal))
+                    .fill(Color.accentColor))
                 .frame(width: 340, height: 150)
                 
                 HStack {
                     Text("Plants")
                         .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(.teal)
+                        .foregroundColor(.accentColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 25)
                         .padding(.top, 15)
@@ -123,7 +123,7 @@ struct HomeView: View {
                         Image(systemName: "plus")
                             .fontWeight(.bold)
                             .frame(width: 24, height: 24)
-                            .foregroundColor(.teal)
+                            .foregroundColor(.accentColor)
                             .padding(.trailing, 21)
                             .padding(.top, 15)
                         
@@ -153,11 +153,11 @@ struct CollectionViewCell: View {
         VStack {
             RoundedRectangle(cornerRadius: 16)
                 .frame(width: 100, height: 100)
-                .foregroundColor(Color.teal)
+                .foregroundColor(Color.yellowbg)
             
             Text("Mangga")
                 .font(.system(size: 12, weight: .bold))
-                .foregroundColor(.teal)
+                .foregroundColor(.accentColor)
         }
     }
 }

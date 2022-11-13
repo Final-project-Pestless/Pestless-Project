@@ -28,6 +28,9 @@ extension View {
 struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
     @State var selectedIndex = 0
+    @State var image: Data?
+    @State var selectedImage: Data?
+    @State var isCamera: Bool = false
     
     var body: some View {
         VStack {
@@ -44,17 +47,11 @@ struct ContentView: View {
                     }
                 case 1:
                     NavigationView {
-                        VStack {
-                            Text("Second screen")
-                        }
-                        .navigationTitle("Pest")
+                        PestMainView()
                     }
                 case 2:
                     NavigationView {
-                        VStack {
-                            Text("third screen")
-                        }
-                        .navigationTitle("Camera")
+//                        CustomCameraView()
                     }
                 case 3:
                     NavigationView {
@@ -90,7 +87,7 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.accentColor)
                 })
                 Spacer()
                 
@@ -100,18 +97,19 @@ struct ContentView: View {
                     Image(systemName: "ant.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.accentColor)
                 })
                 Spacer()
                 
                 Button(action: {
                     self.selectedIndex = 2
+                    self.isCamera = true
                 }, label: {
                     Image(systemName: "camera.fill")
                         .font(.largeTitle)
                         .padding()
-                        .background(Color.teal)
-                        .foregroundColor(.black)
+                        .background(Color.accentColor)
+                        .foregroundColor(.orange)
                         .clipShape(Circle())
                     
                 })
@@ -123,7 +121,7 @@ struct ContentView: View {
                     Image(systemName: "leaf.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.accentColor)
                 })
                 Spacer()
                 
@@ -133,7 +131,7 @@ struct ContentView: View {
                     Image(systemName: "shield.fill")
                         .resizable()
                         .frame(width: 36, height: 36)
-                        .foregroundColor(.cyan)
+                        .foregroundColor(.accentColor)
                 })
                 
                 
@@ -154,6 +152,9 @@ struct ContentView: View {
             }
             .padding(.leading)
             .padding(.trailing)
+        }
+        .fullScreenCover(isPresented: $isCamera) {
+            CustomCameraView()
         }
     }
 }

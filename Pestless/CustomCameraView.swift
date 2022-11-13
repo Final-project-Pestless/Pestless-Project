@@ -12,10 +12,11 @@ import PhotosUI
 struct CustomCameraView: View {
     //  @ObservedObject var viewModel = SnappedPestViewModel(pestService: SnappedPestRepository(persistenceController: PersistenceController()))
     let cameraService = CameraService()
-    @Binding var capturedData: Data?
+    @State var capturedData: Data?
     @Environment(\.presentationMode) private var presentationMode
     @State private var selectedItem: PhotosPickerItem?
-    @Binding var selectedImageData: Data?
+    @State var selectedImageData: Data?
+    @State var isCaptured: Bool = false
     var body: some View {
         ZStack {
             CameraView(cameraService: cameraService) { result in
@@ -23,10 +24,7 @@ struct CustomCameraView: View {
                     
                 case .success(let photo):
                     if let data = photo.fileDataRepresentation() {
-                        //   capturedImage = UIImage(data: data)
                         capturedData = data
-                        
-                        presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Error: no image data found")
                     }
@@ -49,19 +47,7 @@ struct CustomCameraView: View {
                             .foregroundColor(.white)
                     })
                     Spacer()
-                    PhotosPicker(selection: $selectedItem) {
-                        Image(systemName: "photo.fill")
-                    }
-                    
-                    .onChange(of: selectedItem) { newValue in
-                        Task{
-                            if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                                selectedImageData = data
-                            }
-                        }
-                        
-                      //  presentationMode.wrappedValue.dismiss()
-                    }
+                  
                 }
                 
                 Image(systemName: "viewfinder")
@@ -77,22 +63,48 @@ struct CustomCameraView: View {
                 
                 
                 Spacer()
-                ZStack {
-                    Image(systemName: "circle.fill")
-                        .font(.system(size: 80))
-                        .foregroundColor(.orange)
-                    
-                    Button( action:  {
-                        cameraService.capturePhoto()
-                      
-                    }, label: {
-                        Image(systemName: "circle")
-                            .font(.system(size: 72))
-                            .foregroundColor(.white)
-                    })
+                HStack{
+                    PhotosPicker(selection: $selectedItem) {
+                        Image(systemName: "photo.fill")
+                            .foregroundColor(.pestGreen)
+                            .font(.system(size: 30))
+                          //  .padding(.leading)
+                    }
+                    Spacer()
+                    ZStack {
+                        Image(systemName: "circle.fill")
+                            .font(.system(size: 80))
+                            .foregroundColor(.orange)
+                        
+                        Button( action: {
+                            cameraService.capturePhoto()
+                            isCaptured = true
+                        }, label: {
+                            Image(systemName: "circle")
+                                .font(.system(size: 72))
+                                .foregroundColor(.white)
+                        })
+                        
+                    }
+                    .padding(.trailing)
+                    Spacer()
                 }
+                .frame(width: 350)
+                
+                .onChange(of: selectedItem) { newValue in
+                    Task{
+                        if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                            selectedImageData = data
+                        }
+                    }
+                }
+                
+                
             }
         }
         .navigationBarBackButtonHidden(true)
+        .fullScreenCover(isPresented: $isCaptured) {
+            MainView(image: $capturedData, selectedImage: $selectedImageData)
+        }
     }
 }
