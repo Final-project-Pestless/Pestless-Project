@@ -117,27 +117,42 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 25)
                         .padding(.top, 15)
+                   
+
                     
-                    Button(action: {
-                    }, label: {
-                        Image(systemName: "plus")
-                            .fontWeight(.bold)
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.accentColor)
-                            .padding(.trailing, 21)
-                            .padding(.top, 15)
-                        
-                    })
+//                    Button(action: {
+//                    }, label: {
+//                        Image(systemName: "plus")
+//                            .fontWeight(.bold)
+//                            .frame(width: 24, height: 24)
+//                            .foregroundColor(.accentColor)
+//                            .padding(.trailing, 21)
+//                            .padding(.top, 15)
+//
+//                    })
                 }
-                
-                ForEach(0..<CollectionViewCell.row) { i in
-                    HStack {
-                        ForEach(0..<CollectionViewCell.column) { j in
-                            CollectionViewCell()
-                                .padding(5)
-                        }
+                Spacer()
+                Button {
+                    
+                } label: {
+                    VStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.yellowbg)
+                        Image("add")
                     }
+                    Text("Add plants to start journaling")
                 }
+                }
+//                ForEach(0..<CollectionViewCell.row) { i in
+//                    HStack {
+//                        ForEach(0..<CollectionViewCell.column) { j in
+//                            CollectionViewCell()
+//                                .padding(5)
+//                        }
+//                    }
+//                }
                 Spacer()
             }
         }
@@ -153,7 +168,7 @@ struct CollectionViewCell: View {
         VStack {
             RoundedRectangle(cornerRadius: 16)
                 .frame(width: 100, height: 100)
-                .foregroundColor(Color.ye)
+                .foregroundColor(Color.yellowbg)
             
             Text("Mangga")
                 .font(.system(size: 12, weight: .bold))
