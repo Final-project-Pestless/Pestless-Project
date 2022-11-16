@@ -11,7 +11,7 @@ struct PestData: Identifiable {
 }
 
 let PestList: [PestData] = [
-    PestData(name: "Thistle Caterpillar",
+    PestData(name: "Ulat",
              description: "",
              identity: "",
              plant: [""],

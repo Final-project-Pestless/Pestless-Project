@@ -22,11 +22,11 @@ struct BiopesticideView: View {
         ZStack{
             Color.yellowbg
                 .edgesIgnoringSafeArea(.all)
-            Text("Biopesticides")
-                .font(.headline)
-                .foregroundColor(.pestTitleGreen)
-                .bold()
-                .padding(.bottom, 700)
+//            Text("Biopesticides")
+//                .font(.headline)
+//                .foregroundColor(.pestTitleGreen)
+//                .bold()
+//                .padding(.bottom, 700)
             RoundedRectangle(cornerRadius: 45)
                 .frame(width: 392, height: 740)
                 .foregroundColor(.white)
@@ -43,20 +43,22 @@ struct BiopesticideView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack{
                         ForEach(searchedPest) { pest in
-                            VStack{
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.yellowbg)
+                            NavigationLink( destination: BiopesticideDetailView()) {
+                                VStack{
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .frame(width: 100, height: 100)
+                                            .foregroundColor(.yellowbg)
+                                            .padding(.leading, 20)
+                                        Image(pest.image)
+                                            .padding(.leading, 20)
+                                    }
+                                    Text(pest.name)
                                         .padding(.leading, 20)
-                                    Image(pest.image)
-                                        .padding(.leading, 20)
+                                        .font(.system(.caption, design: .rounded))
+                                        .bold()
+                                        .foregroundColor(.pestGreen)
                                 }
-                                Text(pest.name)
-                                    .padding(.leading, 20)
-                                    .font(.system(.caption, design: .rounded))
-                                    .bold()
-                                    .foregroundColor(.pestGreen)
                             }
                         }
                         

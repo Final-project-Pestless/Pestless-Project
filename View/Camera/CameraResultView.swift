@@ -17,7 +17,7 @@ struct CameraResultView: View {
     @Binding var image: Data?
     @State var prediction = String()
     let cameraService = CameraService()
-    let model = PestClassifier2()
+    let model = PestClassifier_3()
     @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
@@ -43,8 +43,21 @@ struct CameraResultView: View {
                                 let image = UIImage(data: image!)?.cgImage
                                 let pixel = cameraService.getCVPixelBuffer(image!)
                                 let predict = try? model.prediction(image: pixel!)
-                                prediction = predict!.classLabel
-                                print("\(predict!.classLabel) detected")
+                                //prediction = predict!.classLabel
+//                                print("\(predict!.classLabel) detected")
+//                                print(("\(predict!.classLabelProbs)"))
+                                if let output = predict {
+                                    let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
+                                    let result = results.map { (key, value) in
+                                        return "<\(key) = \(String(format: "%.1f", value * 100))% detected\n"
+                                    }
+                                    let results2 = output.classLabelProbs.sorted{ $0.1 > $1.1 }.dropFirst(1).prefix(2)
+                                    let result2 = results2.map { (key, value) in
+                                        return "\(key) = \(String(format: "%.1f", value * 100))%"
+                                    }.joined(separator: "\n")
+
+                                    self.prediction = "\(result)\n"+"\(result2)"
+                                }
                                 isDetected = true
                             }
                             
@@ -115,7 +128,7 @@ struct CameraResultView: View {
             }
         }
        
-        .alert("\(prediction) detected", isPresented: $isDetected) {
+        .alert("\(prediction)", isPresented: $isDetected) {
            
                 Text("Ok")
         }
