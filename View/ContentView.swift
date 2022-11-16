@@ -49,9 +49,10 @@ struct ContentView: View {
                     NavigationView {
                         PestMainView()
                     }
+                    .navigationTitle("Pest")
                 case 2:
                     NavigationView {
-//                        CustomCameraView()
+                        CustomCameraView()
                     }
                 case 3:
                     NavigationView {
