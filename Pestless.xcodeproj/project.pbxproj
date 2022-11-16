@@ -27,7 +27,6 @@
 		9B2598722910023E00E15B49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598712910023E00E15B49 /* Persistence.swift */; };
 		9B2598752910044800E15B49 /* Pestless.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B2598732910044800E15B49 /* Pestless.xcdatamodeld */; };
 		9B25987C291368C600E15B49 /* PhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25987B291368C600E15B49 /* PhotoPreview.swift */; };
-		9B25987E29136B7100E15B49 /* PestClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 9B25987D29136B7100E15B49 /* PestClassifier.mlpackage */; };
 		9B460740291A3BFE004CD2B1 /* PestMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46073F291A3BFE004CD2B1 /* PestMainView.swift */; };
 		9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */; };
 		9B460745291A47A2004CD2B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460744291A47A2004CD2B1 /* LoginView.swift */; };
@@ -83,7 +82,6 @@
 		9B2598742910044800E15B49 /* Pestless.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pestless.xcdatamodel; sourceTree = "<group>"; };
 		9B25987A2912B30500E15B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9B25987B291368C600E15B49 /* PhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreview.swift; sourceTree = "<group>"; };
-		9B25987D29136B7100E15B49 /* PestClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PestClassifier.mlpackage; sourceTree = "<group>"; };
 		9B46073F291A3BFE004CD2B1 /* PestMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestMainView.swift; sourceTree = "<group>"; };
 		9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		9B460744291A47A2004CD2B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */,
-				9B25987D29136B7100E15B49 /* PestClassifier.mlpackage */,
 				9B2134F62920FA5300107204 /* Extension */,
 				9B259865290F5A5000E15B49 /* Model */,
 				9B259860290F56A400E15B49 /* Service */,
@@ -190,10 +187,10 @@
 		9B2134F52920FA1800107204 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				172CD91A290F143F00D9F471 /* CameraResultView.swift */,
-				9B25987B291368C600E15B49 /* PhotoPreview.swift */,
 				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
 				172CD916290F141300D9F471 /* CameraView.swift */,
+				172CD91A290F143F00D9F471 /* CameraResultView.swift */,
+				9B25987B291368C600E15B49 /* PhotoPreview.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				9B25987C291368C600E15B49 /* PhotoPreview.swift in Sources */,
 				9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */,
 				9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */,
-				9B25987E29136B7100E15B49 /* PestClassifier.mlpackage in Sources */,
 				172CD915290F13FD00D9F471 /* CameraService.swift in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
 				BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */,
@@ -608,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = XNC2HL8P65;
+				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
@@ -642,7 +638,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = XNC2HL8P65;
+				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;

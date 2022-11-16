@@ -11,7 +11,7 @@ import CoreML
 import UIKit
 
 class CameraService {
-    let model = PestClassifier()
+    let model = PestClassifier_3()
     var prediction = String()
     
     var session: AVCaptureSession?
