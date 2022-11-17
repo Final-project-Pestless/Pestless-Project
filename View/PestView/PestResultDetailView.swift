@@ -7,40 +7,32 @@
 
 import SwiftUI
 
-struct PestResultScreen: View {
+struct PestResultDetailView: View {
     @State var pestName: String = "arphid"
     @State var selected: Int = 1
     
     var body: some View {
-        NavigationView {
             VStack {
-//                HStack {
-//                    NavigationLink {
-//                        ContentView()
-//                    } label: {
-//                        Image(systemName: "xmark")
-//                            .font(.system(size: 24))
-//                    }
-//                    .padding()
-//                    Spacer()
-//
-//                }
-                Text("\(pestName)")
+
+                Text("Kutu daun")
                     .foregroundColor(.accentColor)
-                    .font(.system(.headline, design: .rounded))
+                    .font(.system(.title2, design: .rounded))
+                    .bold()
                     .padding()
-                Image("\(pestName)")
+                Image("kutu")
                     .resizable()
-                    .frame(width: 150, height: 150)
+                    .frame(width: 325, height: 250)
                     .padding()
                 //segmented
                 
                 Picker("Result", selection: $selected, content: {
-                    Text("Hama")
+                    Text("Langkah awal")
+                        .foregroundColor(.pestTitleGreen)
                         .tag(1)
                     Text("Biopestisida")
                         .tag(2)
                 })
+                .foregroundColor(.yellowbg)
                 .pickerStyle(.segmented)
                 .frame(width: 350)
                 .padding()
@@ -55,10 +47,6 @@ struct PestResultScreen: View {
          
             }
 
-            
-        }
-        .navigationBarBackButtonHidden()
-        
     }
 }
 
@@ -71,6 +59,7 @@ struct PestScreen: View {
                     .font(.system(.headline, design: .rounded))
                     .padding(.bottom, 2)
                     .bold()
+        //        Text(PestList.description)
                 Text("""
 Tanda keparahan serangan kutu daun terlihat dari daun yang terlipat, daun menguning, dan pertumbuhan tanaman yang lambat.
 """)
@@ -172,6 +161,6 @@ struct BiopestScreen: View {
 }
 struct PestResultScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PestResultScreen()
+        PestResultDetailView()
     }
 }
