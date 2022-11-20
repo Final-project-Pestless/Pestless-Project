@@ -18,7 +18,7 @@ struct CameraResultView: View {
     @State var prediction = String()
     let cameraService = CameraService()
     let model = PestClassifier_3()
-    @Binding var selectedImage: Data?
+//    @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
     var body: some View {
@@ -77,54 +77,16 @@ struct CameraResultView: View {
                             .ignoresSafeArea()
                         
                     }
-                } else if selectedImage != nil {
-                    Image(uiImage: UIImage(data: selectedImage!)!)
-                        .resizable()
-                        .scaledToFit()
                 }
+//                else if selectedImage != nil {
+//                    Image(uiImage: UIImage(data: selectedImage!)!)
+//                        .resizable()
+//                        .scaledToFit()
+//                }
                 else {
                     Color(UIColor.systemBackground)
                 }
                 
-//                VStack {
-//                    Spacer()
-                    //coba pake navigate
-                    
-//                    NavigationLink {
-//                        CustomCameraView()
-//                  //      CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
-//                    } label: {
-//                            Image(systemName: "camera.fill")
-//                                .font(.largeTitle)
-//                                .padding()
-//                                .background(Color.orange)
-//                                .foregroundColor(.black)
-//                                .clipShape(Circle())
-//
-//                    }
-
-                    
-                    
-                    
-                    //versi sheet
-//                    Button(action: {
-//                        isCustomCameraViewPresented.toggle()
-//                    }, label: {
-//                        Image(systemName: "camera.fill")
-//                            .font(.largeTitle)
-//                            .padding()
-//                            .background(Color.orangeCamera)
-//                            .foregroundColor(.black)
-//                            .clipShape(Circle())
-//                    })
-//                    .padding(.bottom)
-//                    .fullScreenCover(isPresented: $isCustomCameraViewPresented, content: {
-//                        CustomCameraView(capturedData: $image, selectedImageData: $selectedImage)
-//                            .environment(\.managedObjectContext, self.viewContext)
-//
-//                    })
-                    
-      //          }
             }
         }
        
@@ -135,9 +97,3 @@ struct CameraResultView: View {
         
     }
 }
-    
-//    struct MainView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            MainView()
-//        }
-//    }

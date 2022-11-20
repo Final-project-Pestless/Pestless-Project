@@ -96,7 +96,9 @@ struct CustomCameraView: View {
                     .onChange(of: selectedItem) { newValue in
                         Task{
                             if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                                selectedImageData = data
+                                capturedData = data
+                                isCaptured = true
+
                             }
                         }
                     }
@@ -106,7 +108,7 @@ struct CustomCameraView: View {
             }
             .navigationBarBackButtonHidden(true)
             .fullScreenCover(isPresented: $isCaptured) {
-                CameraResultView(image: $capturedData, selectedImage: $selectedImageData)
+                CameraResultView(image: $capturedData)
         }
         }
     }
