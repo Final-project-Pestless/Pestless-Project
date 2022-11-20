@@ -14,5 +14,7 @@ extension Color {
     static let yellowbg = Color("yellowbg")
     static let pestGreen = Color("pestGreen")
     static let pestTitleGreen = Color("pestTitleGreen")
+    static let cardGreen1 = Color("CardGreen1")
+    static let cardGreen2 = Color("CardGreen2")
 
 }

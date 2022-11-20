@@ -32,6 +32,9 @@
 		9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */; };
 		9B460745291A47A2004CD2B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460744291A47A2004CD2B1 /* LoginView.swift */; };
 		9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53A6222924DC650058AEA4 /* PlantData.swift */; };
+		9B72CC9C29267DE2006E8B8B /* HomePestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */; };
+		9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FCFA22928927900F53676 /* TabBarView.swift */; };
+		9B83DF6E292A1C29007EABAE /* CameraGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */; };
 		9B9B71B2291E21EA006D0226 /* PestResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
@@ -89,6 +92,9 @@
 		9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		9B460744291A47A2004CD2B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9B53A6222924DC650058AEA4 /* PlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantData.swift; sourceTree = "<group>"; };
+		9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePestScreen.swift; sourceTree = "<group>"; };
+		9B7FCFA22928927900F53676 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGuidanceView.swift; sourceTree = "<group>"; };
 		9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultDetailView.swift; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 				172CD916290F141300D9F471 /* CameraView.swift */,
 				172CD91A290F143F00D9F471 /* CameraResultView.swift */,
 				9B03592F29252D92008521B0 /* PestResultView.swift */,
+				9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -253,6 +260,15 @@
 			path = PestImage;
 			sourceTree = "<group>";
 		};
+		9B7FCFA12928926600F53676 /* New tab bar */ = {
+			isa = PBXGroup;
+			children = (
+				9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */,
+				9B7FCFA22928927900F53676 /* TabBarView.swift */,
+			);
+			path = "New tab bar";
+			sourceTree = "<group>";
+		};
 		9BE198272909202D00A19697 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +279,7 @@
 				9B2134F52920FA1800107204 /* Camera */,
 				9B46073E291A3BEA004CD2B1 /* PestView */,
 				9BE1982D290983BB00A19697 /* Onboarding */,
+				9B7FCFA12928926600F53676 /* New tab bar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,10 +447,13 @@
 				9B2598722910023E00E15B49 /* Persistence.swift in Sources */,
 				172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */,
 				172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */,
+				9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */,
 				172CD913290F139000D9F471 /* Color+Extensions.swift in Sources */,
 				172CD917290F141300D9F471 /* CameraView.swift in Sources */,
 				9B25987C291368C600E15B49 /* SnappedHistory.swift in Sources */,
 				9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */,
+				9B83DF6E292A1C29007EABAE /* CameraGuidanceView.swift in Sources */,
+				9B72CC9C29267DE2006E8B8B /* HomePestScreen.swift in Sources */,
 				9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */,
 				172CD915290F13FD00D9F471 /* CameraService.swift in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,

@@ -23,6 +23,7 @@ struct CameraResultView: View {
 //    @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
+    @State var pestData : PestData?
     var body: some View {
         NavigationView{
             ZStack {
@@ -31,6 +32,7 @@ struct CameraResultView: View {
                         HStack{
                             NavigationLink {
                                 CustomCameraView()
+                                    .navigationBarBackButtonHidden()
                             } label: {
                                 Text("Retake")
                             }
@@ -45,20 +47,16 @@ struct CameraResultView: View {
                                 let image = UIImage(data: image!)?.cgImage
                                 let pixel = cameraService.getCVPixelBuffer(image!)
                                 let predict = try? model.prediction(image: pixel!)
+                                let pestLabel = predict!.classLabel
+                                let pest = PestList.filter{$0.name == pestLabel}
+                                pestData = pest.first
 
-                                //prediction = predict!.classLabel
-//                                print("\(predict!.classLabel) detected")
-//                                print(("\(predict!.classLabelProbs)"))
                                 if let output = predict {
                                     let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
                                     let result = results.map { (key, value) in
                                         percentagePrediction = "\(String(format: "%.1f", value * 100))"
                                         return "\(key) = \(String(format: "%.1f", value * 100))% "
                                     }
-//                                     percentagePrediction = results.map { (key, value) in
-//                                        return "\(String(format: "%.1f", value * 100))"
-//                                    }
-                                  
                                     let results2 = output.classLabelProbs.sorted{ $0.1 > $1.1 }.dropFirst(1).prefix(2)
                                     let result2 = results2.map { (key, value) in
                                         return "\(key) = \(String(format: "%.1f", value * 100))%"
@@ -66,6 +64,7 @@ struct CameraResultView: View {
 
                                     self.prediction = "\(result)\n"+"\(result2)"
                                     self.predictedPest = "\(result)"
+                               
 
                                 }
                                 isDetected = true
@@ -74,7 +73,7 @@ struct CameraResultView: View {
                             Spacer()
                             
                             NavigationLink {
-                                PestResultView(predictionLabel: $predictedPest, percentage: $percentagePrediction)
+                                PestResultView(predictionLabel: $predictedPest, percentage: $percentagePrediction, detectedPest: $pestData)
                             //    PestResultDetailView()
                             } label: {
                                 Text("Next")
