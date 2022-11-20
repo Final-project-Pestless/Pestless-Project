@@ -16,6 +16,7 @@ struct BiopesticideData: Identifiable {
     var instruction: [String] = [""]
     var image: String = ""
     var pest: [String] = [""]
+    //tambahin source: string
 }
 
 let BiopesticideList: [BiopesticideData] = [

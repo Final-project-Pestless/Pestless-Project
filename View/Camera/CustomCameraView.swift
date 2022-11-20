@@ -17,6 +17,8 @@ struct CustomCameraView: View {
     @State private var selectedItem: PhotosPickerItem?
     @State var selectedImageData: Data?
     @State var isCaptured: Bool = false
+    @State var isShown: Bool = true
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -106,9 +108,14 @@ struct CustomCameraView: View {
                     
                 }
             }
+            .fullScreenCover(isPresented: $isShown, content: {
+                CameraGuidanceView(isShow: $isShown)
+                    .background(BackgroundClearView())
+            })
             .navigationBarBackButtonHidden(true)
             .fullScreenCover(isPresented: $isCaptured) {
                 CameraResultView(image: $capturedData)
+            
         }
         }
     }

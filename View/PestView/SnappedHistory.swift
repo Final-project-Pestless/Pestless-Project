@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhotoPreview: View {
+struct SnappedHistory: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [
@@ -59,6 +59,6 @@ struct PhotoPreview: View {
 
 struct PhotoPreview_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoPreview()
+        SnappedHistory()
     }
 }

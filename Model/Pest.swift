@@ -7,12 +7,27 @@ struct PestData: Identifiable {
     var identity: String = ""
     var eat: String = ""
     var plant: [String] = [""]
+    var biopests: [BiopesticideData] = []
     var preventive: [String] = [""]
     var image: [String] = [""]
     
 }
 
 let PestList: [PestData] = [
+
+    PestData(name: "Ulat",
+             description: "Ulat ini biasanya memakan daun pada tanaman, jika sudah berusia matang, ulat ini akan bertransformasi menjadi kupu-kupu",
+             identity: "Warna tubuh ulat ini berkisar dari putih krem ​​hingga abu-abu kecokelatan dan juga dapat memiliki garis kuning di bagian atas tubuh. Ulat thistle dewasa memiliki panjang tubuh berkisar antara 1/5-1,75 inci",
+             plant: ["jagung", "padi", "tomat", "bawang"],
+             image: "thistle",
+             biopests: [BiopesticideList[0], BiopesticideList[3]]
+            ),
+    PestData(name: "Aphid",
+             description: "Tanda-tanda serangan kutu yang parah adalah daun bengkok dan melengkung, daun menguning, tunas kerdil atau mati, dan pertumbuhan tanaman yang buruk.",
+             identity: "Kutu daun berukuran kecil (2-4 mm), berbentuk buah pir,dan bertubuh lunak. Mereka dapat berwarna hijau, hitam, merah, kuning, coklat atau abu-abu.",
+             plant: [""],
+             image: "arphid"
+
     PestData(name: "ulat",
              description: "Caterpillars are insects, which means they have three body parts (head, thorax, and abdomen) and two antennae on their heads. Most caterpillars are herbivores, which means they eat plants. Caterpillars eat constantly so that they can grow. Caterpillars grow up and change into butterflies and moths.",
              identity: "Fully grown larvae range in size from ½ to 4 inches (13-102mm ) in length. Larvae range in color from pink, brown, green and blue to black. Many have spots or stripes. Some caterpillars are smooth with few hairs while others are hairy and others have spines on their bodies.",
