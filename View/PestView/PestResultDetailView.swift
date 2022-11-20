@@ -84,7 +84,7 @@ struct BiopestScreen: View {
             VStack(alignment: .leading){
                 ForEach(BiopesticideList) { biopest in
                     VStack(alignment: .leading){
-                        NavigationLink( destination: BiopesticideDetailView()
+                        NavigationLink( destination: BiopesticideDetailView(biopestiside: biopest)
                             .navigationBarBackButtonHidden()
                         ) {
                             HStack{

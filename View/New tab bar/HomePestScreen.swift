@@ -60,7 +60,7 @@ struct HomePestScreen: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .frame(width: 100, height: 150)
                                         .foregroundColor(.yellowbg)
-                                    Image(pest.image)
+                                    Image(pest.image[0])
                                 }
                                 Text(pest.name)
                                     .padding(.leading, 20)
