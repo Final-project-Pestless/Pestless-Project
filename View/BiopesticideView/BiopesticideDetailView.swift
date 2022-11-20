@@ -9,11 +9,13 @@ import SwiftUI
 
 struct BiopesticideDetailView: View {
 //    var biop = BiopesticideList[1]
+    var biopestiside: BiopesticideData
+    
     var body: some View {
         ZStack {
             Color.yellowbg
                 .edgesIgnoringSafeArea(.all)
-            Text("Ekstrak Bawang Putih")
+            Text(biopestiside.name)
                 .font(.headline)
                 .foregroundColor(.pestTitleGreen)
                 .bold()
@@ -76,6 +78,6 @@ struct BiopesticideDetailView: View {
 
 struct BiopesticideDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BiopesticideDetailView()
+        BiopesticideDetailView(biopestiside: BiopesticideList[0])
     }
 }
