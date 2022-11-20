@@ -43,7 +43,7 @@ struct PestMainView: View {
                                             .frame(width: 100, height: 100)
                                             .foregroundColor(.yellowbg)
                                             .padding(.leading, 20)
-                                        Image(pest.image)
+                                        Image(pest.image[0])
                                             .padding(.leading, 20)
                                     }
                                     Text(pest.name)
@@ -72,7 +72,7 @@ struct PestMainView: View {
                                             .frame(width: 100, height: 100)
                                             .foregroundColor(.yellowbg)
                                             .padding(.leading, 20)
-                                        Image(pest.image)
+                                        Image(pest.image[0])
                                             .padding(.leading, 20)
                                     }
                                     Text(pest.name)
@@ -97,7 +97,7 @@ struct PestMainView: View {
                                         .frame(width: 100, height: 100)
                                         .foregroundColor(.yellowbg)
                                         .padding(.leading, 20)
-                                    Image(pest.image)
+                                    Image(pest.image[0])
                                         .padding(.leading, 20)
                                 }
                                 Text(pest.name)

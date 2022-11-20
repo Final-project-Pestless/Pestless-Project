@@ -54,10 +54,10 @@ struct ContentView: View {
 //                        CustomCameraView()
                     }
                 case 3:
-                    NavigationView {
+                    
                         BiopesticideView()
-                        .navigationTitle("Biopesticides")
-                    }
+                        
+                    
                 case 4:
                     NavigationView {
                         VStack {
