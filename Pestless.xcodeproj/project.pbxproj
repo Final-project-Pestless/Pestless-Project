@@ -197,11 +197,10 @@
 		9B2134F52920FA1800107204 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */,
 				172CD918290F142F00D9F471 /* CustomCameraView.swift */,
 				172CD916290F141300D9F471 /* CameraView.swift */,
 				172CD91A290F143F00D9F471 /* CameraResultView.swift */,
-				9B03592F29252D92008521B0 /* PestResultView.swift */,
-				9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -244,6 +243,7 @@
 		9B46073E291A3BEA004CD2B1 /* PestView */ = {
 			isa = PBXGroup;
 			children = (
+				9B03592F29252D92008521B0 /* PestResultView.swift */,
 				9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */,
 				9B46073F291A3BFE004CD2B1 /* PestMainView.swift */,
 				9B25987B291368C600E15B49 /* SnappedHistory.swift */,
@@ -263,8 +263,8 @@
 		9B7FCFA12928926600F53676 /* New tab bar */ = {
 			isa = PBXGroup;
 			children = (
-				9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */,
 				9B7FCFA22928927900F53676 /* TabBarView.swift */,
+				9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */,
 			);
 			path = "New tab bar";
 			sourceTree = "<group>";

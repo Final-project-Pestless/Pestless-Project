@@ -9,10 +9,9 @@ import SwiftUI
 
 
 struct PestResultView: View {
-    @Binding var predictionLabel: String
     @Binding var percentage: String
     @Binding var detectedPest : PestData?
-    
+    @Binding var percentageDouble: Double
     var body: some View {
         NavigationView {
             VStack {
@@ -35,9 +34,16 @@ struct PestResultView: View {
                     .foregroundColor(.pestTitleGreen)
                     .padding(.bottom)
                 Spacer()
-
+                
+                Text("Ciri-ciri")
+                    .foregroundColor(.pestTitleGreen)
+                Text(detectedPest?.description ?? "no deskripsi")
+                    .foregroundColor(.black)
+                Text("Tanaman yang diserang")
+                Text(detectedPest?.plant[0] ?? "tanaman yang diserang")
+                
                 NavigationLink {
-                    PestResultDetailView(detectedPest: $detectedPest, pest: $predictionLabel)
+                    PestResultDetailView(detectedPest: $detectedPest)
                 } label: {
                     Text("Lihat cara kontrol")
                         .foregroundColor(.white)
@@ -64,7 +70,7 @@ struct PestResultView: View {
                             
                         }
                 }
-                Spacer()
+                
             }
 
             .navigationTitle("Hasil")
