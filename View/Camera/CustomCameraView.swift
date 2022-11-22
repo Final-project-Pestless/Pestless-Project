@@ -41,8 +41,12 @@ struct CustomCameraView: View {
                     
                     HStack {
                         NavigationLink {
-                            ContentView()
-                        } label: {
+                            withAnimation(.spring()){
+                                TabBarView()
+                                    .transition(.move(edge: .top))
+                                    .navigationBarBackButtonHidden()
+                            }
+                                } label: {
                             Image(systemName: "xmark")
                                 .padding(.top, 20)
                                 .padding(.leading, 20)
@@ -64,15 +68,12 @@ struct CustomCameraView: View {
                         .font(.system(size: 16))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                    
-                    
                     Spacer()
                     HStack{
                         PhotosPicker(selection: $selectedItem) {
                             Image(systemName: "photo.fill")
                                 .foregroundColor(.pestGreen)
                                 .font(.system(size: 30))
-                              //  .padding(.leading)
                         }
                         Spacer()
                         ZStack {
@@ -115,6 +116,7 @@ struct CustomCameraView: View {
             .navigationBarBackButtonHidden(true)
             .fullScreenCover(isPresented: $isCaptured) {
                 CameraResultView(image: $capturedData)
+                
             
         }
         }
