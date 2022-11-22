@@ -11,20 +11,26 @@ struct CameraGuidanceView: View {
     @Binding var isShow: Bool
     var body: some View {
         ZStack{
-            Color.yellowbg.opacity(0.5)
+            Color.black.opacity(1)
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("Please take a focus photo of the pest")
-                    .padding(.bottom, 100)
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.pestTitleGreen)
+                    .padding(.bottom, 50)
+                    .padding(.top, 50)
                 Image("noGuidance2")
                     .resizable()
                     .frame(width: 192, height: 192)
                 Image(systemName: "arrow.down")
                     .resizable()
-                    .frame(width: 40, height: 70)
+                    .foregroundColor(.pestGreen)
+                    .frame(width: 30, height: 70)
                 Image("yesGuidance")
                     .resizable()
                     .frame(width: 192, height: 192)
+                Spacer()
             }
         }
         .onTapGesture {

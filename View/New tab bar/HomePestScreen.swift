@@ -10,11 +10,12 @@ import SwiftUI
 struct HomePestScreen: View {
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 20){
+            VStack(alignment: .center, spacing: 20){
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 25)
                         .foregroundColor(.cardGreen2)
+                        .frame(width: 350, height: 400)
                     VStack(alignment: .leading){
                         Text("Tanamanmu diserang hama?")
                             .bold()
@@ -46,10 +47,10 @@ struct HomePestScreen: View {
                     .padding()
                     
                 }
-                .frame(width: 360, height: 400)
+                .frame( width: 350, height: 400)
                 
                 Text("Hama")
-                    .padding(.trailing, 250)
+                    .padding(.trailing, 280)
                     .font(.system(.title2, design: .rounded))
                     .foregroundColor(.pestTitleGreen)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -71,11 +72,11 @@ struct HomePestScreen: View {
                         }
                     }
                 }
+                .padding(.leading)
                     
                 Spacer()
                 
             }
-            .padding(.leading, 25)
             .navigationTitle("Hama")
             .navigationBarTitleDisplayMode(.inline)
         }

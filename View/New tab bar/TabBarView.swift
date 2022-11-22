@@ -12,6 +12,7 @@ struct TabBarView: View {
     var body: some View {
         TabView(selection: $selected) {
             HomePestScreen()
+                .toolbar(.hidden, for: .tabBar)
                 .tabItem({
                     Label("Home", systemImage: "house.fill")
                 })
