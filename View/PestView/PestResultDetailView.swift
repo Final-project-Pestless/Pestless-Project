@@ -82,29 +82,30 @@ struct BiopestScreen: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading){
-                ForEach(detectedPest!.biopests) { biopest in
-                    VStack(alignment: .leading){
-                        NavigationLink( destination: BiopesticideDetailView(biopestiside: biopest)
-                            .navigationBarBackButtonHidden()
-                        ) {
-                            VStack(alignment: .leading){
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.yellowbg)
-                                        .padding(.leading, 20)
-                                    Image(biopest.image)
-                                        .padding(.leading, 20)
-                                }
-                                Text(biopest.name)
-                                    .padding(.leading, 20)
-                                    .font(.system(.caption, design: .rounded))
-                                    .bold()
-                                    .foregroundColor(.pestGreen)
-                            }
-                        }
-                    }
-                }
+                Text("test")
+//                ForEach(detectedPest!.biopests) { biopest in
+//                    VStack(alignment: .leading){
+//                        NavigationLink( destination: BiopesticideDetailView(biopestiside: biopest)
+//                            .navigationBarBackButtonHidden()
+//                        ) {
+//                            VStack(alignment: .leading){
+//                                ZStack{
+//                                    RoundedRectangle(cornerRadius: 16)
+//                                        .frame(width: 100, height: 100)
+//                                        .foregroundColor(.yellowbg)
+//                                        .padding(.leading, 20)
+//                                    Image(biopest.image)
+//                                        .padding(.leading, 20)
+//                                }
+//                                Text(biopest.name)
+//                                    .padding(.leading, 20)
+//                                    .font(.system(.caption, design: .rounded))
+//                                    .bold()
+//                                    .foregroundColor(.pestGreen)
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
     }

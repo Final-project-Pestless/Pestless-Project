@@ -20,7 +20,7 @@ struct BiopesticideData: Identifiable {
 }
 
 let BiopesticideList: [BiopesticideData] = [
-//
+    //
     BiopesticideData(name: "Jeruk Nipis",
                      description: "",
                      usage: "Pemakaian 3-4 hari sekali",
@@ -56,14 +56,14 @@ let BiopesticideList: [BiopesticideData] = [
                      ingredient: ["3 siung bawang putih", "1 sendok teh lada", "1 sendok sabun cair"],
                      instruction: ["Tambahkan sabun ke dalam minyak bawang putih.", "Aduk hingga rata.", "Tambahkan air lalu aduk kembali"],
                      pest: [PestList[0]]
-                    
-                     ),
+                     
+                    ),
     
- BiopesticideData(name: "Ekstrak daun kenikir",
-                  description: "",
-                  usage: "Semprotkan 3 kali sehari 50ml/ liter air",
-                  ingredient: ["segenggam daun kenikir", "1 liter air"],
-                  instruction: ["Haluskan daun kenikir lalu saring", "Rendam dengan air selama 24 jam", "Cairan dapat disemprotkan pada kepik"],
-                  image: "",
-                  pest: [PestList[4]])
+    BiopesticideData(name: "Ekstrak daun kenikir",
+                     description: "",
+                     usage: "Semprotkan 3 kali sehari 50ml/ liter air",
+                     ingredient: ["segenggam daun kenikir", "1 liter air"],
+                     instruction: ["Haluskan daun kenikir lalu saring", "Rendam dengan air selama 24 jam", "Cairan dapat disemprotkan pada kepik"],
+                     image: "",
+                     pest: [PestList[4]])
 ]
