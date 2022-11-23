@@ -44,7 +44,7 @@ struct BiopesticideView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(searchedBiopesticide) { biop in
-                                NavigationLink( destination: BiopesticideDetailView(biopestiside: biop)) {
+                                NavigationLink( destination: BiopesticideDetailView(biopesticide: biop)) {
                                     VStack{
                                         ZStack{
                                             RoundedRectangle(cornerRadius: 16)

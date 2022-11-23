@@ -295,9 +295,9 @@
 				9B0D11DC292D265E00D462C8 /* HistoryView */,
 				9B0D11D9292D261500D462C8 /* TrackingView */,
 				BD792769291FE303009D56E8 /* Launch Screen.storyboard */,
-				BD20F80C291DF91C009AD813 /* BiopesticideView */,
 				9B074DBB290112F900569B13 /* ContentView.swift */,
 				17C53362291B5CAD00B67073 /* HomeView.swift */,
+				BD20F80C291DF91C009AD813 /* BiopesticideView */,
 				9B2134F52920FA1800107204 /* Camera */,
 				9B46073E291A3BEA004CD2B1 /* PestView */,
 				9BE1982D290983BB00A19697 /* Onboarding */,
@@ -656,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = DZ5KY3PP54;
+				DEVELOPMENT_TEAM = XNC2HL8P65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
@@ -667,7 +667,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -690,7 +690,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = DZ5KY3PP54;
+				DEVELOPMENT_TEAM = XNC2HL8P65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
@@ -701,7 +701,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
