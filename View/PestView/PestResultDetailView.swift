@@ -11,44 +11,45 @@ struct PestResultDetailView: View {
     @State var selected: Int = 1
     @Binding var detectedPest : PestData?
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack {
-                
-                Text(detectedPest?.name ?? "no")
-                    .foregroundColor(.accentColor)
-                    .font(.system(.title2, design: .rounded))
-                    .bold()
-                    .padding()
-                Image("kutu")
-                    .resizable()
-                    .frame(width: 325, height: 250)
-                    .padding()
-                //segmented
-                
-                Picker("Result", selection: $selected, content: {
-                    Text("Langkah awal")
-                        .foregroundColor(.pestTitleGreen)
-                        .tag(1)
-                    Text("Biopestisida")
-                        .tag(2)
-                })
-                .foregroundColor(.yellowbg)
-                .pickerStyle(.segmented)
-                .frame(width: 350)
-                .padding()
-                
-                if selected == 1 {
-                    PestControlView(detectedPest: $detectedPest)
-                        .navigationBarBackButtonHidden()
-                } else if selected == 2 {
-                    BiopestScreen(detectedPest: $detectedPest)
-                        .navigationBarBackButtonHidden()
                     
-                }
-                
-                Spacer()
+                    Text(detectedPest?.name ?? "no")
+                        .foregroundColor(.accentColor)
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
+                        .padding()
+                    Image("kutu")
+                        .resizable()
+                        .frame(width: 325, height: 250)
+                        .padding()
+                    //segmented
+                    
+                    Picker("Result", selection: $selected, content: {
+                        Text("Langkah awal")
+                            .foregroundColor(.pestTitleGreen)
+                            .tag(1)
+                        Text("Biopestisida")
+                            .tag(2)
+                    })
+                    .foregroundColor(.yellowbg)
+                    .pickerStyle(.segmented)
+                    .frame(width: 350)
+                    .padding()
+                    
+                    if selected == 1 {
+                        PestControlView(detectedPest: $detectedPest)
+                            .navigationBarBackButtonHidden()
+                    } else if selected == 2 {
+                        BiopestScreen(detectedPest: $detectedPest)
+                            .navigationBarBackButtonHidden()
+                        
+                    }
+                    
+                    Spacer()
             }
         }
+        
     }
 }
 
@@ -58,21 +59,27 @@ struct PestControlView: View {
     var body: some View {
         
         ScrollView ( showsIndicators: false){
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 5){
                 
                 
                 Text("Cara pengurangan")
-//                ForEach(detectedPest!.preventive) { preventive in
-//                    Text(preventive)
-//                }
-                
-                Text("Tanaman Refugia")
-                Text("""
+                    .font(.system(.headline, design: .rounded))
+                    .foregroundColor(.pestTitleGreen)
 
-""")
-                Text("Predator alami")
+                ForEach(0..<(detectedPest?.preventive.count)!) { i in
+                    Text(detectedPest?.preventive[i] ?? "No prevention data")
+                        .font(.system(.caption, design: .rounded))
+                        .foregroundColor(.grayText)
+                }
+                Divider()
+                    .foregroundColor(.orangeColor)
+                Text("Tanaman musuh alami")
+                    .font(.system(.headline, design: .rounded))
+                    .foregroundColor(.pestTitleGreen)
+                
                 Text(detectedPest?.eat ?? "predator")
             }
+            .padding()
         }
     }
 }

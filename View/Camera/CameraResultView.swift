@@ -27,12 +27,9 @@ struct CameraResultView: View {
     @State var pestData : PestData?
     var body: some View {
             
-            if isDetected {
-                withAnimation(.spring()){
-                    PestResultView(percentage: $percentagePrediction, detectedPest: $pestData, percentageDouble: $percentageDouble)
-                    
-                }
-            } else {
+         //   if isDetected {
+               
+//            } else {
                 NavigationView{
 
                 ZStack {
@@ -49,35 +46,42 @@ struct CameraResultView: View {
                                 
                                 //coba pake navigate
                                 
-                                
-                                Button("Selesai") {
+                                ZStack {
                                     
-                                    imageViewModel.save(id: UUID(), imageData: image!)
-                                    let image = UIImage(data: image!)?.cgImage
-                                    let pixel = cameraService.getCVPixelBuffer(image!)
-                                    let predict = try? model.prediction(image: pixel!)
-                                    let pestLabel = predict!.classLabel
-                                    let pest = PestList.filter{$0.name == pestLabel}
-                                    pestData = pest.first
                                     
-                                    if let output = predict {
-                                        let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
-                                        let result = results.map { (key, value) in
-                                            percentagePrediction = "\(String(format: "%.1f", value * 100))"
-                                            percentageDouble = (value * 100)
-                                            print(percentageDouble)
-                                            return "\(key) = \(String(format: "%.1f", value * 100))% "
-                                        }
-                                        let results2 = output.classLabelProbs.sorted{ $0.1 > $1.1 }.dropFirst(1).prefix(2)
-                                        let result2 = results2.map { (key, value) in
-                                            return "\(key) = \(String(format: "%.1f", value * 100))%"
-                                        }.joined(separator: "\n")
+                                    Button("Selesai") {
                                         
-                                        self.prediction = "\(result)\n"+"\(result2)"
-                                        self.predictedPest = "\(result)"
+                                        imageViewModel.save(id: UUID(), imageData: image!)
+                                        let image = UIImage(data: image!)?.cgImage
+                                        let pixel = cameraService.getCVPixelBuffer(image!)
+                                        let predict = try? model.prediction(image: pixel!)
+                                        let pestLabel = predict!.classLabel
+                                        let pest = PestList.filter{$0.name == pestLabel}
+                                        pestData = pest.first
+                                        
+                                        if let output = predict {
+                                            let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
+                                            let result = results.map { (key, value) in
+                                                percentagePrediction = "\(String(format: "%.1f", value * 100))"
+                                                percentageDouble = (value * 100)
+                                                return "\(key) = \(String(format: "%.1f", value * 100))% "
+                                            }
+                                            let results2 = output.classLabelProbs.sorted{ $0.1 > $1.1 }.dropFirst(1).prefix(2)
+                                            let result2 = results2.map { (key, value) in
+                                                return "\(key) = \(String(format: "%.1f", value * 100))%"
+                                            }.joined(separator: "\n")
+                                            
+                                            self.prediction = "\(result)\n"+"\(result2)"
+                                            self.predictedPest = "\(result)"
+                                            
+                                        }
+                                        isDetected = true
+                                    }
+                                    NavigationLink("Next", isActive: $isDetected) {
+                                        PestResultView(percentage: $percentagePrediction, detectedPest: $pestData, percentageDouble: $percentageDouble)
                                         
                                     }
-                                    isDetected = true
+                                    .opacity(0)
                                 }
                                 
                                 //                                Spacer()
@@ -110,7 +114,7 @@ struct CameraResultView: View {
                 }
                 
             }
-        }
+   //     }
 //        .alert("\(prediction)", isPresented: $isDetected) {
 //
 //                Text("Ok")

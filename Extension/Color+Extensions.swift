@@ -16,5 +16,7 @@ extension Color {
     static let pestTitleGreen = Color("pestTitleGreen")
     static let cardGreen1 = Color("CardGreen1")
     static let cardGreen2 = Color("CardGreen2")
-
+    static let grayText = Color("grayText")
+    static let orangeColor = Color("orangeColor")
+    static let segmented = Color("segmented")
 }
