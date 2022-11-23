@@ -12,11 +12,16 @@ struct TabBarView: View {
     var body: some View {
         TabView(selection: $selected) {
             HomePestScreen()
-                .toolbar(.hidden, for: .tabBar)
+//                .toolbar(.hidden, for: .tabBar)
                 .tabItem({
                     Label("Home", systemImage: "house.fill")
                 })
                 .tag(0)
+            SnappedHistory()
+                .tabItem({
+                    Label("Riwayat", systemImage: "clock.arrow.circlepath")
+                })
+                .tag(1)
             
             
         }

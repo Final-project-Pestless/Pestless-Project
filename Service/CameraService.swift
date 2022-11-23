@@ -79,6 +79,9 @@ class CameraService {
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
         output.capturePhoto(with: settings, delegate: delegate!)
     }
+    func rollBack(image: Data) {
+        
+    }
     
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

@@ -14,67 +14,86 @@ struct PestResultView: View {
     @Binding var percentageDouble: Double
     var body: some View {
         NavigationView {
-            VStack {
-                
-                Image("kutu")
-                
-                //harus diganti pake database
-                    .resizable()
-                    .frame(width: 325, height: 300)
-                    .padding()
-                Text(detectedPest?.name ?? "No data")
-                    .font(.system(.largeTitle, design: .rounded))
-                    .bold()
-                    .foregroundColor(.pestTitleGreen)
-                    .padding(.vertical, 2)
-           
-               
-                Text("Tingkat akurasi: \(percentage)%")
-                    .font(.system(.callout, design: .rounded))
-                    .foregroundColor(.pestTitleGreen)
-                    .padding(.bottom)
-                Spacer()
-                
-                Text("Ciri-ciri")
-                    .foregroundColor(.pestTitleGreen)
-                Text(detectedPest?.description ?? "no deskripsi")
-                    .foregroundColor(.black)
-                Text("Tanaman yang diserang")
-                Text(detectedPest?.plant[0] ?? "tanaman yang diserang")
-                
-                NavigationLink {
-                    PestResultDetailView(detectedPest: $detectedPest)
-                } label: {
-                    Text("Lihat cara kontrol")
-                        .foregroundColor(.white)
-                        .background {
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 300, height: 45)
-                            
-                        }
-                }
-                .padding(.bottom, 25)
-                NavigationLink {
-                    CustomCameraView()
-                        .navigationBarBackButtonHidden()
-                        .animation(.linear)
-                } label: {
-                    Text("Kurang yakin? hasil tdk cocok")
+            ScrollView {
+                VStack {
+                    
+                    Image("kutu")
+                    
+                    //harus diganti pake database
+                        .resizable()
+                        .frame(width: 325, height: 300)
+                        .padding()
+                    Text(detectedPest?.name ?? "No data")
+                        .font(.system(.largeTitle, design: .rounded))
+                        .bold()
                         .foregroundColor(.pestTitleGreen)
-                        .background {
+                        .padding(.vertical, 2)
+               
+                   
+                    Text("Tingkat akurasi: \(percentage)%")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.pestTitleGreen)
+                        .padding(.bottom)
+                    Spacer()
+                    VStack(alignment: .leading){
+                        
+                        Text("Ciri-ciri")
+                            .font(.system(.headline, design: .rounded))
+                            .foregroundColor(.pestTitleGreen)
+                            .bold()
+                        Text(detectedPest?.identity ?? "no deskripsi")
+                            .foregroundColor(.grayText)
+                            .font(.system(.subheadline, design: .rounded))
+                            .padding(.bottom)
+                        Text("Tanaman yang diserang")
+                            .font(.system(.headline, design: .rounded))
+                            .foregroundColor(.pestTitleGreen)
+                            .bold()
+                        Text(detectedPest?.plant ?? "tanaman yang diserang")
+                            .foregroundColor(.grayText)
+                            .font(.system(.subheadline, design: .rounded))
+                        
+                    }
+                    .padding()
+                    
+                    NavigationLink {
+                        PestResultDetailView(detectedPest: $detectedPest)
+                    } label: {
+                        ZStack {
+                           
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 300, height: 45)
+                            Text("Lihat cara kontrol")
                                 .foregroundColor(.white)
-                                .shadow(color: .pestTitleGreen ,radius: 3)
-                                
-                            
                         }
+                             
+                    }
+                    .padding(.bottom, 25)
+                    NavigationLink {
+                        CustomCameraView()
+                            .navigationBarBackButtonHidden()
+                            .animation(.linear)
+                    } label: {
+                        Text("Kurang yakin? hasil tdk cocok")
+                            .foregroundColor(.pestTitleGreen)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 300, height: 45)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .pestTitleGreen ,radius: 3)
+                                    
+                                
+                            }
+                    }
+                    
                 }
-                
+               
             }
-
+            
             .navigationTitle("Hasil")
-            .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.inline)
+//        .navigationBarHidden(true)
+
         }
     }
 }

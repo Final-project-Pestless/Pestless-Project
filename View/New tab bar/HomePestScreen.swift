@@ -31,6 +31,7 @@ struct HomePestScreen: View {
                             Spacer()
                             NavigationLink {
                                 CustomCameraView()
+                                    .toolbar(.hidden, for: .tabBar)
                                     .navigationBarBackButtonHidden()
                             } label: {
                                 Text("Pindai")
