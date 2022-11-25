@@ -9,7 +9,7 @@ struct PestData: Identifiable {
     var plant: String = ""
     var preventive: [String] = [""]
     var image: [String] = [""]
-//    var biopests: [BiopesticideData] = []
+//    var biopests: [BiopesticideData]? = []
     
 }
 
@@ -21,7 +21,7 @@ let PestList: [PestData] = [
              plant: "jagung, padi, tomat, bawang",
              preventive: ["Cabut ulat dari tanaman Anda dan masukkan ke dalam ember berisi air sabun.", "Waspadai tanaman Anda dan cari telur, serta ulat.","Letakkan karton atau kertas timah di pangkal tanaman Anda untuk mengusir ulat.","Tawon parasit adalah pemangsa ulat sebagai sarang telurnya."],
              image: ["thistle"]
-//             biopests: [BiopesticideList[4]]
+//            , biopests: [BiopesticideList[4]]
             ),
     PestData(name: "kutuDaun",
              description: "Tanda-tanda serangan kutu yang parah adalah daun bengkok dan melengkung, daun menguning, tunas kerdil atau mati, dan pertumbuhan tanaman yang buruk.",

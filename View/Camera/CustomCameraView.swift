@@ -13,12 +13,12 @@ struct CustomCameraView: View {
     //  @ObservedObject var viewModel = SnappedPestViewModel(pestService: SnappedPestRepository(persistenceController: PersistenceController()))
     let cameraService = CameraService()
     @State var capturedData: Data?
-    @Environment(\.presentationMode) private var presentationMode
+//    @Environment(\.presentationMode) private var presentationMode
     @State private var selectedItem: PhotosPickerItem?
     @State var selectedImageData: Data?
     @State var isCaptured: Bool = false
     @State var isShown: Bool = true
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,19 +40,29 @@ struct CustomCameraView: View {
                 VStack {
                     
                     HStack {
-                        NavigationLink {
-                            withAnimation(.spring()){
-                                TabBarView()
-                                    .transition(.move(edge: .top))
-                                    .navigationBarBackButtonHidden()
-                            }
-                                } label: {
+                        Button {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } label: {
                             Image(systemName: "xmark")
                                 .padding(.top, 20)
                                 .padding(.leading, 20)
                                 .font(.system(size: 30))
                                 .foregroundColor(.white)
                         }
+
+//                        NavigationLink {
+//                            withAnimation(.spring()){
+//                                TabBarView()
+//                                    .transition(.move(edge: .top))
+//                                    .navigationBarBackButtonHidden()
+//                            }
+//                                } label: {
+//                            Image(systemName: "xmark")
+//                                .padding(.top, 20)
+//                                .padding(.leading, 20)
+//                                .font(.system(size: 30))
+//                                .foregroundColor(.white)
+//                        }
                         
                         Spacer()
                       

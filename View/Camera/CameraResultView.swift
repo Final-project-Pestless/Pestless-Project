@@ -25,6 +25,7 @@ struct CameraResultView: View {
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
     @State var pestData : PestData?
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
             
          //   if isDetected {
@@ -36,12 +37,18 @@ struct CameraResultView: View {
                     if image != nil {
                         VStack{
                             HStack{
-                                NavigationLink {
-                                    CustomCameraView()
-                                        .navigationBarBackButtonHidden()
+                                Button {
+                                    self.presentationMode.wrappedValue.dismiss()
                                 } label: {
-                                    Text("Retake")
+                                    Text("Ambil ulang")
                                 }
+
+//                                NavigationLink {
+//                                    CustomCameraView()
+//                                        .navigationBarBackButtonHidden()
+//                                } label: {
+//                                    Text("Retake")
+//                                }
                                 Spacer()
                                 
                                 //coba pake navigate
@@ -95,10 +102,13 @@ struct CameraResultView: View {
                                 
                             }
                             .frame(width: 350)
+                            .padding(.top)
+                            Spacer()
                             Image(uiImage: UIImage(data: image!)!)
                                 .resizable()
                                 .scaledToFit()
                                 .ignoresSafeArea()
+                            Spacer()
                             
                         }
                     }

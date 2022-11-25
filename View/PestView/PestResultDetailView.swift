@@ -10,45 +10,60 @@ import SwiftUI
 struct PestResultDetailView: View {
     @State var selected: Int = 1
     @Binding var detectedPest : PestData?
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        ScrollView {
-            VStack {
-                    
-                    Text(detectedPest?.name ?? "no")
-                        .foregroundColor(.accentColor)
-                        .font(.system(.title2, design: .rounded))
-                        .bold()
-                        .padding()
-                    Image("kutu")
-                        .resizable()
-                        .frame(width: 325, height: 250)
-                        .padding()
-                    //segmented
-                    
-                    Picker("Result", selection: $selected, content: {
-                        Text("Langkah awal")
-                            .foregroundColor(.pestTitleGreen)
-                            .tag(1)
-                        Text("Biopestisida")
-                            .tag(2)
-                    })
-                    .foregroundColor(.yellowbg)
-                    .pickerStyle(.segmented)
-                    .frame(width: 350)
-                    .padding()
-                    
-                    if selected == 1 {
-                        PestControlView(detectedPest: $detectedPest)
-                            .navigationBarBackButtonHidden()
-                    } else if selected == 2 {
-                        BiopestScreen(detectedPest: $detectedPest)
-                            .navigationBarBackButtonHidden()
+        
+        NavigationView {
+            ScrollView {
+                VStack {
                         
-                    }
-                    
-                    Spacer()
+                        Text(detectedPest?.name ?? "no")
+                            .foregroundColor(.accentColor)
+                            .font(.system(.title2, design: .rounded))
+                            .bold()
+                            .padding()
+                        Image("kutu")
+                            .resizable()
+                            .frame(width: 325, height: 250)
+                            .padding()
+                        //segmented
+                        
+                        Picker("Result", selection: $selected, content: {
+                            Text("Langkah awal")
+                                .foregroundColor(.pestTitleGreen)
+                                .tag(1)
+                            Text("Biopestisida")
+                                .tag(2)
+                        })
+                        .foregroundColor(.yellowbg)
+                        .pickerStyle(.segmented)
+                        .frame(width: 350)
+                        .padding()
+                        
+                        if selected == 1 {
+                            PestControlView(detectedPest: $detectedPest)
+                                .navigationBarBackButtonHidden()
+                        } else if selected == 2 {
+                            BiopestScreen(detectedPest: $detectedPest)
+                                .navigationBarBackButtonHidden()
+                            
+                        }
+                        
+                        Spacer()
+                }
             }
+           
+//            .navigationBarItems(leading:
+//            Button(action: {
+//                self.presentationMode.wrappedValue.dismiss()
+//            }, label: {
+//                Image(systemName: "chevron.left")
+//            })
+//        )
         }
+        .navigationTitle("Detail hama")
+        .navigationBarTitleDisplayMode(.inline)
+//        .navigationBarBackButtonHidden()
         
     }
 }
