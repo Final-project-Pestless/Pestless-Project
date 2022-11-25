@@ -19,7 +19,7 @@ struct BiopesticideData: Identifiable {
     //tambahin source: string
 }
 
-let BiopesticideList: [BiopesticideData] = [
+let biopesticideList: [BiopesticideData] = [
     //
     BiopesticideData(name: "Jeruk Nipis",
                      description: "",

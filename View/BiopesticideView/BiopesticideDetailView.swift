@@ -29,6 +29,10 @@ struct BiopesticideDetailView: View {
             Image("kutu")
                 .resizable()
                 .frame(width: 275, height: 212)
+            Text(biopesticide.name)
+            ForEach(biopesticide.pest){ a in
+                Text(a.name)
+            }
             
             //segmented
             CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
@@ -146,7 +150,7 @@ struct BiopesticideDetailView: View {
 
 struct BiopesticideDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BiopesticideDetailView(biopesticide: BiopesticideList[0])
+        BiopesticideDetailView(biopesticide: biopesticideList[0])
     }
 }
 
