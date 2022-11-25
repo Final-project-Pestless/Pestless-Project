@@ -12,9 +12,9 @@ struct BiopesticideView: View {
     
     var searchedBiopesticide: [BiopesticideData] {
         if searchBiopesticide.count == 0 {
-            return BiopesticideList
+            return biopesticideList
         } else {
-            return BiopesticideList.filter{$0.name.lowercased().contains(searchBiopesticide.lowercased())}
+            return biopesticideList.filter{$0.name.lowercased().contains(searchBiopesticide.lowercased())}
         }
     }
     
