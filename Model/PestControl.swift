@@ -16,6 +16,6 @@ struct PestControl: Identifiable {
 }
 
 let pestControlList: [PestControl] = [
-    PestControl(pest: PestList[0], biopest: [BiopesticideList[0], BiopesticideList[1]]),
-    PestControl(pest: PestList[1], biopest: [BiopesticideList[3]]),
+    PestControl(pest: PestList[0], biopest: [biopesticideList[0], biopesticideList[1]]),
+    PestControl(pest: PestList[1], biopest: [biopesticideList[3]]),
 ]
