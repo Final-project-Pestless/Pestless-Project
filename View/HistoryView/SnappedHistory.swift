@@ -25,7 +25,7 @@ struct SnappedHistory: View {
                     if saved.pestImage != nil {
                         Image(uiImage: UIImage(data: saved.pestImage ?? self.image)!)
                             .resizable()
-                            .frame(width: 300, height: 350)
+                            .frame(width: 138, height: 166)
                     } else if saved.pestImage == nil {
                         Text("No saved data")
                     } else {
@@ -35,6 +35,7 @@ struct SnappedHistory: View {
             }
 
         }
+        .navigationTitle("Riwayat")
 //        NavigationView {
 //            if viewModel.pestArray.count == 0 {
 //                VStack {

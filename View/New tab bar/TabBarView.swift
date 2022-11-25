@@ -14,7 +14,7 @@ struct TabBarView: View {
             HomePestScreen()
 //                .toolbar(.hidden, for: .tabBar)
                 .tabItem({
-                    Label("Home", systemImage: "house.fill")
+                    Label("Kenali", image: "tabicon1")
                 })
                 .tag(0)
             SnappedHistory()
@@ -22,6 +22,11 @@ struct TabBarView: View {
                     Label("Riwayat", systemImage: "clock.arrow.circlepath")
                 })
                 .tag(1)
+            TrackerView()
+                .tabItem {
+                    Label("Obati", systemImage: "house")
+                }
+                .tag(2)
             
             
         }

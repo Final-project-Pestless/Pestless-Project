@@ -13,7 +13,7 @@ struct PestResultView: View {
     @Binding var detectedPest : PestData?
     @Binding var percentageDouble: Double
     var body: some View {
-        NavigationView {
+    //    NavigationView {
             ScrollView {
                 VStack {
                     
@@ -70,11 +70,11 @@ struct PestResultView: View {
                     }
                     .padding(.bottom, 25)
                     NavigationLink {
-                        CustomCameraView()
-                            .navigationBarBackButtonHidden()
-                            .animation(.linear)
+//                        CustomCameraView()
+//                            .navigationBarBackButtonHidden()
+//                            .animation(.linear)
                     } label: {
-                        Text("Kurang yakin? hasil tdk cocok")
+                        Text("Tidak yakin?")
                             .foregroundColor(.pestTitleGreen)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
@@ -94,7 +94,7 @@ struct PestResultView: View {
         .navigationBarTitleDisplayMode(.inline)
 //        .navigationBarHidden(true)
 
-        }
+       // }
     }
 }
 //
