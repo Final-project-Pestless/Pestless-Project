@@ -8,31 +8,19 @@
 import SwiftUI
 
 struct BiopesticideDetailView: View {
-//    var biop = BiopesticideList[1]
     var biopesticide: BiopesticideData
     @State var selected: Int = 1
     @State private var preselectedIndex = 0
     
-//    init(biopesticide: BiopesticideData) {
-//        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color("segmented"))
-//        UISegmentedControl.appearance().backgroundColor = UIColor(Color("transparent"))
-//        self.biopesticide = biopesticide
-//    }
-    
     var body: some View {
         VStack {
-//            Text(biopesticide.name)
-//                .foregroundColor(.accentColor)
-//                .font(.system(.title2, design: .rounded))
-//                .bold()
-//                .padding()
-            Image("kutu")
+            Image(biopesticide.image)
                 .resizable()
                 .frame(width: 275, height: 212)
-            Text(biopesticide.name)
-            ForEach(biopesticide.pest){ a in
-                Text(a.name)
-            }
+//            Text(biopesticide.name)
+//            ForEach(biopesticide.pest){ a in
+//                Text(a.name)
+//            }
             
             //segmented
             CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
@@ -41,138 +29,119 @@ struct BiopesticideDetailView: View {
             Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
                 .padding(.bottom, 10)
             
-//            Line()
-//              .stroke(style: StrokeStyle(lineWidth: 1))
-//              .frame(height: 0.5)
-//              .foregroundColor(Color("segmented"))
-//              .opacity(0.2)
-            
             if preselectedIndex == 0 {
-                AView()
+                AboutView(biopesticide: biopesticide)
                     
             } else if preselectedIndex == 1 {
-//                AView()
-//                    .navigationBarBackButtonHidden()
-                Text("ok")
-                
+                RecipeView(biopesticide: biopesticide)
             }
-            
-            
-            
-//            Picker("Result", selection: $selected, content: {
-//
-//                Text("Tentang")
-//                    .foregroundColor(.pestTitleGreen)
-//                    .tag(1)
-//                Text("Cara Buat")
-//                    .tag(2)
-//            })
-//            .foregroundColor(.yellowbg)
-//            .pickerStyle(.segmented)
-//            .frame(width: 350)
-//            .padding()
-            
-//            if selected == 1 {
-//                AView()
-//                    .navigationBarBackButtonHidden()
-//            } else if selected == 2 {
-////                AView()
-////                    .navigationBarBackButtonHidden()
-//                Text("ok")
-//
-//            }
             
             Spacer()
         }.navigationTitle(biopesticide.name)
-//        ZStack {
-//            Color.yellowbg
-//                .edgesIgnoringSafeArea(.all)
-//            Text(biopestiside.name)
-//                .font(.headline)
-//                .foregroundColor(.pestTitleGreen)
-//                .bold()
-//                .padding(.bottom, 700)
-//            RoundedRectangle(cornerRadius: 45)
-//                .frame(width: 392, height: 740)
-//                .foregroundColor(.white)
-//                .padding(.bottom, 120)
-//            ScrollView (){
-//                VStack {
-//                    Image("0")
-//                        .resizable()
-//                        .frame(width: 150, height: 150, alignment: .center)
-//                        .padding()
-//                
-//                    VStack(alignment: .leading){
-//                        Text("""
-//                        this is a makeshift description. this is a makeshift description. this is a makeshift description. this is a makeshift description.
-//                        """)
-//                        .padding(.bottom, 2)
-//                        
-//                        Text("Effective on:")
-//                            .bold()
-//                        
-////                        Text("\(biop.pest[0])")
-////                            .padding(.bottom, 2)
-//                        Text("Arphid, hama kubis,  belalang")
-//                            .padding(.bottom,2)
-//
-//                        Text("Ingredient:")
-//                            .bold()
-//                        
-//                        
-//                        Text("""
-//100gr bawang putih
-//2 sdm minyak sayur
-//10 liter air
-//10ml sabun cair/detergen
-//""")
-//                        .padding(.bottom,4)
-//                        
-//                        Text("Instruction")
-//                            .bold()
-//                        Text("Campurkan bawang putih yang sudah dihaluskan dengan minyak sayur selama 24 jam, \ntambahkan 1/2 liter air dan sabun, \naduk hingga rata dan saring")
-//                            .padding(.bottom,4)
-//                        
-//                        Text("Usage")
-//                            .bold()
-//                        Text("Campurkan 10 liter air kedalam larutan aduk rata dan semprotkan pada pagi hari")
-//                        
-//                  
-//                    }.foregroundColor(.pestTitleGreen)
-//                        .padding(.horizontal)
-//
-//                }
-//            }
-//        }
     }
 }
 
 struct BiopesticideDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BiopesticideDetailView(biopesticide: biopesticideList[0])
+        BiopesticideDetailView(biopesticide: biopesticideList[1])
     }
 }
 
-struct AView: View {
-    
+struct AboutView: View {
+    var biopesticide: BiopesticideData
     
     var body: some View {
-        
-        ScrollView ( showsIndicators: false){
-            VStack(alignment: .leading){
+        ScrollView (showsIndicators: false){
+            VStack{
+                Text("Efektif terhadap")
+                    .font(.system(size: 16))
+                    .font(.system(.callout, design: .rounded))
+                    .bold()
+                    //.foregroundColor(.pestTitleGreen)
+                    .frame(width: 350, height: 25, alignment: .leading)
+                   
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack{
+                        ForEach(biopesticide.pest) { pest in
+                            NavigationLink(destination: Text("ok")) {
+                                VStack{
+                                    Image(pest.image[0])
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .padding(.leading, 20)
+                                    
+                                    Text(pest.name)
+                                        .padding(.leading, 20)
+                                        .font(.system( size: 14, design: .rounded))
+                                        .bold()
+                                        .foregroundColor(.pestGreen)
+                                }
+                            }
+                        }
+                    }.padding(.bottom,10)
+                }
                 
+                Text("Cara Penggunaan")
+                    .font(.system(size: 16))
+                    .font(.system(.callout, design: .rounded))
+                    .bold()
+                    //.foregroundColor(.pestTitleGreen)
+                    .frame(width: 350, height: 25, alignment: .leading)
                 
-                Text("Cara pengurangan")
-//                ForEach(detectedPest!.preventive) { preventive in
-//                    Text(preventive)
-//                }
+                Text(biopesticide.usage)
+                    .frame(width: 350, alignment: .leading)
+                    .padding(.vertical,5)
+                    //.background(.blue)
                 
-                Text("Tanaman Refugia")
-                Text("""
+            }
+        }
+    }
+}
 
-""")
-               
+struct RecipeView: View {
+    var biopesticide: BiopesticideData
+    var recipeStepImageHeight:CGFloat? = 239
+    var recipeStepImageWidth:CGFloat? = 360
+    var ingredientsImageWidth:CGFloat? = 66
+    
+    var body: some View {
+        ScrollView (showsIndicators: false) {
+            Text("Bahan yang diperlukan")
+                .font(.system(size: 16))
+                .font(.system(.callout, design: .rounded))
+                .bold()
+            //.foregroundColor(.pestTitleGreen)
+                .frame(width: 350, height: 25, alignment: .leading)
+            
+            ForEach(0..<biopesticide.ingredient.count){ i in
+                Text(biopesticide.ingredient[i])
+                    .frame(width: 350, alignment: .leading)
+                    .padding(.bottom,2)
+            }.padding(.leading,10)
+            
+            Text("Langkah Pengerjaan")
+                .font(.system(size: 16))
+                .font(.system(.callout, design: .rounded))
+                .bold()
+            //.foregroundColor(.pestTitleGreen)
+                .frame(width: 350, height: 25, alignment: .leading)
+                .padding(.top,15)
+            
+            ForEach(0..<biopesticide.instruction.count){ i in
+                VStack {
+                    Section {
+                        HStack{
+                            Text("\(i+1).")
+                            // .padding(.horizontal, 5)
+                                .frame(width: 20)
+                            Text(biopesticide.instruction[i])
+                                .frame(minHeight: 10)
+                            
+                        }.frame(maxWidth: 350, alignment: .leading)
+                        
+                        Divider().frame(width: 340)
+                    }
+                }
             }
         }
     }
@@ -214,14 +183,5 @@ struct CustomSegmentedControl: View {
         }
         .frame(height: 40)
         .cornerRadius(20)
-    }
-}
-
-struct Line: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: rect.width, y: 0))
-        return path
     }
 }

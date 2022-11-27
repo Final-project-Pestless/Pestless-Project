@@ -51,7 +51,7 @@ struct BiopesticideView: View {
                                                 .frame(width: 100, height: 100)
                                                 .foregroundColor(.yellowbg)
                                                 .padding(.leading, 20)
-                                            Image(biop.image)
+                                            Image(biop.image).resizable().frame(width: 100, height: 100)
                                                 .padding(.leading, 20)
                                         }
                                         Text(biop.name)
