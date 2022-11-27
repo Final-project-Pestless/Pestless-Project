@@ -19,7 +19,7 @@ struct BiopesticideView: View {
     }
     
     var body: some View {
-        NavigationView{
+  //      NavigationView{
             ZStack{
                 Color.yellowbg
                     .edgesIgnoringSafeArea(.all)
@@ -99,7 +99,7 @@ struct BiopesticideView: View {
                 Spacer()
             }.navigationTitle("Biopesticides")
              .navigationBarTitleDisplayMode(.inline)
-        }
+     //   }
     }
 }
 

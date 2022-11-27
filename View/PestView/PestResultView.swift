@@ -17,7 +17,7 @@ struct PestResultView: View {
             ScrollView {
                 VStack {
                     
-                    Image("kutu")
+                    Image(detectedPest?.image[0] ?? "kutu")
                     
                     //harus diganti pake database
                         .resizable()

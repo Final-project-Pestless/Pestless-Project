@@ -26,7 +26,7 @@ struct HomePestScreen: View {
                                 .bold()
                                 .font(.system(.title, design: .rounded))
                                 .foregroundColor(.white)
-                            Text(" Yuk cari tahu!")
+                            Text("Yuk cari tahu!")
                                 .bold()
                                 .foregroundColor(.white)
                                 .font(.system(.title, design: .rounded))
@@ -91,14 +91,16 @@ struct HomePestScreen: View {
                                 } label: {
                                 
                                     VStack{
-                                        ZStack{
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .frame(width: 100, height: 150)
-                                                .foregroundColor(.yellowbg)
+                               //         ZStack{
+                                 //           RoundedRectangle(cornerRadius: 16)
+                                 //               .frame(width: 100, height: 150)
+                                     //           .foregroundColor(.yellowbg)
                                             Image(pest.image[0])
-                                        }
+                                            .resizable()
+                                            .frame(width: 120, height: 140)
+                                            
+                                    //    }
                                         Text(pest.name)
-                                            .padding(.leading, 20)
                                             .font(.system(.caption, design: .rounded))
                                             .bold()
                                             .foregroundColor(.pestGreen)
@@ -106,7 +108,7 @@ struct HomePestScreen: View {
                                     
                                 }
                             }
-                        }
+                        }.padding(.leading,20)
                     }
                     .padding(.leading)
                     
