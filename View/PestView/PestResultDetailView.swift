@@ -9,61 +9,62 @@ import SwiftUI
 
 struct PestResultDetailView: View {
     @State var selected: Int = 1
-    @Binding var detectedPest : PestData?
+    @State var detectedPest : PestData?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
         
         NavigationView {
             ScrollView {
                 VStack {
-                        
-                        Text(detectedPest?.name ?? "no")
-                            .foregroundColor(.accentColor)
-                            .font(.system(.title2, design: .rounded))
-                            .bold()
-                            .padding()
-                        Image("kutu")
-                            .resizable()
-                            .frame(width: 325, height: 250)
-                            .padding()
-                        //segmented
-                        
-                        Picker("Result", selection: $selected, content: {
-                            Text("Langkah awal")
-                                .foregroundColor(.pestTitleGreen)
-                                .tag(1)
-                            Text("Biopestisida")
-                                .tag(2)
-                        })
-                        .foregroundColor(.yellowbg)
-                        .pickerStyle(.segmented)
-                        .frame(width: 350)
+                    
+                    Text(detectedPest?.name ?? "no")
+                        .foregroundColor(.accentColor)
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
                         .padding()
+                    Image("kutu")
+                        .resizable()
+                        .frame(width: 325, height: 250)
+                        .padding()
+                    //segmented
+                    
+                    Picker("Result", selection: $selected, content: {
+                        Text("Langkah awal")
+                            .foregroundColor(.pestTitleGreen)
+                            .tag(1)
+                        Text("Biopestisida")
+                            .tag(2)
+                    })
+                    .foregroundColor(.yellowbg)
+                    .pickerStyle(.segmented)
+                    .frame(width: 350)
+                    .padding()
+                    
+                    if selected == 1 {
+                        PestControlView(detectedPest: $detectedPest)
+                            .navigationBarBackButtonHidden()
+                    } else if selected == 2 {
+                        BiopestScreen(detectedPest: $detectedPest)
+                            .navigationBarBackButtonHidden()
                         
-                        if selected == 1 {
-                            PestControlView(detectedPest: $detectedPest)
-                                .navigationBarBackButtonHidden()
-                        } else if selected == 2 {
-                            BiopestScreen(detectedPest: $detectedPest)
-                                .navigationBarBackButtonHidden()
-                            
-                        }
-                        
-                        Spacer()
+                    }
+                    
+                    Spacer()
                 }
             }
-           
-//            .navigationBarItems(leading:
-//            Button(action: {
-//                self.presentationMode.wrappedValue.dismiss()
-//            }, label: {
-//                Image(systemName: "chevron.left")
-//            })
-//        )
+            
+            //            .navigationBarItems(leading:
+            //            Button(action: {
+            //                self.presentationMode.wrappedValue.dismiss()
+            //            }, label: {
+            //                Image(systemName: "chevron.left")
+            //            })
+            //        )
         }
         .navigationTitle("Detail hama")
         .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarBackButtonHidden()
+        //        .navigationBarBackButtonHidden()
         
     }
 }
@@ -80,7 +81,7 @@ struct PestControlView: View {
                 Text("Cara pengurangan")
                     .font(.system(.headline, design: .rounded))
                     .foregroundColor(.pestTitleGreen)
-
+                
                 ForEach(0..<(detectedPest?.preventive.count)!) { i in
                     Text(detectedPest?.preventive[i] ?? "No prevention data")
                         .font(.system(.caption, design: .rounded))
@@ -101,33 +102,35 @@ struct PestControlView: View {
 
 struct BiopestScreen: View {
     @Binding var detectedPest : PestData?
+    @State var biopest = biopesticideList
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading){
                 Text("test")
-//                ForEach(detectedPest!.biopests) { biopest in
-//                    VStack(alignment: .leading){
-//                        NavigationLink( destination: BiopesticideDetailView(biopestiside: biopest)
-//                            .navigationBarBackButtonHidden()
-//                        ) {
-//                            VStack(alignment: .leading){
-//                                ZStack{
-//                                    RoundedRectangle(cornerRadius: 16)
-//                                        .frame(width: 100, height: 100)
-//                                        .foregroundColor(.yellowbg)
-//                                        .padding(.leading, 20)
-//                                    Image(biopest.image)
-//                                        .padding(.leading, 20)
-//                                }
-//                                Text(biopest.name)
-//                                    .padding(.leading, 20)
-//                                    .font(.system(.caption, design: .rounded))
-//                                    .bold()
-//                                    .foregroundColor(.pestGreen)
-//                            }
-//                        }
-//                    }
-//                }
+                
+                //                ForEach(detectedPest!.biopests) { biopest in
+                //                    VStack(alignment: .leading){
+                //                        NavigationLink( destination: BiopesticideDetailView(biopestiside: biopest)
+                //                            .navigationBarBackButtonHidden()
+                //                        ) {
+                //                            VStack(alignment: .leading){
+                //                                ZStack{
+                //                                    RoundedRectangle(cornerRadius: 16)
+                //                                        .frame(width: 100, height: 100)
+                //                                        .foregroundColor(.yellowbg)
+                //                                        .padding(.leading, 20)
+                //                                    Image(biopest.image)
+                //                                        .padding(.leading, 20)
+                //                                }
+                //                                Text(biopest.name)
+                //                                    .padding(.leading, 20)
+                //                                    .font(.system(.caption, design: .rounded))
+                //                                    .bold()
+                //                                    .foregroundColor(.pestGreen)
+                //                            }
+                //                        }
+                //                    }
+                //                }
             }
         }
     }

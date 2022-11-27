@@ -58,14 +58,15 @@ struct CameraResultView: View {
                                     
                                     Button("Selesai") {
                                         
-                                        imageViewModel.save(id: UUID(), imageData: image!)
-                                        let image = UIImage(data: image!)?.cgImage
-                                        let pixel = cameraService.getCVPixelBuffer(image!)
+//                                        imageViewModel.save(id: UUID(), imageData: image!, pestName:  )
+                                        let cgImage = UIImage(data: image!)?.cgImage
+                                        let pixel = cameraService.getCVPixelBuffer(cgImage!)
                                         let predict = try? model.prediction(image: pixel!)
                                         let pestLabel = predict!.classLabel
                                         let pest = PestList.filter{$0.name == pestLabel}
                                         pestData = pest.first
                                         
+                                        imageViewModel.save(id: UUID(), imageData: image!, pestName: pestLabel)
                                         if let output = predict {
                                             let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
                                             let result = results.map { (key, value) in
