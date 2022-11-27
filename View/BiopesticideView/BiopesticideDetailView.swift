@@ -16,7 +16,7 @@ struct BiopesticideDetailView: View {
         VStack {
             Image(biopesticide.image)
                 .resizable()
-                .frame(width: 275, height: 212)
+                .frame(width: 275, height: 180)
 //            Text(biopesticide.name)
 //            ForEach(biopesticide.pest){ a in
 //                Text(a.name)
@@ -49,6 +49,7 @@ struct BiopesticideDetailView_Previews: PreviewProvider {
 
 struct AboutView: View {
     var biopesticide: BiopesticideData
+    @State private var pestData: PestData?
     
     var body: some View {
         ScrollView (showsIndicators: false){
@@ -63,7 +64,7 @@ struct AboutView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack{
                         ForEach(biopesticide.pest) { pest in
-                            NavigationLink(destination: Text("ok")) {
+                            NavigationLink(destination: PestResultDetailView(detectedPest: pest)) {
                                 VStack{
                                     Image(pest.image[0])
                                         .resizable()

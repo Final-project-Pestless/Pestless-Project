@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PestSearchView: View {
-    let names = ["Holly", "Josh", "Rhonda", "Ted"]
    // var searchedBiopesticide: [PestData]
     @State private var searchText = ""
     @State private var pestData: PestData?
