@@ -51,4 +51,15 @@ struct PersistenceController {
         case persistence
         case inMemory
     }
+    
+    func save() {
+        let context = container.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
 }

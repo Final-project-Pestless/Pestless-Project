@@ -12,64 +12,74 @@ struct OnboardingData: Hashable, Identifiable {
     let text: String
     
     static let dataList: [OnboardingData] = [
-        OnboardingData(id: 0, image: "boarding1", text: "Pestless is a revolutionary app that will tell you exactly what pests are plaguing your plants, and help you to get rid of them."),
-        OnboardingData(id: 1, image: "boarding2", text: "It scans your plants in a few seconds and tells you exactly what pests are on them, giving tips step by step to control pests."),
-        OnboardingData(id: 2, image: "boarding3", text: "Save your time, money, and help you grow healthy food")
-        
+        OnboardingData(id: 0, image: "boarding1", text: "Pestless akan memindai hama apa saja yang mengganggu tanaman mu."),
+        OnboardingData(id: 1, image: "boarding2", text: "Dapatkan cara mengendalikan hama tersebut agar tanamanmu selalu sehat dan aman untuk konsumsi.")
     ]
 }
 struct OnboardingView: View {
-    @State var onboardingState: Int = 0
-    @State var username: String = ""
+    @Binding var onboardingState: Int
     @State private var isAnimating: Bool = false
-    @AppStorage("name") var currentUserName: String?
-    @AppStorage("signed_in") var signedIn: Bool = false
+ 
     var data: OnboardingData
     var body: some View {
-        ZStack {
-            Color.yellowbg
-                .edgesIgnoringSafeArea(.all)
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 392, height: 702)
-                .padding(.bottom, 100)
-                .foregroundColor(.white)
-            VStack{
-               
-                Button(action: {
-                    
-                }, label: {
-                    Text("Skip")
-                        .foregroundColor(.black)
-                        .bold()
-                })
+
+                VStack{
+                    NavigationLink {
+                        TabBarView()
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        Text("Skip")
+                            .foregroundColor(.black)
+                            .bold()
+                    }
                     .padding(.leading, 300)
-           
-                
-                ZStack{
                     
-                    Image("cloud")
-                        .resizable()
                     
-                        .frame(width: 500, height: 400)
-                        .foregroundColor(Color("green2"))
+                    ZStack{
+                        
+                        Image("awan")
+                            .resizable()
+                        
+                            .frame(width: 390, height: 286)
+                            .foregroundColor(Color("green2"))
+                        
+                        Image(data.image)
+                    }
+                    .padding(.bottom, 100)
+                    .padding(.top, 30)
+                    Text(data.text)
+                        .padding()
+                        .frame(width: 400)
+                        .multilineTextAlignment(.center)
                     
-                    Image(data.image)
+                    if onboardingState == 1 {
+                        NavigationLink {
+                            TabBarView()
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            Text("Mulai")
+                                .foregroundColor(.white)
+                                .bold()
+                                .background {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(.pestTitleGreen)
+                                        .frame(width: 300, height: 45)
+                                }
+                        }
+                        .padding(.top, 100)
+
+                    }
+                    Spacer()
                 }
-                Text(data.text)
-                    .padding()
-                    .frame(width: 400)
-                    .multilineTextAlignment(.center)
                 
-            }
-            .padding(.bottom, 200)
+                .onAppear {
+                    isAnimating = false
+                    withAnimation(.easeOut(duration: 0.5)) {
+                        self.isAnimating = true
+                    }
+                }
             
-            .onAppear {
-                isAnimating = false
-                withAnimation(.easeOut(duration: 0.5)) {
-                    self.isAnimating = true
-                }
-            }
-        }
+        
     }
     
 }

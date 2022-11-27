@@ -12,7 +12,6 @@ struct TabBarView: View {
     var body: some View {
         TabView(selection: $selected) {
             HomePestScreen()
-//                .toolbar(.hidden, for: .tabBar)
                 .tabItem({
                     Label("Kenali", image: "tabicon1")
                 })
@@ -24,11 +23,14 @@ struct TabBarView: View {
                 .tag(1)
             TrackerView()
                 .tabItem {
-                    Label("Obati", systemImage: "house")
+                    Label("Obati", image: "obati1")
                 }
                 .tag(2)
             
             
+        }
+        .onAppear{
+            UserDefaults.standard.set(false, forKey: "FirstTimeUser")
         }
     }
 }

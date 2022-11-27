@@ -57,7 +57,7 @@ struct PestResultView: View {
                     .padding()
                     
                     NavigationLink {
-                        PestResultDetailView(detectedPest: $detectedPest)
+                        PestResultDetailView(detectedPest: detectedPest)
                     } label: {
                         ZStack {
                            

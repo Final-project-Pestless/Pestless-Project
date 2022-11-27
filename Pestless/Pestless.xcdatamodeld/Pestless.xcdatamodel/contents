@@ -11,6 +11,10 @@
         <attribute name="pestImage" optional="YES" attributeType="Binary"/>
         <attribute name="pestName" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SavedBiopest" representedClassName="SavedBiopest" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES" codeGenerationType="class">
         <attribute name="biopestName" optional="YES" attributeType="String"/>
         <attribute name="dateStarted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -41,11 +41,11 @@ class SnappedPestViewModel: NSObject, NSFetchedResultsControllerDelegate, Observ
         }
     }
     
-    func save(id: UUID, imageData: Data) {
+    func save(id: UUID, imageData: Data, pestName: String) {
         let pestImage = PestImage(context: pestService.context)
         pestImage.imageId = UUID()
         pestImage.pestImage = imageData
-        pestImage.pestName = "pest"
+        pestImage.pestName = pestName
         
         pestService.saveChanges()
         self.fetch()

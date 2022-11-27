@@ -19,4 +19,7 @@ extension Color {
     static let grayText = Color("grayText")
     static let orangeColor = Color("orangeColor")
     static let segmented = Color("segmented")
+    static let homeGreen = Color("homeGreen")
+    static let homeYellow = Color("homeYellow")
+
 }
