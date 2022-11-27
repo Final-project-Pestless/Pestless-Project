@@ -19,17 +19,18 @@ struct SnappedHistory: View {
     //new
     @ObservedObject var viewModel = SnappedPestViewModel.shared
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(.horizontal, showsIndicators: false) {
             ForEach(pestImage, id: \.imageId) { saved in
                 VStack{
                     if saved.pestImage != nil {
                         Image(uiImage: UIImage(data: saved.pestImage ?? self.image)!)
                             .resizable()
                             .frame(width: 138, height: 166)
+                        Text(saved.pestName ?? "No name saved")
+                            .foregroundColor(.pestTitleGreen)
+                            .font(.system(.caption))
                     } else if saved.pestImage == nil {
                         Text("No saved data")
-                    } else {
-                        Text("error")
                     }
                 }
             }

@@ -15,14 +15,18 @@ struct HomePestScreen: View {
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(.cardGreen2)
+                            .fill(LinearGradient(
+                                gradient: .init(colors: [Color.homeGreen, Color.homeYellow]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            ))
                             .frame(width: 350, height: 400)
                         VStack(alignment: .leading){
-                            Text("Tanamanmu diserang hama?")
+                            Text("Hama apa yang sedang menyerang tanamanmu?")
                                 .bold()
                                 .font(.system(.title, design: .rounded))
                                 .foregroundColor(.white)
-                            Text("Tak perlu khawatir coba pindai")
+                            Text(" Yuk cari tahu!")
                                 .bold()
                                 .foregroundColor(.white)
                                 .font(.system(.title, design: .rounded))
@@ -30,18 +34,41 @@ struct HomePestScreen: View {
                             Spacer()
                             HStack{
                                 Spacer()
-                                NavigationLink {
-                                    CustomCameraView()
-                                        .toolbar(.hidden, for: .tabBar)
-                                        .navigationBarBackButtonHidden()
-                                } label: {
-                                    Text("Pindai")
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .frame(width: 90, height: 35)
+                                VStack{
+                                    NavigationLink {
+                                        PestSearchView()
+                                    } label: {
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(width: 180, height: 45)
                                                 .foregroundColor(.white)
                                                 .bold()
+                                            HStack{
+                                                Image(systemName: "magnifyingglass")
+                                                Text("Cari hama")
+                                            }
                                         }
+                                        
+                                    }
+                                    
+                                    NavigationLink {
+                                        CustomCameraView()
+                                            .toolbar(.hidden, for: .tabBar)
+                                            .navigationBarBackButtonHidden()
+                                    } label: {
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(width: 180, height: 45)
+                                                .foregroundColor(.white)
+                                                .bold()
+                                            
+                                            HStack{
+                                                Image(systemName: "camera.metering.spot")
+                                                Text("Pindai")
+                                                
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             .padding()
@@ -51,57 +78,43 @@ struct HomePestScreen: View {
                     }
                     .frame( width: 350, height: 400)
                     
-                    Text("Hama")
-                        .padding(.trailing, 280)
-                        .font(.system(.title2, design: .rounded))
+                    Text("Hama yang ditemukan")
+                        .padding(.trailing, 100)
+                        .font(.system(.title2, design: .rounded, weight: .semibold))
                         .foregroundColor(.pestTitleGreen)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
                             ForEach(PestList) { pest in
-                                VStack{
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .frame(width: 100, height: 150)
-                                            .foregroundColor(.yellowbg)
-                                        Image(pest.image[0])
+                                
+                                NavigationLink {
+                                    PestResultDetailView(detectedPest: pest)
+                                } label: {
+                                
+                                    VStack{
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .frame(width: 100, height: 150)
+                                                .foregroundColor(.yellowbg)
+                                            Image(pest.image[0])
+                                        }
+                                        Text(pest.name)
+                                            .padding(.leading, 20)
+                                            .font(.system(.caption, design: .rounded))
+                                            .bold()
+                                            .foregroundColor(.pestGreen)
                                     }
-                                    Text(pest.name)
-                                        .padding(.leading, 20)
-                                        .font(.system(.caption, design: .rounded))
-                                        .bold()
-                                        .foregroundColor(.pestGreen)
+                                    
                                 }
                             }
                         }
                     }
                     .padding(.leading)
-                        
                     
-                    //coba
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack{
-                            ForEach(pestControlList) { pest in
-                                VStack{
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .frame(width: 100, height: 150)
-                                            .foregroundColor(.yellowbg)
-//                                        Image(pest)
-                                    }
-                                    Text(pest.pest?.identity ?? "identity")
-                                        .padding(.leading, 20)
-                                        .font(.system(.caption, design: .rounded))
-                                        .bold()
-                                        .foregroundColor(.pestGreen)
-                                }
-                            }
-                        }
-                    }
                     Spacer()
                     
                 }
                 .navigationTitle("Hama")
-            .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

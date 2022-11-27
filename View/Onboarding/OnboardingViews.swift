@@ -10,17 +10,20 @@ import SwiftUI
 struct OnboardingViews: View {
     @State private var currentTab = 0
     var body: some View {
-        TabView(selection: $currentTab){
-            ForEach(OnboardingData.dataList) { data in
-                OnboardingView(data: data)
-                    .tag(data.id)
-                
+        NavigationView {
+            
+            
+            TabView(selection: $currentTab){
+                ForEach(OnboardingData.dataList) { data in
+                    OnboardingView(onboardingState: $currentTab, data: data)
+                        .tag(data.id)
+                    
+                }
             }
-            LoginView()
-                .tag(4)
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         }
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        
     }
 }
 

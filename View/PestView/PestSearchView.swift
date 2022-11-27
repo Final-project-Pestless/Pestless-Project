@@ -11,15 +11,15 @@ struct PestSearchView: View {
     let names = ["Holly", "Josh", "Rhonda", "Ted"]
    // var searchedBiopesticide: [PestData]
     @State private var searchText = ""
-
+    @State private var pestData: PestData?
     var body: some View {
         NavigationView {
             List {
                 
                 ForEach(searchResults) { pest in
-                    NavigationLink(destination: Text(pest.name)) {
-                        
-                        HStack {
+                    NavigationLink(destination:
+                    //Text(pest.name))
+                    PestResultDetailView(detectedPest: pest)) { HStack {
                             Image(pest.image[0])
                             VStack {
                                 Text(pest.name)
