@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		172729EF29353B8800F96643 /* DetailPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172729EE29353B8800F96643 /* DetailPlantView.swift */; };
+		172729F129355F5D00F96643 /* ListPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172729F029355F5C00F96643 /* ListPlantView.swift */; };
 		172CD913290F139000D9F471 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD912290F139000D9F471 /* Color+Extensions.swift */; };
 		172CD915290F13FD00D9F471 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD914290F13FD00D9F471 /* CameraService.swift */; };
 		172CD917290F141300D9F471 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD916290F141300D9F471 /* CameraView.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		172729EE29353B8800F96643 /* DetailPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlantView.swift; sourceTree = "<group>"; };
+		172729F029355F5C00F96643 /* ListPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlantView.swift; sourceTree = "<group>"; };
 		172CD912290F139000D9F471 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		172CD914290F13FD00D9F471 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		172CD916290F141300D9F471 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				172729EE29353B8800F96643 /* DetailPlantView.swift */,
+				172729F029355F5C00F96643 /* ListPlantView.swift */,
 			);
 			path = PlantView;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */,
 				9B9B71B2291E21EA006D0226 /* PestResultDetailView.swift in Sources */,
 				172729EF29353B8800F96643 /* DetailPlantView.swift in Sources */,
+				172729F129355F5D00F96643 /* ListPlantView.swift in Sources */,
 				17C53363291B5CAD00B67073 /* HomeView.swift in Sources */,
 				9B03593029252D92008521B0 /* PestResultView.swift in Sources */,
 			);

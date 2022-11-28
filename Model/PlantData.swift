@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PlantData : Identifiable{
-    var id : UUID = UUID()
+struct PlantData : Identifiable {
+    var id = UUID()
     var name: String
     var ideal: [String] = [""]
     var hama: [String] = [""]
@@ -17,6 +17,8 @@ struct PlantData : Identifiable{
     var pest: [PestData]?
     var biopesticide: [BiopesticideData]?
 }
+
+
 
 let plantList: [PlantData] = [
     PlantData(name: "Bayam",
