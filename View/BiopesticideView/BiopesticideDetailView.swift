@@ -9,35 +9,49 @@ import SwiftUI
 
 struct BiopesticideDetailView: View {
     var biopesticide: BiopesticideData
-    @State var selected: Int = 1
     @State private var preselectedIndex = 0
     
     var body: some View {
         VStack {
-            Image(biopesticide.image)
-                .resizable()
-                .frame(width: 275, height: 180)
-//            Text(biopesticide.name)
-//            ForEach(biopesticide.pest){ a in
-//                Text(a.name)
-//            }
-            
-            //segmented
-            CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
-                .frame(width: 350)
-                .padding(.top, 20)
-            Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
-                .padding(.bottom, 10)
-            
-            if preselectedIndex == 0 {
-                AboutView(biopesticide: biopesticide)
+            ScrollView (showsIndicators: false) {
+                VStack {
+                    Image(biopesticide.image)
+                        .resizable()
+                        .frame(width: 275, height: 180)
                     
-            } else if preselectedIndex == 1 {
-                RecipeView(biopesticide: biopesticide)
+                    CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
+                        .frame(width: 350)
+                    // .padding(.top, 20)
+                    Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
+                        .padding(.bottom, 10)
+                    
+                    if preselectedIndex == 0 {
+                        AboutView(biopesticide: biopesticide)
+                        
+                    } else if preselectedIndex == 1 {
+                        RecipeView(biopesticide: biopesticide)
+                    }
+                    
+                    
+                    
+                }.navigationTitle(biopesticide.name)
+                
             }
             
-            Spacer()
-        }.navigationTitle(biopesticide.name)
+            NavigationLink {
+                TrackerDetailView()
+            } label: {
+                ZStack {
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(width: 300, height: 45)
+                        .foregroundColor(.pestGreen)
+                    Text("Mulai Obati")
+                        .foregroundColor(.white)
+                }
+                
+            }.padding(.bottom, 15)
+        }
     }
 }
 
@@ -52,50 +66,43 @@ struct AboutView: View {
     @State private var pestData: PestData?
     
     var body: some View {
-        ScrollView (showsIndicators: false){
-            VStack{
-                Text("Efektif terhadap")
-                    .font(.system(size: 16))
-                    .font(.system(.callout, design: .rounded))
-                    .bold()
-                    //.foregroundColor(.pestTitleGreen)
-                    .frame(width: 350, height: 25, alignment: .leading)
-                   
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack{
-                        ForEach(biopesticide.pest) { pest in
-                            NavigationLink(destination: PestResultDetailView(detectedPest: pest)) {
-                                VStack{
-                                    Image(pest.image[0])
-                                        .resizable()
-                                        .frame(width: 100, height: 100)
-                                        .padding(.leading, 20)
-                                    
-                                    Text(pest.name)
-                                        .padding(.leading, 20)
-                                        .font(.system( size: 14, design: .rounded))
-                                        .bold()
-                                        .foregroundColor(.pestGreen)
-                                }
+        VStack{
+            Text("Efektif terhadap")
+                .bold()
+                .frame(width: 350, height: 25, alignment: .leading)
+                .foregroundColor(.pestGreen)
+               
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack{
+                    ForEach(biopesticide.pest) { pest in
+                        NavigationLink(destination: PestResultDetailView(detectedPest: pest)) {
+                            VStack{
+                                Image(pest.image[0])
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .padding(.leading, 20)
+                                
+                                Text(pest.name)
+                                    .padding(.leading, 20)
+                                    .font(.system(size: 14, design: .rounded))
+                                    .bold()
+                                    .foregroundColor(.pestGreen)
                             }
                         }
-                    }.padding(.bottom,10)
-                }
-                
-                Text("Cara Penggunaan")
-                    .font(.system(size: 16))
-                    .font(.system(.callout, design: .rounded))
-                    .bold()
-                    //.foregroundColor(.pestTitleGreen)
-                    .frame(width: 350, height: 25, alignment: .leading)
-                
-                Text(biopesticide.usage)
-                    .frame(width: 350, alignment: .leading)
-                    .padding(.vertical,5)
-                    //.background(.blue)
-                
+                    }
+                }.padding(.bottom,10)
             }
-        }
+            
+            Text("Cara Penggunaan")
+                .bold()
+                .frame(width: 350, height: 25, alignment: .leading)
+                .foregroundColor(.pestGreen)
+            
+            Text(biopesticide.usage)
+                .frame(width: 350, alignment: .leading)
+                .padding(.vertical,5)
+            
+        }.font(.system(size: 16, design: .rounded))
     }
 }
 
@@ -108,11 +115,9 @@ struct RecipeView: View {
     var body: some View {
         ScrollView (showsIndicators: false) {
             Text("Bahan yang diperlukan")
-                .font(.system(size: 16))
-                .font(.system(.callout, design: .rounded))
                 .bold()
-            //.foregroundColor(.pestTitleGreen)
                 .frame(width: 350, height: 25, alignment: .leading)
+                .foregroundColor(.pestGreen)
             
             ForEach(0..<biopesticide.ingredient.count){ i in
                 Text(biopesticide.ingredient[i])
@@ -121,30 +126,26 @@ struct RecipeView: View {
             }.padding(.leading,10)
             
             Text("Langkah Pengerjaan")
-                .font(.system(size: 16))
-                .font(.system(.callout, design: .rounded))
                 .bold()
-            //.foregroundColor(.pestTitleGreen)
                 .frame(width: 350, height: 25, alignment: .leading)
                 .padding(.top,15)
+                .foregroundColor(.pestGreen)
             
             ForEach(0..<biopesticide.instruction.count){ i in
                 VStack {
                     Section {
                         HStack{
                             Text("\(i+1).")
-                            // .padding(.horizontal, 5)
                                 .frame(width: 20)
                             Text(biopesticide.instruction[i])
                                 .frame(minHeight: 10)
-                            
                         }.frame(maxWidth: 350, alignment: .leading)
                         
                         Divider().frame(width: 340)
                     }
                 }
             }
-        }
+        }.font(.system(size: 16, design: .rounded))
     }
 }
 
@@ -168,11 +169,11 @@ struct CustomSegmentedControl: View {
                         .padding(2)
                         .opacity(isSelected ? 1 : 0.01)
                         .onTapGesture {
-                            withAnimation(.interactiveSpring(response: 0.1,
-                                                             dampingFraction: 2,
-                                                             blendDuration: 0.5)) {
+                           // withAnimation(.interactiveSpring(response: 0.1,
+                                                         //    dampingFraction: 2,
+                                                         //    blendDuration: 0.5)) {
                                 preselectedIndex = index
-                            }
+                         //   }
                         }
                 }
                 .overlay(
