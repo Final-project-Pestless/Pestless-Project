@@ -89,7 +89,7 @@ struct PestResultView: View {
                 }
                
             }
-            
+            .toolbar(.visible, for: .tabBar)
             .navigationTitle("Hasil")
         .navigationBarTitleDisplayMode(.inline)
 //        .navigationBarHidden(true)

@@ -21,7 +21,6 @@
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
 		9B074DDA290112FA00569B13 /* PestlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DD9290112FA00569B13 /* PestlessUITests.swift */; };
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
-		9B0D11DE292D269A00D462C8 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D11DD292D269A00D462C8 /* HistoryView.swift */; };
 		9B1AF925292F1697009815C8 /* PestControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF924292F1697009815C8 /* PestControl.swift */; };
 		9B1AF927292FAF69009815C8 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF926292FAF69009815C8 /* TrackerView.swift */; };
 		9B1AF9292931D9E7009815C8 /* TrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */; };
@@ -44,6 +43,7 @@
 		9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FCFA22928927900F53676 /* TabBarView.swift */; };
 		9B83DF6E292A1C29007EABAE /* CameraGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */; };
 		9B9B71B2291E21EA006D0226 /* PestResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */; };
+		9BBDE49F293467A90036C3C2 /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE49E293467A90036C3C2 /* HistoryDetailView.swift */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
 		BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */; };
@@ -89,7 +89,6 @@
 		9B074DD5290112FA00569B13 /* PestlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DD9290112FA00569B13 /* PestlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITests.swift; sourceTree = "<group>"; };
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9B0D11DD292D269A00D462C8 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		9B1AF924292F1697009815C8 /* PestControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestControl.swift; sourceTree = "<group>"; };
 		9B1AF926292FAF69009815C8 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		9B7FCFA22928927900F53676 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGuidanceView.swift; sourceTree = "<group>"; };
 		9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultDetailView.swift; sourceTree = "<group>"; };
+		9BBDE49E293467A90036C3C2 /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
 		BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PestClassifier_3.mlpackage; sourceTree = "<group>"; };
@@ -223,8 +223,8 @@
 		9B0D11DC292D265E00D462C8 /* HistoryView */ = {
 			isa = PBXGroup;
 			children = (
-				9B0D11DD292D269A00D462C8 /* HistoryView.swift */,
 				9B25987B291368C600E15B49 /* SnappedHistory.swift */,
+				9BBDE49E293467A90036C3C2 /* HistoryDetailView.swift */,
 			);
 			path = HistoryView;
 			sourceTree = "<group>";
@@ -521,10 +521,10 @@
 				9B259870290FCD7D00E15B49 /* SnappedLocalDataStore.swift in Sources */,
 				172CD915290F13FD00D9F471 /* CameraService.swift in Sources */,
 				9B1AF92E2931DEE6009815C8 /* TrackerRepository.swift in Sources */,
+				9BBDE49F293467A90036C3C2 /* HistoryDetailView.swift in Sources */,
 				9B1AF92C2931DE38009815C8 /* TrackerLocalDataStore.swift in Sources */,
 				9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */,
 				BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */,
-				9B0D11DE292D269A00D462C8 /* HistoryView.swift in Sources */,
 				9B259867290F5A5D00E15B49 /* Pest.swift in Sources */,
 				9B259862290F56B800E15B49 /* SnappedPestRepository.swift in Sources */,
 				BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */,

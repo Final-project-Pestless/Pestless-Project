@@ -31,7 +31,7 @@ struct CameraResultView: View {
          //   if isDetected {
                
 //            } else {
-                NavigationView{
+      //          NavigationView{
 
                 ZStack {
                     if image != nil {
@@ -39,26 +39,18 @@ struct CameraResultView: View {
                             HStack{
                                 Button {
                                     self.presentationMode.wrappedValue.dismiss()
+                                    image = nil
                                 } label: {
                                     Text("Ambil ulang")
                                 }
 
-//                                NavigationLink {
-//                                    CustomCameraView()
-//                                        .navigationBarBackButtonHidden()
-//                                } label: {
-//                                    Text("Retake")
-//                                }
                                 Spacer()
-                                
-                                //coba pake navigate
-                                
+                                                            
                                 ZStack {
                                     
                                     
                                     Button("Selesai") {
                                         
-//                                        imageViewModel.save(id: UUID(), imageData: image!, pestName:  )
                                         let cgImage = UIImage(data: image!)?.cgImage
                                         let pixel = cameraService.getCVPixelBuffer(cgImage!)
                                         let predict = try? model.prediction(image: pixel!)
@@ -66,7 +58,7 @@ struct CameraResultView: View {
                                         let pest = PestList.filter{$0.name == pestLabel}
                                         pestData = pest.first
                                         
-                                        imageViewModel.save(id: UUID(), imageData: image!, pestName: pestLabel)
+                                        
                                         if let output = predict {
                                             let results = output.classLabelProbs.sorted{ $0.1 > $1.1 }.prefix(1)
                                             let result = results.map { (key, value) in
@@ -81,25 +73,18 @@ struct CameraResultView: View {
                                             
                                             self.prediction = "\(result)\n"+"\(result2)"
                                             self.predictedPest = "\(result)"
+                                            imageViewModel.save(id: UUID(), imageData: image!, pestName: pestData!.name)
                                             
                                         }
                                         isDetected = true
                                     }
                                     NavigationLink("Next", isActive: $isDetected) {
                                         PestResultView(percentage: $percentagePrediction, detectedPest: $pestData, percentageDouble: $percentageDouble)
+                                            .toolbar(.visible, for: .tabBar)
                                         
                                     }
                                     .opacity(0)
                                 }
-                                
-                                //                                Spacer()
-                                
-                                //                                NavigationLink {
-                                //                                    PestResultView(percentage: $percentagePrediction, detectedPest: $pestData, percentageDouble: $percentageDouble)
-                                //                                    //    PestResultDetailView()
-                                //                                } label: {
-                                //                                    Text("Next")
-                                //                                }
                                 
                             }
                             .frame(width: 350)
@@ -113,23 +98,15 @@ struct CameraResultView: View {
                             
                         }
                     }
-                    //                else if selectedImage != nil {
-                    //                    Image(uiImage: UIImage(data: selectedImage!)!)
-                    //                        .resizable()
-                    //                        .scaledToFit()
-                    //                }
                     else {
                         Color(UIColor.systemBackground)
                     }
                     
                 }
+                .toolbar(.visible, for: .tabBar)
+                .navigationBarBackButtonHidden()
                 
-            }
-   //     }
-//        .alert("\(prediction)", isPresented: $isDetected) {
-//
-//                Text("Ok")
-//        }
+      //      }
         
     }
    
