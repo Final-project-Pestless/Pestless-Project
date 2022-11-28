@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TrackerDetailView: View {
-    @Binding var biopestName: String
+   
 
     var body: some View {
         VStack{
-            
+            Text("kuy")
         }
     }
 }

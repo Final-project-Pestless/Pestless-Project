@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TrackerView: View {
     @State var progress = 0.2
+    var searchedBiopesticide: [BiopesticideData] = biopesticideList
     var body: some View {
         NavigationView{
             VStack {
@@ -57,6 +58,35 @@ struct TrackerView: View {
                 }
                 .frame(width: 350, height: 100)
                 Spacer()
+                VStack{
+                    Text("Biopestisida")
+                        .font(.system(size: 16))
+                        .font(.system(.callout, design: .rounded))
+                        .bold()
+                        .foregroundColor(.pestTitleGreen)
+                        .padding(.trailing, 240)
+                        .padding(.vertical)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack{
+                            ForEach(searchedBiopesticide) { biop in
+                                NavigationLink( destination: BiopesticideDetailView(biopesticide: biop)) {
+                                    VStack{
+                                        Image(biop.image)
+                                            .resizable()
+                                            .frame(width: 120, height: 140)
+                                        
+                                        //    }
+                                        Text(biop.name)
+                                            .font(.system(.caption, design: .rounded))
+                                            .bold()
+                                            .foregroundColor(.pestGreen)
+                                    }
+                                }
+                            }
+                            
+                        }.padding(.leading,20)
+                    }
+                }
                 
                 
             }
