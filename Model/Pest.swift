@@ -20,7 +20,7 @@ let PestList: [PestData] = [
              eat: "Daun, rumput, bunga, dan buah",
              plant: "jagung, padi, tomat, bawang",
              preventive: ["Cabut ulat dari tanaman Anda dan masukkan ke dalam ember berisi air sabun.", "Waspadai tanaman Anda dan cari telur, serta ulat.","Letakkan karton atau kertas timah di pangkal tanaman Anda untuk mengusir ulat.","Tawon parasit adalah pemangsa ulat sebagai sarang telurnya."],
-             image: ["thistle"]
+             image: ["thistlecaterpillar"]
 //            , biopests: [BiopesticideList[4]]
             ),
     PestData(name: "kutuDaun",
@@ -29,7 +29,7 @@ let PestList: [PestData] = [
              eat: "",
              plant: "Kentang, lada, kol, bayam, terong, tomat, semangka, dan mentimun",
              preventive: ["Periksa tanaman secara teratur sepanjang musim tanam.","Bersihkan gulma dari kebun untuk mengurangi potensi serangan kutu daun.","Anda dapat menggunakan semprotan air yang kuat dari selang taman. Ini juga akan membantu membersihkan embun madu atau jamur jelaga yang mungkin ada.","Musuh alami kutu daun diantaranya kepik, lacewings, larva lalat syrphid, dan tawon parasit."],
-             image: ["arphid"]
+             image: ["aphid"]
 //             biopests: [BiopesticideList[0], BiopesticideList[1]]
             ),
     

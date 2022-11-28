@@ -20,8 +20,11 @@ struct PestSearchView: View {
                     //Text(pest.name))
                     PestResultDetailView(detectedPest: pest)) { HStack {
                             Image(pest.image[0])
+                            .resizable()
+                            .frame(width: 60, height: 60)
                             VStack {
                                 Text(pest.name)
+                                
                             }
                         }
                     }

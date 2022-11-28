@@ -53,8 +53,9 @@ struct HomePestScreen: View {
                                     
                                     NavigationLink {
                                         CustomCameraView()
-                                            .toolbar(.hidden, for: .tabBar)
+//                                            .toolbar(.hidden, for: .tabBar)
                                             .navigationBarBackButtonHidden()
+//                                            .ignoresSafeArea()
                                     } label: {
                                         ZStack{
                                             RoundedRectangle(cornerRadius: 10)

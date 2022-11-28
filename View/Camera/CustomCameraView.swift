@@ -20,7 +20,7 @@ struct CustomCameraView: View {
     @State var isShown: Bool = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        NavigationView {
+   //     NavigationView {
             ZStack {
                 CameraView(cameraService: cameraService) { result in
                     switch result {
@@ -42,6 +42,7 @@ struct CustomCameraView: View {
                     HStack {
                         Button {
                             self.presentationMode.wrappedValue.dismiss()
+                            capturedData = nil
                         } label: {
                             Image(systemName: "xmark")
                                 .padding(.top, 20)
@@ -100,6 +101,11 @@ struct CustomCameraView: View {
                                     .foregroundColor(.white)
                             })
                             
+                           NavigationLink("", destination: CameraResultView(image: $capturedData)                                .navigationBarBackButtonHidden()
+
+                                          , isActive: $isCaptured)
+
+                            
                         }
                         .padding(.trailing, 40)
                         Spacer()
@@ -124,12 +130,12 @@ struct CustomCameraView: View {
                     .background(BackgroundClearView())
             })
             .navigationBarBackButtonHidden(true)
-            .fullScreenCover(isPresented: $isCaptured) {
-                CameraResultView(image: $capturedData)
-                
-            
-        }
-        }
+//            .fullScreenCover(isPresented: $isCaptured) {
+//                CameraResultView(image: $capturedData)
+//
+//
+//        }
+     //   }
     }
 }
 struct CustomCameraView_Previews: PreviewProvider {

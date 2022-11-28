@@ -18,40 +18,41 @@ struct SnappedHistory: View {
     
     //new
     @ObservedObject var viewModel = SnappedPestViewModel.shared
+    
+    //new
+    let layout = [
+        GridItem(.adaptive(minimum:150))
+    ]
+    
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            ForEach(pestImage, id: \.imageId) { saved in
-                VStack{
-                    if saved.pestImage != nil {
-                        Image(uiImage: UIImage(data: saved.pestImage ?? self.image)!)
-                            .resizable()
-                            .frame(width: 138, height: 166)
-                        Text(saved.pestName ?? "No name saved")
-                            .foregroundColor(.pestTitleGreen)
-                            .font(.system(.caption))
-                    } else if saved.pestImage == nil {
-                        Text("No saved data")
+        NavigationView {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: layout) {
+                    ForEach(pestImage, id: \.imageId) { saved in
+                        NavigationLink {
+                            HistoryDetailView(image: saved.pestImage, name: saved.pestName!)
+                        } label: {
+                            VStack{
+                                if saved.pestImage != nil {
+                                    Image(uiImage: UIImage(data: saved.pestImage ?? self.image)!)
+                                        .resizable()
+                                        .frame(width: 135, height: 240)
+                                    Text(saved.pestName ?? "No name saved")
+                                        .foregroundColor(.pestTitleGreen)
+                                        .font(.system(.caption))
+                                        .bold()
+                                } else if saved.pestImage == nil {
+                                    Text("No saved data")
+                                }
+                            }
+                        }
                     }
                 }
             }
-
+            .navigationTitle("Riwayat")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("Riwayat")
-//        NavigationView {
-//            if viewModel.pestArray.count == 0 {
-//                VStack {
-//                    Text("No saved image")
-//                }
-//            } else {
-//                ScrollView{
-//                    ForEach(viewModel.pestArray, id: \.imageId) { image in
-//                        Image(uiImage: UIImage(data: image.pestImage!)!)
-//                            .resizable()
-//                            .frame(width: 300, height: 300)
-//                    }
-//                }
-//            }
-//        }
+      
         .onAppear{
             viewModel.fetch()
         }
