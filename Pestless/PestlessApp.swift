@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct PestlessApp: App {
+    @Environment(\.managedObjectContext) var managedObjectContext
     let persistenceController = PersistenceController.shared
     @AppStorage("FirstTimeUser") var firstTimeUser: Bool = true
 //    @UserDefaults var firstTimeUser = true

@@ -19,77 +19,93 @@ struct TrackerView: View {
     var body: some View {
         NavigationView{
             VStack {
-                Text("Catat progres pemberian biopestisidamu disini")
+                Text("Catat progres pemberian biopestisidamu")
                     .foregroundColor(.pestTitleGreen)
+                    .bold()
                     .padding()
                 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(LinearGradient(
-                            gradient: .init(colors: [Color.cardGreen1, Color.cardGreen2]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        ))
-                        .frame(width: 350, height: 100)
+                NavigationLink {
+                    TrackerDetailView()
+                } label: {
                     
-                    HStack{
-                        VStack(alignment: .leading){
-                            Text("Ekstrak bawang putih")
-                                .font(.system(.headline, design: .rounded))
-                            
-                            Text("Kutu daun")
-                                .font(.system(.body, design: .rounded))
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        ZStack{
-                            ProgressView(value: progress, total: 1.0)
-                                .progressViewStyle(GaugeProgressStyle())
-                                .frame(width: 50, height: 50)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    if progress < 1.0 {
-                                        withAnimation {
-                                            progress += 0.1
+                    
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(LinearGradient(
+                                gradient: .init(colors: [Color.cardGreen1, Color.cardGreen2]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            ))
+                            .frame(width: 350, height: 100)
+                        
+                        HStack{
+                            VStack(alignment: .leading){
+                                Text("Ekstrak bawang putih")
+                                    .font(.system(.headline, design: .rounded))
+                                
+                                Text("Kutu daun")
+                                    .font(.system(.body, design: .rounded))
+                            }
+                            .padding(.leading)
+                            Spacer()
+                            ZStack{
+                                ProgressView(value: progress, total: 1.0)
+                                    .progressViewStyle(GaugeProgressStyle())
+                                    .frame(width: 50, height: 50)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        if progress < 1.0 {
+                                            withAnimation {
+                                                progress += 0.1
+                                            }
                                         }
                                     }
-                                }
-                            Text("1/14")
-                        }
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.pestGreen)
-                            .bold()
-                            .font(.system(size: 24))
-                    }
-                }
-                .frame(width: 350, height: 100)
-                
-                Text("Resep tersimpan")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack{
-                        ForEach(bookmarkedBiopest, id: \.id) { bio in
-                            NavigationLink {
-                                //  BiopesticideDetailView(biopesticide: bio)
-                            } label: {
-                                VStack{
-//                                    Image(bio.image!)
-//                                        .resizable()
-//                                        .frame(width: 120, height: 140)
-                                    
-                                
-                                    Text(bio.name!)
-                                        .font(.system(.caption, design: .rounded))
-                                        .bold()
-                                        .foregroundColor(.pestGreen)
-                                }
+                                Text("1/14")
                             }
-                            
-                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.pestGreen)
+                                .bold()
+                                .font(.system(size: 24))
+                                .padding(.trailing)
                         }
                     }
+                    .frame(width: 350, height: 100)
                 }
-                Spacer()
-                VStack{
+                VStack(alignment: .leading) {
+                    
+                    
+                    Text("Resep tersimpan")
+                        .foregroundColor(.pestTitleGreen)
+                        .bold()
+
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            ForEach(bookmarkViewModel.biopestArray, id: \.id) { bio in
+                                let biopest = biopesticideList.filter{$0.name == bio.name}
+                                NavigationLink {
+                                    BiopesticideDetailView(biopesticide: biopest.first!)
+                                } label: {
+                                    VStack{
+                                        Image(bio.image ?? "Bawang putih")
+                                            .resizable()
+                                            .frame(width: 120, height: 140)
+                                        
+                                        
+                                        Text(bio.name!)
+                                            .font(.system(.caption, design: .rounded))
+                                            .bold()
+                                            .foregroundColor(.grayText)
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                       
+                    }
+              
+            
                     Text("Biopestisida")
                         .font(.system(size: 16))
                         .font(.system(.callout, design: .rounded))
@@ -110,19 +126,21 @@ struct TrackerView: View {
                                         Text(biop.name)
                                             .font(.system(.caption, design: .rounded))
                                             .bold()
-                                            .foregroundColor(.pestGreen)
+                                            .foregroundColor(.grayText)
                                     }
                                 }
                             }
                             
-                        }.padding(.leading,20)
-                    }
-                }
+                        }                    }
                 
-                
+                } .padding(.leading,20)
+                Spacer()
             }
             .navigationTitle("Progres")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear{
+            bookmarkViewModel.fetch()
         }
     }
 }
