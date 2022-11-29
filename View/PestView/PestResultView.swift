@@ -70,20 +70,21 @@ struct PestResultView: View {
                     }
                     .padding(.bottom, 25)
                     NavigationLink {
+                        TabBarView()
+                            .navigationBarBackButtonHidden()
+                            .toolbar(.hidden, for: .tabBar)
 //                        CustomCameraView()
 //                            .navigationBarBackButtonHidden()
 //                            .animation(.linear)
                     } label: {
-                        Text("Tidak yakin?")
-                            .foregroundColor(.pestTitleGreen)
-                            .background {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 300, height: 45)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .pestTitleGreen ,radius: 3)
-                                    
-                                
-                            }
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 300, height: 45)
+                                .foregroundColor(.white)
+                                .shadow(color: .pestTitleGreen ,radius: 3)
+                            Text("Tidak yakin?")
+                                .foregroundColor(.pestTitleGreen)
+                        }
                     }
                     
                 }

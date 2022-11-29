@@ -39,10 +39,10 @@ class BiopestBookmarkViewModel: NSObject,NSFetchedResultsControllerDelegate, Obs
     }
     
     func save(biopest: BiopesticideData) {
-        let biopestBookmark = SavedBiopest(context: biopestBookmarkProvider.context)
+        var biopestBookmark = SavedBiopest(context: biopestBookmarkProvider.context)
         biopestBookmark.id = UUID()
         biopestBookmark.name = biopest.name
-        
+        biopestBookmark.image = biopest.image
         PersistenceController.shared.save()
         self.biopestExist.toggle()
         

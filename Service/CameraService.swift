@@ -83,7 +83,14 @@ class CameraService {
         
     }
     
-    
+    func stopSession() {
+           if let videoSession = session {
+               if videoSession.isRunning {
+                   videoSession.stopRunning()
+               }
+           }
+       }
+       
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let data = photo.fileDataRepresentation() else{
             return

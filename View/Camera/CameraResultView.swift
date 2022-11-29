@@ -103,6 +103,9 @@ struct CameraResultView: View {
                     }
                     
                 }
+//                .onAppear{
+//                    cameraService.stopSession()
+//                }
                 .toolbar(.visible, for: .tabBar)
                 .navigationBarBackButtonHidden()
                 
