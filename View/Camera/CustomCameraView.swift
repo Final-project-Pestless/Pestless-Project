@@ -51,20 +51,6 @@ struct CustomCameraView: View {
                                 .foregroundColor(.white)
                         }
 
-//                        NavigationLink {
-//                            withAnimation(.spring()){
-//                                TabBarView()
-//                                    .transition(.move(edge: .top))
-//                                    .navigationBarBackButtonHidden()
-//                            }
-//                                } label: {
-//                            Image(systemName: "xmark")
-//                                .padding(.top, 20)
-//                                .padding(.leading, 20)
-//                                .font(.system(size: 30))
-//                                .foregroundColor(.white)
-//                        }
-                        
                         Spacer()
                       
                     }
@@ -95,6 +81,7 @@ struct CustomCameraView: View {
                             Button( action: {
                                 cameraService.capturePhoto()
                                 isCaptured = true
+//                                cameraService.stopSession()
                             }, label: {
                                 Image(systemName: "circle")
                                     .font(.system(size: 72))
@@ -117,10 +104,12 @@ struct CustomCameraView: View {
                             if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                 capturedData = data
                                 isCaptured = true
+//                                cameraService.stopSession()
 
                             }
                         }
                     }
+                    
                     
                     
                 }

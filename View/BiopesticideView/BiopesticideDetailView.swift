@@ -9,8 +9,10 @@ import SwiftUI
 
 struct BiopesticideDetailView: View {
     var biopesticide: BiopesticideData
+    @ObservedObject var bookmarViewModel = BiopestBookmarkViewModel.shared
     @State private var preselectedIndex = 0
-    
+    @State var isTracker = false
+    @State var saved = false
     var body: some View {
         VStack {
             ScrollView (showsIndicators: false) {
@@ -38,8 +40,8 @@ struct BiopesticideDetailView: View {
                 
             }
             
-            NavigationLink {
-                TrackerDetailView()
+            Button {
+                isTracker = true
             } label: {
                 ZStack {
                     
@@ -50,7 +52,31 @@ struct BiopesticideDetailView: View {
                         .foregroundColor(.white)
                 }
                 
-            }.padding(.bottom, 15)
+            }
+            .padding(.bottom, 15)
+
+        }
+        .toolbar(content: {
+            ToolbarItem(placement:.navigationBarTrailing) {
+                Button {
+                    bookmarViewModel.save(biopest: biopesticide)
+                    saved.toggle()
+                } label: {
+                    if saved {
+                        Image(systemName: "bookmark.fill")
+                            .foregroundColor(.segmented)
+                    } else {
+                        Image(systemName: "bookmark")
+                    }
+                    
+                        
+                        
+                }
+
+            }
+        })
+        .sheet(isPresented: $isTracker) {
+//            TrackerForm(, plantName: <#String#>)
         }
     }
 }

@@ -1,42 +1,28 @@
 //
-//  Tracker.swift
+//  TrackerLocalDataStore.swift
 //  Pestless
 //
 //  Created by Local Administrator on 26/11/22.
 //
 
 import Foundation
-import CoreData
 
-class TrackerRepository: TrackerLocalDataStrore {
-  
-    
-  
-    
-    private let persistenceController: PersistenceController
-    private let container = PersistenceController.shared.container
-    
-    init(persistenceController: PersistenceController) {
-        self.persistenceController = persistenceController
-    }
-
-    func createTracker() -> Tracking {
-        let newTracker = Tracking(context: container.viewContext)
-        newTracker.id = UUID.init()
-        newTracker.dateStarted = Date()
-        return newTracker
-    }
-    
-    func saveTracker() {
-        try? self.container.viewContext.save()
-    }
-
-    func rollBack() {
-        self.container.viewContext.rollback()
-    }
-    //
-    //    func getTrackerByUserId(userId: String) throws -> [Tracking] {
-    //        <#code#>
-    //    }
-        
+protocol TrackerRepository{
+    func createTracker(data: TrackerData) -> Tracking
+    func getTrackerByUserId(userId: UUID) -> [Tracking]?
+    func saveTracker()
+    func rollBack()
+}
+//
+//func getAcneLogsByUserID(userID: String) throws -> [AcneLog]?
+//func createNewAcneLog() -> AcneLog
+//func saveChanges()
+//func rollBack()
+class TrackerData {
+    var userId: UUID?
+    var biopestName: String = ""
+    var pestName: String = ""
+    var plantName: String = ""
+    var dateStarted: Date?
+    var dateDone: Date?
 }

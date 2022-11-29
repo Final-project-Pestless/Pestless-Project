@@ -10,6 +10,12 @@ import SwiftUI
 struct TrackerView: View {
     @State var progress = 0.2
     var searchedBiopesticide: [BiopesticideData] = biopesticideList
+    @ObservedObject var bookmarkViewModel = BiopestBookmarkViewModel.shared
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [
+        NSSortDescriptor(keyPath: \SavedBiopest.id, ascending: true)
+    ])
+    private var bookmarkedBiopest: FetchedResults<SavedBiopest>
     var body: some View {
         NavigationView{
             VStack {
@@ -57,6 +63,31 @@ struct TrackerView: View {
                     }
                 }
                 .frame(width: 350, height: 100)
+                
+                Text("Resep tersimpan")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack{
+                        ForEach(bookmarkedBiopest, id: \.id) { bio in
+                            NavigationLink {
+                                //  BiopesticideDetailView(biopesticide: bio)
+                            } label: {
+                                VStack{
+//                                    Image(bio.image!)
+//                                        .resizable()
+//                                        .frame(width: 120, height: 140)
+                                    
+                                
+                                    Text(bio.name!)
+                                        .font(.system(.caption, design: .rounded))
+                                        .bold()
+                                        .foregroundColor(.pestGreen)
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                }
                 Spacer()
                 VStack{
                     Text("Biopestisida")
@@ -111,9 +142,9 @@ struct GaugeProgressStyle: ProgressViewStyle {
         }
     }
 }
-
-struct TrackerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrackerView()
-    }
-}
+//
+//struct TrackerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TrackerView()
+//    }
+//}
