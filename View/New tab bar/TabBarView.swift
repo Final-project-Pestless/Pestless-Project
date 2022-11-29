@@ -26,8 +26,6 @@ struct TabBarView: View {
                     Label("Obati", image: "obati1")
                 }
                 .tag(2)
-            
-            
         }
         .onAppear{
             UserDefaults.standard.set(false, forKey: "FirstTimeUser")

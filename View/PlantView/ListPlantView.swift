@@ -43,16 +43,17 @@ struct CardPlantView: View {
 
 struct ListPlantView: View {
     var plants: PlantData
+
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(0..<plantList.count) { i in
-                    NavigationLink(destination: DetailPlantView(plants: plants), label: {
-                        CardPlantView(plants: plantList[i])
-                    })
+                List {
+                    ForEach(plantList) { plant in
+                        NavigationLink(destination: DetailPlantView(plants: plants), label: {
+                            CardPlantView(plants: plant)
+                        })
+                    }
                 }
-            }
             
         }
         .navigationTitle("Lists")
