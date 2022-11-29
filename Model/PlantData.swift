@@ -24,7 +24,7 @@ let plantList: [PlantData] = [
     PlantData(name: "Bayam",
               ideal: ["• Tanaman bayam membutuhkan sinar matahari yang cukup dengan intensitas 70-90% setiap harinya", "• Lakukan juga penyiraman setiap 2 kali sehari saat pagi dan sore"],
               hama: ["• Ulat Daun", "• Belalang", "• Kutu Daun", "• Bekicot/Siput"],
-              pestControl: ["• Memotong bagian daun yang sudah di serang hama", "• Menggunakan musuh alami hama", "• enggoyangkan bayam untuk menjatuhkan hama"],
+              pestControl: ["• Memotong bagian daun yang sudah di serang hama", "• Menggunakan musuh alami hama", "• Menggoyangkan bayam untuk menjatuhkan hama"],
               image: "bayam"
              ),
     PlantData(name: "Selada",

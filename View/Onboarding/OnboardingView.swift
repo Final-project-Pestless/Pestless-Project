@@ -19,66 +19,69 @@ struct OnboardingData: Hashable, Identifiable {
 struct OnboardingView: View {
     @Binding var onboardingState: Int
     @State private var isAnimating: Bool = false
- 
+    
     var data: OnboardingData
     var body: some View {
-
-                VStack{
-                    NavigationLink {
-                        TabBarView()
-                            .navigationBarBackButtonHidden()
-                    } label: {
-                        Text("Skip")
-                            .foregroundColor(.black)
-                            .bold()
-                    }
-                    .padding(.leading, 300)
-                    
-                    
+        
+        VStack{
+            NavigationLink {
+                TabBarView()
+                    .navigationBarBackButtonHidden()
+            } label: {
+                Text("Skip")
+                    .foregroundColor(.black)
+                    .bold()
+            }
+            .padding(.leading, 300)
+            
+            
+            ZStack{
+                
+                Image("awan")
+                    .resizable()
+                
+                    .frame(width: 390, height: 286)
+                    .foregroundColor(Color("green2"))
+                
+                Image(data.image)
+            }
+            .padding(.bottom, 100)
+            .padding(.top, 30)
+            Text(data.text)
+                .padding()
+                .frame(width: 400)
+                .multilineTextAlignment(.center)
+            
+            if onboardingState == 1 {
+                NavigationLink {
+                    TabBarView()
+                        .navigationBarBackButtonHidden()
+                } label: {
                     ZStack{
                         
-                        Image("awan")
-                            .resizable()
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.pestTitleGreen)
+                            .frame(width: 300, height: 45)
+                        Text("Mulai")
+                            .foregroundColor(.white)
+                            .bold()
                         
-                            .frame(width: 390, height: 286)
-                            .foregroundColor(Color("green2"))
                         
-                        Image(data.image)
                     }
-                    .padding(.bottom, 100)
-                    .padding(.top, 30)
-                    Text(data.text)
-                        .padding()
-                        .frame(width: 400)
-                        .multilineTextAlignment(.center)
-                    
-                    if onboardingState == 1 {
-                        NavigationLink {
-                            TabBarView()
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                            Text("Mulai")
-                                .foregroundColor(.white)
-                                .bold()
-                                .background {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundColor(.pestTitleGreen)
-                                        .frame(width: 300, height: 45)
-                                }
-                        }
-                        .padding(.top, 100)
-
-                    }
-                    Spacer()
                 }
+                .padding(.top, 100)
                 
-                .onAppear {
-                    isAnimating = false
-                    withAnimation(.easeOut(duration: 0.5)) {
-                        self.isAnimating = true
-                    }
-                }
-            
+            }
+            Spacer()
+        }
+        
+        .onAppear {
+            isAnimating = false
+            withAnimation(.easeOut(duration: 0.5)) {
+                self.isAnimating = true
+            }
+        }
+        
         
     }
     

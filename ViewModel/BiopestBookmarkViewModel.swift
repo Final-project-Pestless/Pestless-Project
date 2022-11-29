@@ -20,8 +20,7 @@ class BiopestBookmarkViewModel: NSObject,NSFetchedResultsControllerDelegate, Obs
         self.fetchedResultController = NSFetchedResultsController(fetchRequest: biopestBookmarkProvider.fetchRequest, managedObjectContext: biopestBookmarkProvider.context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
-    func checkGame(id: UUID) {
-        self.biopestExist = false
+    func checkBiopest(id: Int) {
         let context = biopestBookmarkProvider.context
         
         do {
@@ -39,20 +38,23 @@ class BiopestBookmarkViewModel: NSObject,NSFetchedResultsControllerDelegate, Obs
     }
     
     func save(biopest: BiopesticideData) {
-        var biopestBookmark = SavedBiopest(context: biopestBookmarkProvider.context)
-        biopestBookmark.id = UUID()
+        
+        let biopestBookmark = SavedBiopest(context: biopestBookmarkProvider.context)
+        biopestBookmark.id = Int32(biopest.id)
         biopestBookmark.name = biopest.name
         biopestBookmark.image = biopest.image
+        
         PersistenceController.shared.save()
-        self.biopestExist.toggle()
+        self.biopestExist = true
+        self.fetch()
         
     }
     
-    func deleteBiopest(id: UUID) {
+    func deleteBiopest(id: Int) {
         let context = biopestBookmarkProvider.context
         do {
             try context.delete(context.fetch(biopestBookmarkProvider.checkResult(id: id)).first!)
-            self.biopestExist.toggle()
+            self.biopestExist = false
             self.fetch()
         } catch {
             print(error)

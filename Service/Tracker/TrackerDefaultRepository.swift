@@ -13,7 +13,7 @@ class TrackerDefaultRepository: TrackerRepository {
     
     private let trackerLocalData: TrackerLocalDataStore
     
-    init(trackerLocalData: TrackerLocalDefaultDataStore) {
+    init(trackerLocalData: TrackerLocalDataStore = TrackerLocalDefaultDataStore() ) {
         self.trackerLocalData = trackerLocalData
     }
     

@@ -26,12 +26,11 @@ class BiopestBookmarkProvider {
     var context : NSManagedObjectContext {
         persistenceController.container.viewContext
     }
-    func checkResult(id: UUID) -> NSFetchRequest<SavedBiopest> {
+    func checkResult(id: Int) -> NSFetchRequest<SavedBiopest> {
         
         let fetchRequest: NSFetchRequest<SavedBiopest> = SavedBiopest.fetchRequest()
         fetchRequest.fetchLimit = 1
-        
-    //    fetchRequest.predicate = NSPredicate(format: "id == %d", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
         
         return fetchRequest
     }

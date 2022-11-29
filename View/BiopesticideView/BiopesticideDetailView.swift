@@ -56,11 +56,22 @@ struct BiopesticideDetailView: View {
             .padding(.bottom, 15)
 
         }
+        .onAppear{
+            bookmarViewModel.fetch()
+        }
         .toolbar(content: {
             ToolbarItem(placement:.navigationBarTrailing) {
+                
                 Button {
-                    bookmarViewModel.save(biopest: biopesticide)
-                    saved.toggle()
+                    bookmarViewModel.checkBiopest(id: biopesticide.id)
+                    if bookmarViewModel.biopestExist {
+                        bookmarViewModel.deleteBiopest(id: biopesticide.id)
+                    } else {
+
+                        bookmarViewModel.save(biopest: biopesticide)
+                    }
+                    bookmarViewModel.fetch()
+//
                 } label: {
                     if saved {
                         Image(systemName: "bookmark.fill")
@@ -76,7 +87,7 @@ struct BiopesticideDetailView: View {
             }
         })
         .sheet(isPresented: $isTracker) {
-//            TrackerForm(, plantName: <#String#>)
+            
         }
     }
 }

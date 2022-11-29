@@ -297,8 +297,8 @@
 		9B259860290F56A400E15B49 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				9B3779C4293653E800C867CA /* CameraService */,
 				9B1AF933293321A3009815C8 /* BiopestBookmarkProvider */,
-				172CD914290F13FD00D9F471 /* CameraService.swift */,
 				9B1AF92A2931DE1C009815C8 /* Tracker */,
 				9B460741291A3EA6004CD2B1 /* PestImage */,
 			);
@@ -314,6 +314,14 @@
 				9B1AF924292F1697009815C8 /* PestControl.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9B3779C4293653E800C867CA /* CameraService */ = {
+			isa = PBXGroup;
+			children = (
+				172CD914290F13FD00D9F471 /* CameraService.swift */,
+			);
+			path = CameraService;
 			sourceTree = "<group>";
 		};
 		9B46073E291A3BEA004CD2B1 /* PestView */ = {
