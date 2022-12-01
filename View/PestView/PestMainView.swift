@@ -12,9 +12,9 @@ struct PestMainView: View {
     
     var searchedPest: [PestData] {
         if searchPest.count == 0 {
-            return PestList
+            return pestList
         } else {
-            return PestList.filter{$0.name.lowercased().contains(searchPest.lowercased())}
+            return pestList.filter{$0.name.lowercased().contains(searchPest.lowercased())}
         }
     }
     
@@ -65,7 +65,7 @@ struct PestMainView: View {
                         .padding(.vertical)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
-                            ForEach(PestList) { pest in
+                            ForEach(pestList) { pest in
                                 VStack(alignment: .center){
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 16)

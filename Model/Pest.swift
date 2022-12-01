@@ -13,7 +13,7 @@ struct PestData: Identifiable {
     
 }
 
-let PestList: [PestData] = [
+let pestList: [PestData] = [
     PestData(name: "ulat",
              description: "Ulat ini biasanya memakan daun pada tanaman, jika sudah berusia matang, ulat ini akan bertransformasi menjadi kupu-kupu",
              identity: "Warna tubuh ulat ini berkisar dari putih krem ​​hingga abu-abu kecokelatan dan juga dapat memiliki garis kuning di bagian atas tubuh. Ulat thistle dewasa memiliki panjang tubuh berkisar antara 1/5-1,75 inci",

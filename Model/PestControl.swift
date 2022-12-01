@@ -14,15 +14,15 @@ struct PestControl: Identifiable {
 }
 
 let pestControlList: [PestControl] = [
-    PestControl(pest: PestList[0],
+    PestControl(pest: pestList[0],
                 biopest: [biopesticideList[5]]),
-    PestControl(pest: PestList[1],
+    PestControl(pest: pestList[1],
                 biopest: [biopesticideList[1],biopesticideList[7]]),
-    PestControl(pest: PestList[2],
+    PestControl(pest: pestList[2],
                 biopest: [biopesticideList[1],biopesticideList[2],biopesticideList[3],biopesticideList[4]]),
-    PestControl(pest: PestList[3],
+    PestControl(pest: pestList[3],
                 biopest: [biopesticideList[0]]),
-    PestControl(pest: PestList[4],
+    PestControl(pest: pestList[4],
                 biopest: [biopesticideList[1],biopesticideList[3],biopesticideList[6]]),
 
 //    PestControl(pest: PestList[0], biopest: [biopesticideList[1], biopesticideList[4]]),

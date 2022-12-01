@@ -38,9 +38,9 @@ struct PestSearchView: View {
 
     var searchResults: [PestData] {
         if searchText.isEmpty {
-            return PestList
+            return pestList
         } else {
-            return PestList.filter{$0.name.lowercased().contains(searchText.lowercased())}
+            return pestList.filter{$0.name.lowercased().contains(searchText.lowercased())}
         }
     }
 //    var searchedPest: [PestData] {
