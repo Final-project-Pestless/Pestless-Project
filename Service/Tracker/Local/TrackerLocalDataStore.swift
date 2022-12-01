@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import CoreData
 
 protocol TrackerLocalDataStore {
-    func getTrackerbyUserId(userId: UUID) throws -> [Tracking]?
-    func createNewLog(pestName: String, bioName: String, plant: String) -> Tracking
+//    func getTrackerbyUserId(userId: UUID) throws -> [Tracking]?
+    func createTracker(data: TrackerData) -> Tracking
+//    func applyBiopest(data: TrackerData) -> Tracking
+    func getTracking(id: UUID) throws -> [Tracking]?
     func saveChanges()
     func rollBack()
 }

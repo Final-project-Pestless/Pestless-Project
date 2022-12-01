@@ -9,9 +9,10 @@ import Foundation
 
 protocol TrackerRepository{
     func createTracker(data: TrackerData) -> Tracking
-    func getTrackerByUserId(userId: UUID) -> [Tracking]?
+    func getTracker(id: UUID) -> [Tracking]?
+    func applyBiopest(data: Tracking) -> Tracking
     func saveTracker()
-    func rollBack()
+    func cancelChanges()
 }
 //
 //func getAcneLogsByUserID(userID: String) throws -> [AcneLog]?
@@ -19,10 +20,13 @@ protocol TrackerRepository{
 //func saveChanges()
 //func rollBack()
 class TrackerData {
-    var userId: UUID?
+    var id: UUID?
     var biopestName: String = ""
     var pestName: String = ""
     var plantName: String = ""
+    var dateMade: Date?
     var dateStarted: Date?
     var dateDone: Date?
+    var appliedDay: Int32? = 0 //jumlah hari dia pencet apply
+    var percentage: Float = 0
 }

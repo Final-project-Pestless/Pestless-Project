@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import CoreData
 
 class TrackerDefaultRepository: TrackerRepository {
-    
-    
+
     private let trackerLocalData: TrackerLocalDataStore
     
     init(trackerLocalData: TrackerLocalDataStore = TrackerLocalDefaultDataStore() ) {
@@ -19,13 +17,14 @@ class TrackerDefaultRepository: TrackerRepository {
     
     
     func createTracker(data: TrackerData) -> Tracking {
-        let newTracker = trackerLocalData.createNewLog(pestName: data.pestName, bioName: data.biopestName, plant: data.plantName)
+        let newTracker = trackerLocalData.createTracker(data: data)
         return newTracker
     }
     
-    func getTrackerByUserId(userId: UUID) -> [Tracking]? {
+    func getTracker(id: UUID) -> [Tracking]? {
         do {
-            guard let tracker = try trackerLocalData.getTrackerbyUserId(userId: userId) else { return []}
+            guard let tracker = try trackerLocalData.getTracking(id: id)
+            else {return [] }
             
             return tracker
         } catch {
@@ -33,13 +32,24 @@ class TrackerDefaultRepository: TrackerRepository {
             return []
         }
     }
+  
+    func applyBiopest(data: Tracking) -> Tracking {
+        data.dayApplied += 1
+        return data
+    }
     
     func saveTracker() {
         trackerLocalData.saveChanges()
     }
     
-    func rollBack() {
+    func cancelChanges() {
         trackerLocalData.rollBack()
     }
   
+//
+//    func calculatePercentage(dateStarted: Date, now: Date) -> Int{
+//        let dateEnded = dateStarted + 21
+//
+//
+//    }
 }

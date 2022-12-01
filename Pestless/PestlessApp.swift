@@ -12,15 +12,16 @@ struct PestlessApp: App {
     @Environment(\.managedObjectContext) var managedObjectContext
     let persistenceController = PersistenceController.shared
     @AppStorage("FirstTimeUser") var firstTimeUser: Bool = true
-//    @UserDefaults var firstTimeUser = true
     var body: some Scene {
         WindowGroup {
             if firstTimeUser {
                 OnboardingViews()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
             } else {
                 TabBarView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
         }
+
     }
 }

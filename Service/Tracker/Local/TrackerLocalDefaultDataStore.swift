@@ -6,29 +6,44 @@
 //
 
 import Foundation
+import CoreData
 
 class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
- 
+   
     
-    
+  
+
     private let container = PersistenceController.shared.container
-    
-    func getTrackerbyUserId(userId: UUID) throws -> [Tracking]? {
-        let fetchRequest = Tracking.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "userId == %@", userId as CVarArg)
-        return try self.container.viewContext.fetch(fetchRequest)
-    }
-    
-    func createNewLog(pestName: String, bioName: String, plant: String) -> Tracking {
+//
+//    func getTrackerbyUserId(userId: UUID) throws -> [Tracking]? {
+//        let fetchRequest = Tracking.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "userId == %@", userId as CVarArg)
+//        return try self.container.viewContext.fetch(fetchRequest)
+//    }
+//
+    func createTracker(data: TrackerData) -> Tracking {
         let newTracker = Tracking(context: container.viewContext)
-        newTracker.id = UUID.init()
-        newTracker.dateStarted = Date()
-        newTracker.pestName = pestName
-        newTracker.biopestName = bioName
-        newTracker.plantName = plant
-        
+        newTracker.id = data.id
+        newTracker.dateStarted = data.dateStarted
+        newTracker.pestName = data.pestName
+        newTracker.biopestName = data.biopestName
+        newTracker.plantName = data.plantName
+        newTracker.dayApplied = data.appliedDay!
         return newTracker
     }
+//
+    func getTracking(id: UUID) throws -> [Tracking]? {
+        let fetchRequest = Tracking.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %d", id as CVarArg)
+        return try self.container.viewContext.fetch(fetchRequest)
+    }
+//    func applyBiopest(data: TrackerData) -> Tracking {
+//        let newDay = Tracking(context: container.viewContext)
+//        newDay.dayApplied = data.appliedDay! + 1
+//        return newDay
+//
+//    }
+    
     
     func saveChanges() {
         try? self.container.viewContext.save()
