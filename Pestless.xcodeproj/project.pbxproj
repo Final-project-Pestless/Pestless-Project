@@ -21,6 +21,8 @@
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
 		9B074DDA290112FA00569B13 /* PestlessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DD9290112FA00569B13 /* PestlessUITests.swift */; };
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
+		9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */; };
+		9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */; };
 		9B1AF925292F1697009815C8 /* PestControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF924292F1697009815C8 /* PestControl.swift */; };
 		9B1AF927292FAF69009815C8 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF926292FAF69009815C8 /* TrackerView.swift */; };
 		9B1AF9292931D9E7009815C8 /* TrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */; };
@@ -94,6 +96,8 @@
 		9B074DD5290112FA00569B13 /* PestlessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DD9290112FA00569B13 /* PestlessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITests.swift; sourceTree = "<group>"; };
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantProvider.swift; sourceTree = "<group>"; };
+		9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantsViewModel.swift; sourceTree = "<group>"; };
 		9B1AF924292F1697009815C8 /* PestControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestControl.swift; sourceTree = "<group>"; };
 		9B1AF926292FAF69009815C8 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +253,14 @@
 			path = HistoryView;
 			sourceTree = "<group>";
 		};
+		9B0EBC4E29389B1600924F9B /* Plants */ = {
+			isa = PBXGroup;
+			children = (
+				9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */,
+			);
+			path = Plants;
+			sourceTree = "<group>";
+		};
 		9B1AF92A2931DE1C009815C8 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +309,7 @@
 		9B259860290F56A400E15B49 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				9B0EBC4E29389B1600924F9B /* Plants */,
 				9B3779C4293653E800C867CA /* CameraService */,
 				9B1AF933293321A3009815C8 /* BiopestBookmarkProvider */,
 				9B1AF92A2931DE1C009815C8 /* Tracker */,
@@ -386,6 +399,7 @@
 				9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */,
 				9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */,
 				9B1AF931293320EE009815C8 /* BiopestBookmarkViewModel.swift */,
+				9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -567,9 +581,11 @@
 				BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */,
 				9B259867290F5A5D00E15B49 /* Pest.swift in Sources */,
 				9B259862290F56B800E15B49 /* SnappedPestRepository.swift in Sources */,
+				9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */,
 				9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */,
 				BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */,
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
+				9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */,
 				9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */,
 				9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */,
 				BDD37C94292F0B2000DAB1F9 /* PestSearchView.swift in Sources */,

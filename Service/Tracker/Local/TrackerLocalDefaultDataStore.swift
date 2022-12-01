@@ -10,8 +10,8 @@ import CoreData
 
 class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
     private let container = PersistenceController.shared.container
-    var fetchRequest: NSFetchRequest<SavedBiopest> {
-        let fetchRequest: NSFetchRequest<SavedBiopest> = SavedBiopest.fetchRequest()
+    var fetchRequest: NSFetchRequest<Tracking> {
+        let fetchRequest: NSFetchRequest<Tracking> = Tracking.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         fetchRequest.returnsObjectsAsFaults = false
         
