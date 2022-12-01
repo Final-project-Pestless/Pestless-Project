@@ -8,9 +8,11 @@
 import Foundation
 import CoreData
 
-class TrackerViewModel: ObservableObject {
+class TrackerViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     @Published var tracker: Tracking?
     private var trackerRepository: TrackerRepository
+    private var trackerDefaultRepo = TrackerDefaultRepository()
+    @Published var fetchedTracker: [Tracking] = []
 //    private let fetchedResultController: NSFetchedResultsController<Tracking>
 
     init(trackerRepository: TrackerRepository = TrackerDefaultRepository()) {
@@ -29,6 +31,10 @@ class TrackerViewModel: ObservableObject {
     //    }
     
     func fetch() {
+        let fetchController = trackerDefaultRepo.fethedResulController
+        fetchController.delegate = self
+        try? fetchController.performFetch()
+        self.fetchedTracker = fetchController.fetchedObjects ?? []
         
     }
     func createTracker(plant: String, biopest: String, pest: String, date: Date) {
