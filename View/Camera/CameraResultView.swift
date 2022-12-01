@@ -55,7 +55,7 @@ struct CameraResultView: View {
                                         let pixel = cameraService.getCVPixelBuffer(cgImage!)
                                         let predict = try? model.prediction(image: pixel!)
                                         let pestLabel = predict!.classLabel
-                                        let pest = PestList.filter{$0.name == pestLabel}
+                                        let pest = pestList.filter{$0.name == pestLabel}
                                         pestData = pest.first
                                         
                                         

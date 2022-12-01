@@ -10,115 +10,102 @@ import SwiftUI
 struct HomePestScreen: View {
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .center, spacing: 20){
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(LinearGradient(
-                                gradient: .init(colors: [Color.homeGreen, Color.homeYellow]),
-                                startPoint: .top,
-                                endPoint: .bottom
-                            ))
-                            .frame(width: 350, height: 400)
-                        VStack(alignment: .leading){
-                            Text("Hama apa yang sedang menyerang tanamanmu?")
-                                .bold()
-                                .font(.system(.title, design: .rounded))
-                                .foregroundColor(.white)
-                            Text("Yuk cari tahu!")
-                                .bold()
-                                .foregroundColor(.white)
-                                .font(.system(.title, design: .rounded))
-                            
+            VStack(alignment: .center, spacing: 20){
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(LinearGradient(
+                            gradient: .init(colors: [Color.homeGreen, Color.homeYellow]),
+                            startPoint: .top,
+                            endPoint: .bottom))
+                        .frame(width: 350, height: 400)
+                    VStack(alignment: .leading){
+                        Text("Hama apa yang sedang menyerang tanamanmu?")
+                            .bold()
+                            .font(.system(.title, design: .rounded))
+                            .foregroundColor(.white)
+                        Text("Yuk cari tahu!")
+                            .bold()
+                            .foregroundColor(.white)
+                            .font(.system(.title, design: .rounded))
+                        
+                        Spacer()
+                        HStack{
                             Spacer()
-                            HStack{
-                                Spacer()
-                                VStack{
-                                    NavigationLink {
-                                        PestSearchView()
-                                    } label: {
-                                        ZStack{
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .frame(width: 180, height: 45)
-                                                .foregroundColor(.white)
-                                                .bold()
-                                            HStack{
-                                                Image(systemName: "magnifyingglass")
-                                                Text("Cari hama")
-                                            }
-                                        }
-                                        
-                                    }
-                                    
-                                    NavigationLink {
-                                        CustomCameraView()
-//                                            .toolbar(.hidden, for: .tabBar)
-                                            .navigationBarBackButtonHidden()
-//                                            .ignoresSafeArea()
-                                    } label: {
-                                        ZStack{
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .frame(width: 180, height: 45)
-                                                .foregroundColor(.white)
-                                                .bold()
-                                            
-                                            HStack{
-                                                Image(systemName: "camera.metering.spot")
-                                                Text("Pindai")
-                                                
-                                            }
+                            VStack{
+                                NavigationLink {
+                                    PestSearchView()
+                                } label: {
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(width: 180, height: 45)
+                                            .foregroundColor(.white)
+                                            .bold()
+                                        HStack{
+                                            Image(systemName: "magnifyingglass")
+                                            Text("Cari hama")
                                         }
                                     }
                                 }
-                            }
-                            .padding()
-                        }
-                        .padding()
-                        
-                    }
-                    .frame( width: 350, height: 400)
-                    
-                    Text("Hama yang ditemukan")
-                        .padding(.trailing, 100)
-                        .font(.system(.title2, design: .rounded, weight: .semibold))
-                        .foregroundColor(.pestTitleGreen)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack{
-                            ForEach(PestList) { pest in
                                 
                                 NavigationLink {
-                                    PestResultDetailView(detectedPest: pest)
+                                    CustomCameraView()
+//                                            .toolbar(.hidden, for: .tabBar)
+                                        .navigationBarBackButtonHidden()
+//                                            .ignoresSafeArea()
                                 } label: {
-                                
-                                    VStack{
-                               //         ZStack{
-                                 //           RoundedRectangle(cornerRadius: 16)
-                                 //               .frame(width: 100, height: 150)
-                                     //           .foregroundColor(.yellowbg)
-                                            Image(pest.image[0])
-                                            .resizable()
-                                            .frame(width: 120, height: 140)
-                                            
-                                    //    }
-                                        Text(pest.name)
-                                            .font(.system(.caption, design: .rounded))
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(width: 180, height: 45)
+                                            .foregroundColor(.white)
                                             .bold()
-                                            .foregroundColor(.pestGreen)
+                                        
+                                        HStack{
+                                            Image(systemName: "camera.metering.spot")
+                                            Text("Pindai")
+                                            
+                                        }
                                     }
-                                    
                                 }
                             }
-                        }.padding(.leading,20)
+                        }
+                        .padding()
                     }
-                    .padding(.leading)
-                    
-                    Spacer()
-                    
+                    .padding()
                 }
-                .navigationTitle("Hama")
-                .navigationBarTitleDisplayMode(.inline)
+                .frame( width: 350, height: 400)
+                
+                Text("Hama yang ditemukan")
+                    .padding(.trailing, 100)
+                    .font(.system(.title2, design: .rounded, weight: .semibold))
+                    .foregroundColor(.pestTitleGreen)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack{
+                        ForEach(pestList) { pest in
+                            
+                            NavigationLink {
+                                PestResultDetailView(detectedPest: pest)
+                            } label: {
+                                VStack{
+                                    Image(pest.image[0])
+                                        .resizable()
+                                        .frame(width: 120, height: 140)
+
+                                    Text(pest.name)
+                                        .font(.system(.caption, design: .rounded))
+                                        .bold()
+                                        .foregroundColor(.pestGreen)
+                                }
+                            }
+                        }
+                    }.padding(.leading,10)
+                }
+                .padding(.leading)
+                
+                Spacer()
             }
+            .navigationTitle("Hama")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }

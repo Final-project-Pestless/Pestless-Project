@@ -19,7 +19,7 @@ struct PestResultDetailView: View {
                     .resizable()
                     .frame(width: 275, height: 180)
                 
-                CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Alternatif", "Biopestisida"])
+                CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Alternatif", "Biopestisida"])
                     .frame(width: 350)
                    // .padding(.top, 20)
                 Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
@@ -108,6 +108,6 @@ struct BiopestScreen: View {
 
 struct PestResultScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PestResultDetailView(detectedPest: PestList[0])
+        PestResultDetailView(detectedPest: pestList[0])
     }
 }
