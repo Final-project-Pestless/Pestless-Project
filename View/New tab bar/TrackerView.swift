@@ -16,6 +16,12 @@ struct TrackerView: View {
         NSSortDescriptor(keyPath: \SavedBiopest.id, ascending: true)
     ])
     private var bookmarkedBiopest: FetchedResults<SavedBiopest>
+    @FetchRequest(sortDescriptors: [
+        NSSortDescriptor(keyPath: \Tracking.id, ascending: true)
+    ])
+    private var tracking: FetchedResults<Tracking>
+    
+    
     var body: some View {
         NavigationView{
             VStack {
@@ -41,7 +47,8 @@ struct TrackerView: View {
                         
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Ekstrak bawang putih")
+                                Text(tracking.first?.pestName ?? "default")
+                                
                                     .font(.system(.headline, design: .rounded))
                                 
                                 Text("Kutu daun")
@@ -135,6 +142,9 @@ struct TrackerView: View {
                 
                 } .padding(.leading,20)
                 Spacer()
+            }
+            .onAppear{
+                
             }
             .navigationTitle("Progres")
             .navigationBarTitleDisplayMode(.inline)
