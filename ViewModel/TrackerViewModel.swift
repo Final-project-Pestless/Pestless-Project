@@ -8,14 +8,26 @@
 import Foundation
 import CoreData
 
-class TrackerViewModel: NSObject, NSFetchedResultsControllerDelegate, ObservableObject {
+class TrackerViewModel: ObservableObject {
     @Published var tracker: Tracking?
-    private var currentUser: UUID?
-    
     private var trackerRepository: TrackerRepository
     init(trackerRepository: TrackerRepository = TrackerDefaultRepository()) {
         self.trackerRepository = trackerRepository
-        self.trackerRepository = trackerRepository.createTracker(data: TrackerData()) as! any TrackerRepository
+//        self.trackerRepository = trackerRepository.createTracker(data: TrackerData())
+        self.tracker = trackerRepository.createTracker(data: TrackerData())
+    }
+
+    func saveChanges() {
+        trackerRepository.saveTracker()
+
+    }
+
+    func addDay(data: Tracking) -> Tracking {
+        trackerRepository.applyBiopest(data: data)
+    }
+
+    func cancelChanges() {
+        trackerRepository.cancelChanges()
     }
     
 }
