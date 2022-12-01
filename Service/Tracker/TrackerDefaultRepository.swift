@@ -8,21 +8,24 @@
 import Foundation
 import CoreData
 
-class TrackerDefaultRepository: TrackerRepository {
+class TrackerDefaultRepository: TrackerRepository, ObservableObject {
 
     private let trackerLocalData: TrackerLocalDataStore
-//    private let fetchedResultController: NSFetchedResultsController<Tracking>
+    private let localDataStore = TrackerLocalDefaultDataStore()
+    public let fethedResulController: NSFetchedResultsController<Tracking>
+  
     init(trackerLocalData: TrackerLocalDataStore = TrackerLocalDefaultDataStore() ) {
         self.trackerLocalData = trackerLocalData
-//        self.fetchedResultController = NSFetchedResultsController(fetchRequest: trackerLocalData.fetchRequest, managedObjectContext: biopestBookmarkProvider.context, sectionNameKeyPath: nil, cacheName: nil)
-    }
-    
-    func fetch() {
-//        fetchedResultController.delegate = self
-//        try? fetchedResultController.performFetch()
-//        self.biopestArray = fetchedResultController.fetchedObjects ?? []
+
+        self.fethedResulController = NSFetchedResultsController(fetchRequest: localDataStore.fetchRequest, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
     }
+//    
+//    func fetch() {
+//        try? fethedResulController.performFetch()
+//        self.biopestArray = fethedResulController.fetchedObjects ?? []
+//        
+//    }
     func createTracker(plant: String, biopest: String, pest: String, date: Date) -> Tracking {
         let newTracker = trackerLocalData.createTracker(plant: plant, biopest: biopest, pest: pest, datemade: date)
         return newTracker
@@ -61,3 +64,11 @@ class TrackerDefaultRepository: TrackerRepository {
 //
 //    }
 }
+
+
+   
+    
+    
+    
+    
+
