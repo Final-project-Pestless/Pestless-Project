@@ -11,14 +11,33 @@ import CoreData
 class TrackerViewModel: ObservableObject {
     @Published var tracker: Tracking?
     private var trackerRepository: TrackerRepository
+//    private let fetchedResultController: NSFetchedResultsController<Tracking>
+
     init(trackerRepository: TrackerRepository = TrackerDefaultRepository()) {
         self.trackerRepository = trackerRepository
-//        self.trackerRepository = trackerRepository.createTracker(data: TrackerData())
-        self.tracker = trackerRepository.createTracker(data: TrackerData())
-    }
 
-    func saveChanges() {
-        trackerRepository.saveTracker()
+        //        self.trackerRepository = trackerRepository.createTracker(data: TrackerData())
+        //        self.tracker = trackerRepository.createTracker(date: TrackerData())
+    }
+    //
+    //    func createTracker(plant: String, biopest: String, pest: String, date: Date) {
+    //        let newTracker = Trackin
+    //        trackerRepository.createTracker(plant: plant, biopest:biopest , pest: pest, date: date)
+    //
+    //        return newTracker
+    //
+    //    }
+    
+    func fetch() {
+        
+    }
+    func createTracker(plant: String, biopest: String, pest: String, date: Date) {
+        let newTracker = trackerRepository.createTracker(plant: plant, biopest: biopest, pest: pest, date: date)
+        trackerRepository.saveTracker(tracker: newTracker)
+    }
+    
+    func saveChanges(tracker: Tracking) {
+        trackerRepository.saveTracker(tracker: tracker)
 
     }
 

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct AddTrackingView: View {
+    private let container = PersistenceController.shared.container
+    @ObservedObject var trackerViewModel = TrackerViewModel()
     @Environment(\.dismiss) var dismiss
     var biopesticide: BiopesticideData
     @State private var pickerDate = Date()
-    @State var selectedPlant = plantList[0].name
-    @State var selectedPest = pestList[0].name
+    @State var selectedPlantIndex: Int = 0
+    @State var selectedPestIndex: Int = 0
+//    @State var selectedPest: PestData
     @State private var colorScheme = 1
     
     var body: some View {
@@ -30,16 +33,25 @@ struct AddTrackingView: View {
                 }
                
                 Section("Tanaman"){
-                    Picker("-Pilih Tanaman-", selection: $selectedPlant) {
-                        ForEach(plantList) { plant in
-                            Text(plant.name) }
-                    }.pickerStyle(.wheel).frame(height: 100)
+                    Picker("-Pilih Tanaman-", selection: $selectedPlantIndex) {
+                        ForEach(plantList.indices) { index in
+                            Text(plantList[index].name)
+                                .tag(index)
+
+                        }
+                    }
+                    
+                    .pickerStyle(.wheel).frame(height: 100)
+                       
                 }
                 
+                
                 Section("Hama"){
-                    Picker("-Pilih Hama-", selection: $selectedPest) {
-                        ForEach(pestList) { pest in
-                            Text(pest.name) }
+                    Picker("-Pilih Hama-", selection: $selectedPestIndex) {
+                        ForEach(pestList.indices) { index in
+                            Text(pestList[index].name)
+                                .tag(index)
+                        }
                     }.pickerStyle(.wheel).frame(height: 100)
                 }
                 
@@ -55,10 +67,15 @@ struct AddTrackingView: View {
             }) {
                 Text("Cancel")
             }, trailing: Button(action:{
+//                let plant = Tracking(context: container.viewContext)
+//                plant.dateStarted = pickerDate
+                trackerViewModel.createTracker(plant: plantList[selectedPlantIndex].name, biopest: biopesticide.name, pest:pestList[selectedPestIndex].name , date: pickerDate)
+//                trackerViewModel.saveChanges(tracker: plant )
     //            guard !titleBook.isEmpty && !authorBook.isEmpty else { return }
     //            bookvm.addBook(title: titleBook, author: authorBook)
     //            titleBook = ""
     //            authorBook = ""
+                
                 dismiss()
             }){
                 Text("Tambah")

@@ -8,10 +8,10 @@
 import Foundation
 
 protocol TrackerRepository{
-    func createTracker(data: TrackerData) -> Tracking
+    func createTracker(plant: String, biopest: String, pest: String, date: Date) -> Tracking
     func getTracker(id: UUID) -> [Tracking]?
     func applyBiopest(data: Tracking) -> Tracking
-    func saveTracker()
+    func saveTracker(tracker: Tracking)
     func cancelChanges()
 }
 //

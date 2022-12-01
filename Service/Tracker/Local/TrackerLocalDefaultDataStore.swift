@@ -9,29 +9,27 @@ import Foundation
 import CoreData
 
 class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
-   
-    
-  
-
     private let container = PersistenceController.shared.container
-//
-//    func getTrackerbyUserId(userId: UUID) throws -> [Tracking]? {
-//        let fetchRequest = Tracking.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "userId == %@", userId as CVarArg)
-//        return try self.container.viewContext.fetch(fetchRequest)
-//    }
-//
-    func createTracker(data: TrackerData) -> Tracking {
+    var fetchRequest: NSFetchRequest<SavedBiopest> {
+        let fetchRequest: NSFetchRequest<SavedBiopest> = SavedBiopest.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        return fetchRequest
+    }
+    var context : NSManagedObjectContext {
+        container.viewContext
+    }
+    
+    func createTracker(plant: String, biopest: String, pest: String, datemade: Date) -> Tracking {
         let newTracker = Tracking(context: container.viewContext)
-        newTracker.id = data.id
-        newTracker.dateStarted = data.dateStarted
-        newTracker.pestName = data.pestName
-        newTracker.biopestName = data.biopestName
-        newTracker.plantName = data.plantName
-        newTracker.dayApplied = data.appliedDay!
+        newTracker.id = UUID.init()
+        newTracker.plantName = plant
+        newTracker.biopestName = biopest
+        newTracker.dateStarted = datemade
         return newTracker
     }
-//
+    
     func getTracking(id: UUID) throws -> [Tracking]? {
         let fetchRequest = Tracking.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", id as CVarArg)
@@ -45,8 +43,13 @@ class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
 //    }
     
     
-    func saveChanges() {
-        try? self.container.viewContext.save()
+    func saveChanges(tracker: Tracking) {
+        if tracker.hasChanges {
+            try? self.container.viewContext.save()
+            print(tracker)
+        } else {
+            print(" no data saved")
+        }
     }
     
     func rollBack() {
