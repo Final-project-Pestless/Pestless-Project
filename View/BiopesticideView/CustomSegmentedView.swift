@@ -48,7 +48,7 @@ struct CustomSegmentedView: View {
 }
 
 //struct CustomSegmentedView_Previews: PreviewProvider {
-//    @Binding var preselectedIndex: Int
+//    @Binding var preselectedIndex
 //    static var previews: some View {
 //        CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
 //    }
