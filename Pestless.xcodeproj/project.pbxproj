@@ -14,10 +14,8 @@
 		172CD917290F141300D9F471 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD916290F141300D9F471 /* CameraView.swift */; };
 		172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD918290F142F00D9F471 /* CustomCameraView.swift */; };
 		172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD91A290F143F00D9F471 /* CameraResultView.swift */; };
-		17C53363291B5CAD00B67073 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C53362291B5CAD00B67073 /* HomeView.swift */; };
 		9B03593029252D92008521B0 /* PestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03592F29252D92008521B0 /* PestResultView.swift */; };
 		9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DB9290112F900569B13 /* PestlessApp.swift */; };
-		9B074DBC290112F900569B13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DBB290112F900569B13 /* ContentView.swift */; };
 		9B074DBE290112FA00569B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B074DBD290112FA00569B13 /* Assets.xcassets */; };
 		9B074DC1290112FA00569B13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B074DC0290112FA00569B13 /* Preview Assets.xcassets */; };
 		9B074DD0290112FA00569B13 /* PestlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DCF290112FA00569B13 /* PestlessTests.swift */; };
@@ -86,11 +84,9 @@
 		172CD916290F141300D9F471 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		172CD918290F142F00D9F471 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		172CD91A290F143F00D9F471 /* CameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultView.swift; sourceTree = "<group>"; };
-		17C53362291B5CAD00B67073 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B03592F29252D92008521B0 /* PestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultView.swift; sourceTree = "<group>"; };
 		9B074DB6290112F900569B13 /* Pestless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pestless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DB9290112F900569B13 /* PestlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessApp.swift; sourceTree = "<group>"; };
-		9B074DBB290112F900569B13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B074DBD290112FA00569B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B074DC0290112FA00569B13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B074DCB290112FA00569B13 /* PestlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PestlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,8 +368,6 @@
 			children = (
 				172729ED29353B7700F96643 /* PlantView */,
 				BD792769291FE303009D56E8 /* Launch Screen.storyboard */,
-				9B074DBB290112F900569B13 /* ContentView.swift */,
-				17C53362291B5CAD00B67073 /* HomeView.swift */,
 				9B7FCFA12928926600F53676 /* New tab bar */,
 				9B0D11DC292D265E00D462C8 /* HistoryView */,
 				9B0D11D9292D261500D462C8 /* TrackingView */,
@@ -578,7 +572,6 @@
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
 				9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */,
 				9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */,
-				9B074DBC290112F900569B13 /* ContentView.swift in Sources */,
 				BDD37C94292F0B2000DAB1F9 /* PestSearchView.swift in Sources */,
 				9BE19829290920D500A19697 /* OnboardingView.swift in Sources */,
 				9B1AF93029331844009815C8 /* TrackerDetailView.swift in Sources */,
@@ -591,7 +584,6 @@
 				172729F129355F5D00F96643 /* ListPlantView.swift in Sources */,
 				BDB933FF29384F7700C684ED /* CustomSegmentedView.swift in Sources */,
 				BDB933FD29384F6A00C684ED /* AddTrackingView.swift in Sources */,
-				17C53363291B5CAD00B67073 /* HomeView.swift in Sources */,
 				9B03593029252D92008521B0 /* PestResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
