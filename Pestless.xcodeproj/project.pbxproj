@@ -56,6 +56,8 @@
 		BD20F80E291DFB44009AD813 /* BiopesticideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20F80D291DFB44009AD813 /* BiopesticideView.swift */; };
 		BD79276A291FE303009D56E8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD792769291FE303009D56E8 /* Launch Screen.storyboard */; };
 		BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD79276B292103AC009D56E8 /* BiopesticideDetailView.swift */; };
+		BDB933FD29384F6A00C684ED /* AddTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB933FC29384F6A00C684ED /* AddTrackingView.swift */; };
+		BDB933FF29384F7700C684ED /* CustomSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB933FE29384F7700C684ED /* CustomSegmentedView.swift */; };
 		BDD37C94292F0B2000DAB1F9 /* PestSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD37C93292F0B2000DAB1F9 /* PestSearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +132,8 @@
 		BD20F80D291DFB44009AD813 /* BiopesticideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiopesticideView.swift; sourceTree = "<group>"; };
 		BD792769291FE303009D56E8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD79276B292103AC009D56E8 /* BiopesticideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiopesticideDetailView.swift; sourceTree = "<group>"; };
+		BDB933FC29384F6A00C684ED /* AddTrackingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrackingView.swift; sourceTree = "<group>"; };
+		BDB933FE29384F7700C684ED /* CustomSegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedView.swift; sourceTree = "<group>"; };
 		BDD37C93292F0B2000DAB1F9 /* PestSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,6 +408,8 @@
 		BD20F80C291DF91C009AD813 /* BiopesticideView */ = {
 			isa = PBXGroup;
 			children = (
+				BDB933FE29384F7700C684ED /* CustomSegmentedView.swift */,
+				BDB933FC29384F6A00C684ED /* AddTrackingView.swift */,
 				BD20F80D291DFB44009AD813 /* BiopesticideView.swift */,
 				BD79276B292103AC009D56E8 /* BiopesticideDetailView.swift */,
 			);
@@ -583,6 +589,8 @@
 				9B9B71B2291E21EA006D0226 /* PestResultDetailView.swift in Sources */,
 				172729EF29353B8800F96643 /* DetailPlantView.swift in Sources */,
 				172729F129355F5D00F96643 /* ListPlantView.swift in Sources */,
+				BDB933FF29384F7700C684ED /* CustomSegmentedView.swift in Sources */,
+				BDB933FD29384F6A00C684ED /* AddTrackingView.swift in Sources */,
 				17C53363291B5CAD00B67073 /* HomeView.swift in Sources */,
 				9B03593029252D92008521B0 /* PestResultView.swift in Sources */,
 			);

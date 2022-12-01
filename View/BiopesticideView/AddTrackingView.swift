@@ -48,9 +48,6 @@ struct AddTrackingView: View {
                 }
                 
             }
-//            .font(.system(size: 16, design: .rounded))
-//            .bold()
-            //.padding(.horizontal)
             .navigationTitle("Mulai Tracking")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button(action: {
