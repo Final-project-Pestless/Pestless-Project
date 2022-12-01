@@ -21,9 +21,9 @@ struct BiopesticideDetailView: View {
                         .resizable()
                         .frame(width: 275, height: 180)
                     
-                    CustomSegmentedControl(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
+                    CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
                         .frame(width: 350)
-                    // .padding(.top, 20)
+
                     Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
                         .padding(.bottom, 10)
                     
@@ -33,31 +33,25 @@ struct BiopesticideDetailView: View {
                     } else if preselectedIndex == 1 {
                         RecipeView(biopesticide: biopesticide)
                     }
-                    
-                    
-                    
                 }.navigationTitle(biopesticide.name)
-                
             }
             
             Button {
                 isTracker = true
             } label: {
                 ZStack {
-                    
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 300, height: 45)
                         .foregroundColor(.pestGreen)
                     Text("Mulai Obati")
                         .foregroundColor(.white)
                 }
-                
             }
             .padding(.bottom, 15)
-
         }
         .onAppear{
             bookmarViewModel.fetch()
+            bookmarViewModel.checkBiopest(id: biopesticide.id)
         }
         .toolbar(content: {
             ToolbarItem(placement:.navigationBarTrailing) {
@@ -71,30 +65,21 @@ struct BiopesticideDetailView: View {
                         bookmarViewModel.save(biopest: biopesticide)
                     }
                     bookmarViewModel.fetch()
-//
+
                 } label: {
-                    if saved {
+                    if bookmarViewModel.biopestExist {
                         Image(systemName: "bookmark.fill")
                             .foregroundColor(.segmented)
                     } else {
                         Image(systemName: "bookmark")
                     }
-                    
-                        
-                        
                 }
-
             }
         })
         .sheet(isPresented: $isTracker) {
-            
+            AddTrackingView(biopesticide: biopesticide)
+                //.presentationDetents([.large, .medium])
         }
-    }
-}
-
-struct BiopesticideDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        BiopesticideDetailView(biopesticide: biopesticideList[1])
     }
 }
 
@@ -186,41 +171,8 @@ struct RecipeView: View {
     }
 }
 
-struct CustomSegmentedControl: View {
-    @Binding var preselectedIndex: Int
-    var options: [String]
-    let color = Color("segmented")
-    let color2 = Color.white
-    
-    var body: some View {
-        HStack(spacing: 0) {
-            ForEach(options.indices, id:\.self) { index in
-                let isSelected = preselectedIndex == index
-                ZStack {
-                    Rectangle()
-                        .fill(color2.opacity(0.2))
-                    
-                    Rectangle()
-                        .fill(isSelected ? color : color2)
-                        .cornerRadius(20)
-                        .padding(2)
-                        .opacity(isSelected ? 1 : 0.01)
-                        .onTapGesture {
-                           // withAnimation(.interactiveSpring(response: 0.1,
-                                                         //    dampingFraction: 2,
-                                                         //    blendDuration: 0.5)) {
-                                preselectedIndex = index
-                         //   }
-                        }
-                }
-                .overlay(
-                    Text(options[index])
-                        //.fontWeight(isSelected ? .bold : .regular)
-                        .foregroundColor(isSelected ? .white : Color("AccentColor"))
-                )
-            }
-        }
-        .frame(height: 40)
-        .cornerRadius(20)
+struct BiopesticideDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        BiopesticideDetailView(biopesticide: biopesticideList[1])
     }
 }

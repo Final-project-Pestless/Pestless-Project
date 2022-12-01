@@ -75,7 +75,7 @@ struct BiopesticideView: View {
                         .padding(.vertical)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack{
-                            ForEach(PestList) { pest in
+                            ForEach(pestList) { pest in
                                 VStack(alignment: .center){
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 16)
