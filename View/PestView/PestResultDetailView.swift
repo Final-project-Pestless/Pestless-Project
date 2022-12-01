@@ -19,32 +19,23 @@ struct PestResultDetailView: View {
                     .resizable()
                     .frame(width: 275, height: 180)
                 
-                CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Alternatif", "Biopestisida"])
+                CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Biopestisida","Alternatif"])
                     .frame(width: 350)
-                   // .padding(.top, 20)
+           
                 Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
                     .padding(.bottom, 10)
                 
                 if preselectedIndex == 0 {
-                    PestControlView(detectedPest: $detectedPest)
-                } else if preselectedIndex == 1 {
                     let pestControl = pestControlList.filter{$0.pest?.name == detectedPest?.name}
                     BiopestScreen(detectedPest: $detectedPest, pestControl: pestControl.first ?? pestControl[0]) //defaultnya salah
+                } else if preselectedIndex == 1 {
+                    PestControlView(detectedPest: $detectedPest)
                 }
                 
                 Spacer()
             }
         }.navigationTitle(detectedPest?.name ?? "Pest")
          .navigationBarTitleDisplayMode(.inline)
-            
-            //            .navigationBarItems(leading:
-            //            Button(action: {
-            //                self.presentationMode.wrappedValue.dismiss()
-            //            }, label: {
-            //                Image(systemName: "chevron.left")
-            //            })
-            //        )
-     //   }
     }
 }
 
@@ -91,10 +82,8 @@ struct BiopestScreen: View {
                                 Image(biopest.image)
                                     .resizable()
                                     .frame(width: 100, height: 100)
-                                    
-                            }//.padding(.leading, 20)
+                            }
                             Text(biopest.name)
-                               // .padding(.leading, 20)
                                 .font(.system(.caption, design: .rounded))
                                 .bold()
                                 .foregroundColor(.pestGreen)
