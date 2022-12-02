@@ -21,6 +21,7 @@ struct TrackerView: View {
         NSSortDescriptor(keyPath: \Tracking.id, ascending: true)
     ])
     private var tracking: FetchedResults<Tracking>
+    @State var arrayDate: [Date] = [Date()]
     
     
     var body: some View {
@@ -35,7 +36,8 @@ struct TrackerView: View {
                         
                         ForEach(0..<tracking.count) { i in
                             NavigationLink {
-                                TrackerDetailView()
+                                TrackerDetailView(trackingData: tracking[i])
+                                    
                             } label: {
                                 
                                 ZStack{
@@ -72,6 +74,8 @@ struct TrackerView: View {
                                                 }
                                             Text("1/14")
                                         }
+                                        
+                        
                                         Image(systemName: "chevron.right")
                                             .foregroundColor(.pestGreen)
                                             .bold()
@@ -79,9 +83,14 @@ struct TrackerView: View {
                                             .padding(.trailing)
                                     }
                                 }
+                                .onTapGesture {
+                                    arrayDate = trackerViewModel.arrayDate(dateStarted: tracking[i].dateStarted ?? Date())
+                                    print(arrayDate)
+                                }
                                 
                                 .frame(width: 350, height: 100)
                             }
+                          
                         }
                     }
                     
@@ -118,45 +127,16 @@ struct TrackerView: View {
                             }
                            
                         }
-                  
-                
-//                        Text("Biopestisida")
-//                            .font(.system(size: 16))
-//                            .font(.system(.callout, design: .rounded))
-//                            .bold()
-//                            .foregroundColor(.pestTitleGreen)
-//                            .padding(.trailing, 240)
-//                            .padding(.vertical)
-//                        ScrollView(.horizontal, showsIndicators: false) {
-//                            HStack{
-//                                ForEach(searchedBiopesticide) { biop in
-//                                    NavigationLink( destination: BiopesticideDetailView(biopesticide: biop)) {
-//                                        VStack{
-//                                            Image(biop.image)
-//                                                .resizable()
-//                                                .frame(width: 120, height: 140)
-//
-//                                            //    }
-//                                            Text(biop.name)
-//                                                .font(.system(.caption, design: .rounded))
-//                                                .bold()
-//                                                .foregroundColor(.grayText)
-//                                        }
-//                                    }
-//                                }
-//
-//                            }
-//
-//                        }
                     
                     } .padding(.leading,20)
                     Spacer()
                 }
-                .onAppear{
-                    trackerViewModel.fetch()
-                }
+              
                 .navigationTitle("Progres")
             .navigationBarTitleDisplayMode(.inline)
+            }
+            .onAppear{
+                trackerViewModel.fetch()
             }
         }
         .onAppear{

@@ -8,25 +8,10 @@
 import Foundation
 
 protocol TrackerRepository{
-    func createTracker(plant: String, biopest: String, pest: String, date: Date) -> Tracking
+    func createTracker(plant: String, biopest: String, pest: String, dateStarted: Date, dateEnded: Date) -> Tracking
     func getTracker(id: UUID) -> [Tracking]?
     func applyBiopest(data: Tracking) -> Tracking
     func saveTracker(tracker: Tracking)
     func cancelChanges()
 }
-//
-//func getAcneLogsByUserID(userID: String) throws -> [AcneLog]?
-//func createNewAcneLog() -> AcneLog
-//func saveChanges()
-//func rollBack()
-class TrackerData {
-    var id: UUID?
-    var biopestName: String = ""
-    var pestName: String = ""
-    var plantName: String = ""
-    var dateMade: Date?
-    var dateStarted: Date?
-    var dateDone: Date?
-    var appliedDay: Int32? = 0 //jumlah hari dia pencet apply
-    var percentage: Float = 0
-}
+
