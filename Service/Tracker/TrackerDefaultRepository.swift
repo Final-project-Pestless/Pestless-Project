@@ -20,14 +20,9 @@ class TrackerDefaultRepository: TrackerRepository, ObservableObject {
         self.fethedResulController = NSFetchedResultsController(fetchRequest: localDataStore.fetchRequest, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
     }
-//    
-//    func fetch() {
-//        try? fethedResulController.performFetch()
-//        self.biopestArray = fethedResulController.fetchedObjects ?? []
-//        
-//    }
-    func createTracker(plant: String, biopest: String, pest: String, date: Date) -> Tracking {
-        let newTracker = trackerLocalData.createTracker(plant: plant, biopest: biopest, pest: pest, datemade: date)
+
+    func createTracker(plant: String, biopest: String, pest: String, dateStarted: Date, dateEnded: Date) -> Tracking {
+        let newTracker = trackerLocalData.createTracker(plant: plant, biopest: biopest, pest: pest, datemade: dateStarted, dateEnded: dateEnded)
         return newTracker
         trackerLocalData.saveChanges(tracker: newTracker)
     }
@@ -56,13 +51,7 @@ class TrackerDefaultRepository: TrackerRepository, ObservableObject {
     func cancelChanges() {
         trackerLocalData.rollBack()
     }
-  
-//
-//    func calculatePercentage(dateStarted: Date, now: Date) -> Int{
-//        let dateEnded = dateStarted + 21
-//
-//
-//    }
+
 }
 
 

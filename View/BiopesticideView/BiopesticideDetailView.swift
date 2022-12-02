@@ -69,7 +69,7 @@ struct BiopesticideDetailView: View {
                 } label: {
                     if bookmarViewModel.biopestExist {
                         Image(systemName: "bookmark.fill")
-                            .foregroundColor(.segmented)
+                            .foregroundColor(.pestTitleGreen)
                     } else {
                         Image(systemName: "bookmark")
                     }

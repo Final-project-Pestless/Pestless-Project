@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
+    
     private let container = PersistenceController.shared.container
     var fetchRequest: NSFetchRequest<Tracking> {
         let fetchRequest: NSFetchRequest<Tracking> = Tracking.fetchRequest()
@@ -21,12 +22,15 @@ class TrackerLocalDefaultDataStore: TrackerLocalDataStore {
         container.viewContext
     }
     
-    func createTracker(plant: String, biopest: String, pest: String, datemade: Date) -> Tracking {
+    func createTracker(plant: String, biopest: String, pest: String, datemade: Date, dateEnded: Date) -> Tracking {
         let newTracker = Tracking(context: container.viewContext)
         newTracker.id = UUID.init()
         newTracker.plantName = plant
         newTracker.biopestName = biopest
         newTracker.dateStarted = datemade
+        newTracker.pestName = pest
+        newTracker.dayApplied = 0
+        newTracker.dateEnded = dateEnded
         return newTracker
     }
     

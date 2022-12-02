@@ -21,13 +21,7 @@ struct AddTrackingView: View {
     var body: some View {
         NavigationView {
             Form {
-//                Section("Color Preferences") {
-//                    Picker("Color Scheme", selection: $colorScheme) {
-//                        Text("Light").tag(0)
-//                        Text("Dark").tag(1)
-//                    }
-//                }
-   
+
                 Section("Biopestisida") {
                     Text(biopesticide.name)
                 }
@@ -67,14 +61,12 @@ struct AddTrackingView: View {
             }) {
                 Text("Cancel")
             }, trailing: Button(action:{
-//                let plant = Tracking(context: container.viewContext)
-//                plant.dateStarted = pickerDate
-                trackerViewModel.createTracker(plant: plantList[selectedPlantIndex].name, biopest: biopesticide.name, pest:pestList[selectedPestIndex].name , date: pickerDate)
-//                trackerViewModel.saveChanges(tracker: plant )
-    //            guard !titleBook.isEmpty && !authorBook.isEmpty else { return }
-    //            bookvm.addBook(title: titleBook, author: authorBook)
-    //            titleBook = ""
-    //            authorBook = ""
+                let dateEnded = trackerViewModel.dateEnded(date: pickerDate)
+                trackerViewModel.createTracker(plant: plantList[selectedPlantIndex].name, biopest: biopesticide.name, pest:pestList[selectedPestIndex].name , dateStarted: pickerDate, dateEnded: dateEnded)
+                let array = trackerViewModel.arrayDate(dateStarted: pickerDate)
+                print(array)
+                
+              
                 
                 dismiss()
             }){
