@@ -22,16 +22,6 @@ struct TrackerDetailView: View {
     }
     
     var body: some View {
-//        VStack(alignment: .center, spacing: 20){
-//            ZStack {
-//                RoundedRectangle(cornerRadius: 25)
-//                    .fill(LinearGradient(
-//                        gradient: .init(colors: [Color.homeGreen, Color.homeYellow]),
-//                        startPoint: .top,
-//                        endPoint: .bottom))
-//                    .frame(width: 350, height: 400)
-//            }.frame( width: 350, height: 400)
-//        }
         List {
                 Section(header: Text("Progres hari ini")){
                     VStack{
@@ -42,35 +32,33 @@ struct TrackerDetailView: View {
                                     .opacity(0.2)
                                     .foregroundColor(Color("AccentColor"))
                                 Circle()
-                                    .trim(from: 0.0, to: (CGFloat(trackingData.dayApplied)/7))
+                                    .trim(from: 0.0, to: (CGFloat(trackingData.dayApplied+2)/7))
                                     .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
-                                    .foregroundColor(Color("SecondaryColor"))
-                                Text("\(trackingData.dayApplied)/\(21/3)").bold()
-                                    .font(.system(size: 45))
-                            }
+                                    .foregroundColor(Color.homeYellow)
+                                VStack {
+                                    Text("Progres").foregroundColor(.secondary).font(.caption)
+                                    Text("\(trackingData.dayApplied+2)/\(21/3)").bold()
+                                        .font(.system(size: 45)).foregroundColor(Color.homeYellow)
+                                    Text("semprot").foregroundColor(.secondary).font(.caption)
+                                }
+                            }.padding(.leading,10)
                             Spacer()
                             VStack {
-                                Text("Progres").foregroundColor(.secondary).font(.caption)
+                                Text("Sisa").foregroundColor(.secondary).font(.caption)
                                 if(trackingData.dateStarted ?? Date() < Date() ) {
-                                    Text("\(dayPassed)/21")
+                                    Text("\(dayPassed)")  //DUMMY DULU
                                     .bold()
                                     .font(.system(size: 45))
                                 }else{
-                                    Text("0/21")
+                                    Text("😴")
                                     .bold()
                                     .font(.system(size: 45))
                                 }
-                                Text("hari").foregroundColor(.secondary).font(.caption)
-//                                Text("qwq")
-//                                    .font(.title)
-                            }.foregroundColor(Color("SecondaryColor"))
+                                Text("dari 21 hari").foregroundColor(.secondary).font(.caption)
+                            }.foregroundColor(Color.pestTitleGreen).padding(.trailing,15)
                         }
-            //            Text("\"\(progressTemp[][1])\"")
-            //                .italic()
-            //                .padding(.top)
                     }.padding(.vertical)
                     .frame(width: 300, height: 200)
-                    
                     .foregroundColor(.gray)
                 }
             
@@ -110,7 +98,7 @@ struct TrackerDetailView: View {
             
   
         }.onAppear{
-            dayPassed = daysBetween(start: trackingData.dateStarted?.addingTimeInterval(600) ?? Date(), end: Date().addingTimeInterval(600))
+            dayPassed = daysBetween(start: Date().addingTimeInterval(600), end: trackingData.dateEnded?.addingTimeInterval(600) ?? Date())
            // print(trackingData.dateStarted?.formatted(.dateTime.day().month().year()) ?? "nil") //string
            // print(Date().formatted(.dateTime.day().month().year()))
            // print(dayPassed)    //data waktunya ke detect jadi klu belum 24 jam belum terhitung 1 hari
