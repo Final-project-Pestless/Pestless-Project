@@ -23,6 +23,7 @@
     </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES" codeGenerationType="class">
         <attribute name="biopestName" optional="YES" attributeType="String"/>
+        <attribute name="dateEnded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateStarted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dayApplied" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

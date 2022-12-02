@@ -23,6 +23,7 @@
 		9B074DDC290112FA00569B13 /* PestlessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */; };
 		9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */; };
 		9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */; };
+		9B0EBC542939AFFC00924F9B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC532939AFFC00924F9B /* DateFormatter.swift */; };
 		9B1AF925292F1697009815C8 /* PestControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF924292F1697009815C8 /* PestControl.swift */; };
 		9B1AF927292FAF69009815C8 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF926292FAF69009815C8 /* TrackerView.swift */; };
 		9B1AF9292931D9E7009815C8 /* TrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */; };
@@ -46,7 +47,6 @@
 		9B83DF6E292A1C29007EABAE /* CameraGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */; };
 		9B9B71B2291E21EA006D0226 /* PestResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */; };
 		9BBDE49F293467A90036C3C2 /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE49E293467A90036C3C2 /* HistoryDetailView.swift */; };
-		9BBDE4A12934F8DB0036C3C2 /* TrackerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE4A02934F8DB0036C3C2 /* TrackerForm.swift */; };
 		9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE4A32935047C0036C3C2 /* TrackerLocalDataStore.swift */; };
 		9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE4A5293504930036C3C2 /* TrackerLocalDefaultDataStore.swift */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
@@ -98,6 +98,7 @@
 		9B074DDB290112FA00569B13 /* PestlessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantProvider.swift; sourceTree = "<group>"; };
 		9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantsViewModel.swift; sourceTree = "<group>"; };
+		9B0EBC532939AFFC00924F9B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9B1AF924292F1697009815C8 /* PestControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestControl.swift; sourceTree = "<group>"; };
 		9B1AF926292FAF69009815C8 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewModel.swift; sourceTree = "<group>"; };
@@ -122,7 +123,6 @@
 		9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGuidanceView.swift; sourceTree = "<group>"; };
 		9B9B71B1291E21EA006D0226 /* PestResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultDetailView.swift; sourceTree = "<group>"; };
 		9BBDE49E293467A90036C3C2 /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
-		9BBDE4A02934F8DB0036C3C2 /* TrackerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerForm.swift; sourceTree = "<group>"; };
 		9BBDE4A32935047C0036C3C2 /* TrackerLocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLocalDataStore.swift; sourceTree = "<group>"; };
 		9BBDE4A5293504930036C3C2 /* TrackerLocalDefaultDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLocalDefaultDataStore.swift; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -239,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				9B1AF92F29331844009815C8 /* TrackerDetailView.swift */,
-				9BBDE4A02934F8DB0036C3C2 /* TrackerForm.swift */,
 			);
 			path = TrackingView;
 			sourceTree = "<group>";
@@ -294,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				172CD912290F139000D9F471 /* Color+Extensions.swift */,
+				9B0EBC532939AFFC00924F9B /* DateFormatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -559,7 +559,6 @@
 				9B1AF9292931D9E7009815C8 /* TrackerViewModel.swift in Sources */,
 				9B2598722910023E00E15B49 /* Persistence.swift in Sources */,
 				172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */,
-				9BBDE4A12934F8DB0036C3C2 /* TrackerForm.swift in Sources */,
 				9B1AF932293320EE009815C8 /* BiopestBookmarkViewModel.swift in Sources */,
 				172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */,
 				9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */,
@@ -585,6 +584,7 @@
 				9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */,
 				BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */,
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
+				9B0EBC542939AFFC00924F9B /* DateFormatter.swift in Sources */,
 				9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */,
 				9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */,
 				9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */,
