@@ -14,6 +14,7 @@
 		172CD917290F141300D9F471 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD916290F141300D9F471 /* CameraView.swift */; };
 		172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD918290F142F00D9F471 /* CustomCameraView.swift */; };
 		172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172CD91A290F143F00D9F471 /* CameraResultView.swift */; };
+		178E19D72939A2D500C7EFE8 /* CegahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E19D62939A2D500C7EFE8 /* CegahView.swift */; };
 		9B03593029252D92008521B0 /* PestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03592F29252D92008521B0 /* PestResultView.swift */; };
 		9B074DBA290112F900569B13 /* PestlessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B074DB9290112F900569B13 /* PestlessApp.swift */; };
 		9B074DBE290112FA00569B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B074DBD290112FA00569B13 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		172CD916290F141300D9F471 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		172CD918290F142F00D9F471 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		172CD91A290F143F00D9F471 /* CameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResultView.swift; sourceTree = "<group>"; };
+		178E19D62939A2D500C7EFE8 /* CegahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegahView.swift; sourceTree = "<group>"; };
 		9B03592F29252D92008521B0 /* PestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestResultView.swift; sourceTree = "<group>"; };
 		9B074DB6290112F900569B13 /* Pestless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pestless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B074DB9290112F900569B13 /* PestlessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestlessApp.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				9B7FCFA22928927900F53676 /* TabBarView.swift */,
 				9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */,
 				9B1AF926292FAF69009815C8 /* TrackerView.swift */,
+				178E19D62939A2D500C7EFE8 /* CegahView.swift */,
 			);
 			path = "New tab bar";
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
 				9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */,
 				9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */,
+				178E19D72939A2D500C7EFE8 /* CegahView.swift in Sources */,
 				9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */,
 				BDD37C94292F0B2000DAB1F9 /* PestSearchView.swift in Sources */,
 				9BE19829290920D500A19697 /* OnboardingView.swift in Sources */,
@@ -760,7 +764,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = DZ5KY3PP54;
+				DEVELOPMENT_TEAM = QP5VRZQV2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
@@ -794,7 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = DZ5KY3PP54;
+				DEVELOPMENT_TEAM = QP5VRZQV2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
