@@ -16,6 +16,10 @@ struct TabBarView: View {
                     Label("Kenali", image: "tabicon1")
                 })
                 .tag(0)
+            CegahView() //coba ke sini dulu ya
+                .tabItem({
+                    Label("Cegah", image: "cegah2")
+                })
             SnappedHistory()
                 .tabItem({
                     Label("Riwayat", systemImage: "clock.arrow.circlepath")
