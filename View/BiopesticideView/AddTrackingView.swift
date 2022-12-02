@@ -49,7 +49,7 @@ struct AddTrackingView: View {
                     }.pickerStyle(.wheel).frame(height: 100)
                 }
                 
-                Section("Tanggal Pembuatan"){
+                Section("Tanggal Mulai Semprot"){
                     DatePicker("Tanggal", selection: $pickerDate, displayedComponents: .date).datePickerStyle(.automatic)
                 }
                 
