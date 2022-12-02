@@ -42,20 +42,21 @@ struct CardPlantView: View {
 
 
 struct ListPlantView: View {
-    var plants: PlantData
 
-    
+    @ObservedObject var plantVM = SavedPlantsViewModel.shared
     var body: some View {
-        NavigationView {
                 List {
                     ForEach(plantList) { plant in
-                        NavigationLink(destination: DetailPlantView(plants: plants), label: {
+                        NavigationLink(destination: DetailPlantView(plants: plant), label: {
                             CardPlantView(plants: plant)
                         })
                     }
                 }
+                .onAppear{
+                    plantVM.fetch()
+                }
             
-        }
+  //      }
         .navigationTitle("Lists")
     }
 }
@@ -64,6 +65,6 @@ struct ListPlantView: View {
 
 struct ListPlantView_Previews: PreviewProvider {
     static var previews: some View {
-        ListPlantView(plants: plantList[0])
+        ListPlantView()
     }
 }

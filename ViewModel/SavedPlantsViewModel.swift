@@ -13,7 +13,7 @@ class SavedPlantsViewModel: NSObject, NSFetchedResultsControllerDelegate, Observ
     @Published var plantExist: Bool = false
     private let savedPlantProvider : SavedPlantProvider
     private let fetchedResultController : NSFetchedResultsController<MyPlants>
-    
+    private let container = PersistenceController.shared.container
     static let shared = SavedPlantsViewModel(savedPlantProvider: SavedPlantProvider(persistenceController: PersistenceController.shared))
     
     init(savedPlantProvider: SavedPlantProvider) {
@@ -38,13 +38,16 @@ class SavedPlantsViewModel: NSObject, NSFetchedResultsControllerDelegate, Observ
 
     }
     func save(plant: PlantData) {
-        let context = savedPlantProvider.context
-        let savedPlant = MyPlants(context: context)
+        let savedPlant = MyPlants(context: savedPlantProvider.context)
         savedPlant.id = plant.id
         savedPlant.plantName = plant.name
         savedPlant.image = plant.image
         
-        PersistenceController.shared.save()
+        if savedPlant.hasChanges {
+            try? self.container.viewContext.save()
+        } else {
+            print("no data saved")
+        }
         self.plantExist = true
         self.fetch()
     }
