@@ -36,7 +36,7 @@ struct TrackerView: View {
                         
                         ForEach(0..<tracking.count) { i in
                             NavigationLink {
-                                TrackerDetailView()
+                                TrackerDetailView(trackingData: tracking[i])
                                     
                             } label: {
                                 
