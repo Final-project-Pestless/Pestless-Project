@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DetailPlantView: View {
-    var plants: PlantData
+    @State var plants: PlantData
     @State private var preselectedIndex = 0
-    
+    @State var isChoosePlant: Bool = false
+//    @State var date = Date()
+    @ObservedObject var plantViewModel = SavedPlantsViewModel.shared
     var body: some View {
-        NavigationView {
+    
             VStack {
                 ScrollView {
                     Image(plants.image)
@@ -78,13 +80,33 @@ struct DetailPlantView: View {
                             .padding(.bottom,2)
                     }.padding(.leading,10)
                     
-//                    Spacer()
-                    
-                        .navigationTitle(plants.name)
-                        .navigationBarTitleDisplayMode(.inline)
                 }
+                
+                Button {
+                    plantViewModel.save(plant: plants)
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 300, height: 45)
+                        Text("Tambahkan")
+                            .foregroundColor(.white)
+                    }
+                }
+                
+               
+
             }
-        }
+        
+            .navigationTitle(plants.name)
+            .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $isChoosePlant) {
+//                DatePicker("Tanggal mulai memiliki", selection: $date)
+            }
+            .onAppear{
+                plantViewModel.fetch()
+            }
+            
+        
     }
 }
 

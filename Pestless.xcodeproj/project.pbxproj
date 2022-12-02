@@ -24,6 +24,8 @@
 		9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */; };
 		9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */; };
 		9B0EBC542939AFFC00924F9B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC532939AFFC00924F9B /* DateFormatter.swift */; };
+		9B0EBC56293A238400924F9B /* CegahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC55293A238400924F9B /* CegahView.swift */; };
+		9B0EBC58293A27DC00924F9B /* ChoosePlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EBC57293A27DC00924F9B /* ChoosePlantView.swift */; };
 		9B1AF925292F1697009815C8 /* PestControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF924292F1697009815C8 /* PestControl.swift */; };
 		9B1AF927292FAF69009815C8 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF926292FAF69009815C8 /* TrackerView.swift */; };
 		9B1AF9292931D9E7009815C8 /* TrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */; };
@@ -99,6 +101,8 @@
 		9B0EBC4F29389B2B00924F9B /* SavedPlantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantProvider.swift; sourceTree = "<group>"; };
 		9B0EBC5129389C5C00924F9B /* SavedPlantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlantsViewModel.swift; sourceTree = "<group>"; };
 		9B0EBC532939AFFC00924F9B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		9B0EBC55293A238400924F9B /* CegahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CegahView.swift; sourceTree = "<group>"; };
+		9B0EBC57293A27DC00924F9B /* ChoosePlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantView.swift; sourceTree = "<group>"; };
 		9B1AF924292F1697009815C8 /* PestControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestControl.swift; sourceTree = "<group>"; };
 		9B1AF926292FAF69009815C8 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		9B1AF9282931D9E7009815C8 /* TrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				172729EE29353B8800F96643 /* DetailPlantView.swift */,
+				9B0EBC55293A238400924F9B /* CegahView.swift */,
+				9B0EBC57293A27DC00924F9B /* ChoosePlantView.swift */,
 				172729F029355F5C00F96643 /* ListPlantView.swift */,
 			);
 			path = PlantView;
@@ -582,11 +588,13 @@
 				9B259862290F56B800E15B49 /* SnappedPestRepository.swift in Sources */,
 				9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */,
 				9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */,
+				9B0EBC58293A27DC00924F9B /* ChoosePlantView.swift in Sources */,
 				BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */,
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
 				9B0EBC542939AFFC00924F9B /* DateFormatter.swift in Sources */,
 				9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */,
 				9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */,
+				9B0EBC56293A238400924F9B /* CegahView.swift in Sources */,
 				9BBDE4A42935047C0036C3C2 /* TrackerLocalDataStore.swift in Sources */,
 				BDD37C94292F0B2000DAB1F9 /* PestSearchView.swift in Sources */,
 				9BE19829290920D500A19697 /* OnboardingView.swift in Sources */,
