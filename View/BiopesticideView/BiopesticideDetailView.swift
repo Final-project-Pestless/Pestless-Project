@@ -21,17 +21,17 @@ struct BiopesticideDetailView: View {
                         .resizable()
                         .frame(width: 275, height: 180)
                     
-                    CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Tentang", "Cara Buat"])
+                    CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Pembuatan", "Cara Pakai"])
                         .frame(width: 350)
-
-                    Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
-                        .padding(.bottom, 10)
+                    
+//                    Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
+//                        .padding(.bottom, 10)
                     
                     if preselectedIndex == 0 {
-                        AboutView(biopesticide: biopesticide)
+                        RecipeView(biopesticide: biopesticide)
                         
                     } else if preselectedIndex == 1 {
-                        RecipeView(biopesticide: biopesticide)
+                        AboutView(biopesticide: biopesticide)
                     }
                 }.navigationTitle(biopesticide.name)
             }
@@ -89,6 +89,15 @@ struct AboutView: View {
     
     var body: some View {
         VStack{
+            Text("Cara Penggunaan")
+                .bold()
+                .frame(width: 350, height: 25, alignment: .leading)
+                .foregroundColor(.pestGreen)
+            
+            Text(biopesticide.usage)
+                .frame(width: 350, alignment: .leading)
+                .padding(.vertical,5)
+            
             Text("Efektif terhadap")
                 .bold()
                 .frame(width: 350, height: 25, alignment: .leading)
@@ -114,15 +123,6 @@ struct AboutView: View {
                     }
                 }.padding(.bottom,10)
             }
-            
-            Text("Cara Penggunaan")
-                .bold()
-                .frame(width: 350, height: 25, alignment: .leading)
-                .foregroundColor(.pestGreen)
-            
-            Text(biopesticide.usage)
-                .frame(width: 350, alignment: .leading)
-                .padding(.vertical,5)
             
         }.font(.system(size: 16, design: .rounded))
     }
@@ -156,7 +156,7 @@ struct RecipeView: View {
             ForEach(0..<biopesticide.instruction.count){ i in
                 VStack {
                     Section {
-                        HStack{
+                        HStack(alignment: .top){
                             Text("\(i+1).")
                                 .frame(width: 20)
                             Text(biopesticide.instruction[i])

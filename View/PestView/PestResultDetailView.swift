@@ -21,9 +21,6 @@ struct PestResultDetailView: View {
                 
                 CustomSegmentedView(preselectedIndex: $preselectedIndex, options: ["Biopestisida","Alternatif"])
                     .frame(width: 350)
-           
-                Divider().frame(width: 340, height: 1).overlay(Color("segmented"))
-                    .padding(.bottom, 10)
                 
                 if preselectedIndex == 0 {
                     let pestControl = pestControlList.filter{$0.pest?.name == detectedPest?.name}
@@ -48,7 +45,7 @@ struct PestControlView: View {
                 .foregroundColor(.pestTitleGreen)
             
             ForEach(0..<(detectedPest?.preventive.count)!) { i in
-                HStack {
+                HStack(alignment: .top) {
                     Text("•")
                         .frame(width: 20)
                     Text(detectedPest?.preventive[i] ?? "No prevention data")

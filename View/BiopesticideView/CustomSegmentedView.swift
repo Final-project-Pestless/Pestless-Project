@@ -10,8 +10,8 @@ import SwiftUI
 struct CustomSegmentedView: View {
     @Binding var preselectedIndex: Int
     var options: [String]
-    let color = Color("AccentColor")
-    let color2 = Color("SecondaryColor")
+    let color = Color("SecondaryColor")
+    let color2 = Color.white
     
     var body: some View {
         HStack(spacing: 0) {
@@ -24,7 +24,7 @@ struct CustomSegmentedView: View {
                     
                     Rectangle()
                         .fill(isSelected ? color : color2)
-                        .frame(width: 156,height: 30)
+                        .frame(width: 150,height: 30)
                         .cornerRadius(20)
                         .padding(2)
                         .opacity(isSelected ? 1 : 0.01)
@@ -39,11 +39,12 @@ struct CustomSegmentedView: View {
                 .overlay(
                     Text(options[index])
                         //.fontWeight(isSelected ? .bold : .regular)
-                        .foregroundColor(isSelected ? .white : .black)
+                        .foregroundColor(isSelected ? .black : Color("AccentColor"))
                 )
             }
         }
         .cornerRadius(20)
+        .shadow(color: .black ,radius: 1)
     }
 }
 

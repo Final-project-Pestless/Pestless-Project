@@ -28,7 +28,7 @@ struct OnboardingView: View {
                 TabBarView()
                     .navigationBarBackButtonHidden()
             } label: {
-                Text("Skip")
+                Text("Lewati")
                     .foregroundColor(.black)
                     .bold()
             }
