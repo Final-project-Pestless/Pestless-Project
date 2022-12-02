@@ -36,7 +36,7 @@ struct TrackerView: View {
                         
                         ForEach(0..<tracking.count) { i in
                             NavigationLink {
-                                TrackerDetailView(trackingData: tracking[i])
+                                TrackerDetailView(trackingData: tracking[i], arrayDate: $arrayDate)
                                     
                             } label: {
                                 
@@ -83,9 +83,9 @@ struct TrackerView: View {
                                             .padding(.trailing)
                                     }
                                 }
-                                .onTapGesture {
+                                .onAppear {
                                     arrayDate = trackerViewModel.arrayDate(dateStarted: tracking[i].dateStarted ?? Date())
-                                    print(arrayDate)
+                                    //print(arrayDate)
                                 }
                                 
                                 .frame(width: 350, height: 100)
