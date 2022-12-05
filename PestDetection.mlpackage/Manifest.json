@@ -1,0 +1,24 @@
+{
+    "fileFormatVersion": "1.0.0",
+    "itemInfoEntries": {
+        "34B4762C-05F8-4DE9-839A-D1610DC8A75E": {
+            "author": "com.apple.CoreML",
+            "description": "External FeatureDescription Overlay",
+            "name": "FeatureDescriptions.json",
+            "path": "com.apple.CoreML/FeatureDescriptions.json"
+        },
+        "B82B0A2D-9854-4913-8475-490E44637748": {
+            "author": "com.apple.CoreML",
+            "description": "External Metadata Overlay",
+            "name": "Metadata.json",
+            "path": "com.apple.CoreML/Metadata.json"
+        },
+        "C9DFED44-55CB-4C40-BB60-0514C9CDB28C": {
+            "author": "com.apple.CoreML",
+            "description": "CoreML Model Specification",
+            "name": "PestDetection.mlmodel",
+            "path": "com.apple.CoreML/PestDetection.mlmodel"
+        }
+    },
+    "rootModelIdentifier": "C9DFED44-55CB-4C40-BB60-0514C9CDB28C"
+}

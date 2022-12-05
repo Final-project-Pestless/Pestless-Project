@@ -13,8 +13,9 @@ struct PestData: Identifiable {
     
 }
 
+
 let pestList: [PestData] = [
-    PestData(name: "ulat",
+    PestData(name: "Ulat",
              description: "Ulat ini biasanya memakan daun pada tanaman, jika sudah berusia matang, ulat ini akan bertransformasi menjadi kupu-kupu",
              identity: "Warna tubuh ulat ini berkisar dari putih krem ​​hingga abu-abu kecokelatan dan juga dapat memiliki garis kuning di bagian atas tubuh. Ulat thistle dewasa memiliki panjang tubuh berkisar antara 1/5-1,75 inci",
              eat: "Daun, rumput, bunga, dan buah",
@@ -23,7 +24,7 @@ let pestList: [PestData] = [
              image: ["thistlecaterpillar"]
 //            , biopests: [BiopesticideList[4]]
             ),
-    PestData(name: "kutuDaun",
+    PestData(name: "Kutu Daun",
              description: "Tanda-tanda serangan kutu yang parah adalah daun bengkok dan melengkung, daun menguning, tunas kerdil atau mati, dan pertumbuhan tanaman yang buruk.",
              identity: "Kutu daun berukuran kecil (2-4 mm), berbentuk buah pir,dan bertubuh lunak. Mereka dapat berwarna hijau, hitam, merah, kuning, coklat atau abu-abu.",
              eat: "",
@@ -34,7 +35,7 @@ let pestList: [PestData] = [
             ),
     
     
-    PestData(name: "belalang",
+    PestData(name: "Belalang",
              description: "Salah satu serangga yang ditemukan di berbagai habitat. Belalang muncul dalam jumlah terbesar di hutan tropis dataran rendah, daerah semi kering, dan padang rumput.",
              identity: "Panjang belalang 1 - 7 cm. Belalang adalah herbivora, mereka memakan tanaman, daun, bunga, dan biji. Kadang-kadang mereka juga mengais serangga mati untuk mendapatkan protein tambahan.",
              eat: "",
@@ -43,7 +44,7 @@ let pestList: [PestData] = [
              image: ["grasshopper"]
 //             biopests: [BiopesticideList[2], BiopesticideList[3]]
             ),
-    PestData(name: "kutuKebul",
+    PestData(name: "Kutu Kebul",
              description: "Salah satu kelompok serangga kecil penghisap getah (ordo Homoptera) yang tersebar di seluruh dunia dan menyerang pohon jeruk dan tanaman hias, terutama pada tanaman rumahan dan rumah kaca.",
              identity: "Spesies kutu putih sangat bervariasi ukurannya, mulai dari 1/20 hingga 1/5 inci. Tubuh oval mereka, dikelilingi filamen lilin, bergerak lambat, dan tidak bersayap biasanya makan dalam koloni besar dan lengket",
              eat: "tanaman palawija, sayuran, dan buah-buahan",
@@ -52,7 +53,7 @@ let pestList: [PestData] = [
              image: ["mealybug"]
 //             biopests: [BiopesticideList[0], BiopesticideList[3]]
             ),
-    PestData(name: "kepik",
+    PestData(name: "Kepik",
              description: "Hemiptera tersebar di seluruh dunia, kecuali daerah sangat dingin",
              identity: "Struktur mulutnya berbentuk seperti jarum, ",
              eat: "Kepik mengonsumsi hampir segala jenis makanan mulai dari cairan tumbuhan, biji-bijian, dan serangga lain",

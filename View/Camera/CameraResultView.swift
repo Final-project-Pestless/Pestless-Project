@@ -20,7 +20,7 @@ struct CameraResultView: View {
     @State var percentagePrediction = String()
     @State var percentageDouble: Double = 0
     let cameraService = CameraService()
-    let model = PestClassifier_3()
+    let model = PestDetection()
 //    @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
@@ -55,6 +55,8 @@ struct CameraResultView: View {
                                         let pixel = cameraService.getCVPixelBuffer(cgImage!)
                                         let predict = try? model.prediction(image: pixel!)
                                         let pestLabel = predict!.classLabel
+                                        //pestlabelnya diubah ke pestdata
+                                        //kutu kebul
                                         let pest = pestList.filter{$0.name == pestLabel}
                                         pestData = pest.first
                                         

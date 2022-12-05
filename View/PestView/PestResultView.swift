@@ -14,7 +14,7 @@ struct PestResultView: View {
     @Binding var percentageDouble: Double
     var body: some View {
     //    NavigationView {
-            ScrollView {
+            ScrollView (showsIndicators: false){
                 VStack {
                     
                     Image(detectedPest?.image[0] ?? "kutu")

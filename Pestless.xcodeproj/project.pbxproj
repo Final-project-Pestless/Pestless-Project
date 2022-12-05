@@ -43,6 +43,7 @@
 		9B460740291A3BFE004CD2B1 /* PestMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46073F291A3BFE004CD2B1 /* PestMainView.swift */; };
 		9B460743291A3EC5004CD2B1 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */; };
 		9B53A6232924DC650058AEA4 /* PlantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53A6222924DC650058AEA4 /* PlantData.swift */; };
+		9B57A516293DCA440090475F /* PestDetection.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 9B57A515293DCA440090475F /* PestDetection.mlpackage */; };
 		9B72CC9C29267DE2006E8B8B /* HomePestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */; };
 		9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FCFA22928927900F53676 /* TabBarView.swift */; };
 		9B83DF6E292A1C29007EABAE /* CameraGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */; };
@@ -52,7 +53,6 @@
 		9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDE4A5293504930036C3C2 /* TrackerLocalDefaultDataStore.swift */; };
 		9BE19829290920D500A19697 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE19828290920D500A19697 /* OnboardingView.swift */; };
 		9BE1982B2909301F00A19697 /* OnboardingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1982A2909301F00A19697 /* OnboardingViews.swift */; };
-		BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */; };
 		BD20A0C5290FF8890061ABD9 /* Biopesticide.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */; };
 		BD20F80E291DFB44009AD813 /* BiopesticideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20F80D291DFB44009AD813 /* BiopesticideView.swift */; };
 		BD79276A291FE303009D56E8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD792769291FE303009D56E8 /* Launch Screen.storyboard */; };
@@ -120,6 +120,7 @@
 		9B46073F291A3BFE004CD2B1 /* PestMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestMainView.swift; sourceTree = "<group>"; };
 		9B460742291A3EC5004CD2B1 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		9B53A6222924DC650058AEA4 /* PlantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantData.swift; sourceTree = "<group>"; };
+		9B57A515293DCA440090475F /* PestDetection.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PestDetection.mlpackage; sourceTree = "<group>"; };
 		9B72CC9B29267DE2006E8B8B /* HomePestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePestScreen.swift; sourceTree = "<group>"; };
 		9B7FCFA22928927900F53676 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9B83DF6D292A1C29007EABAE /* CameraGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraGuidanceView.swift; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		9BBDE4A5293504930036C3C2 /* TrackerLocalDefaultDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLocalDefaultDataStore.swift; sourceTree = "<group>"; };
 		9BE19828290920D500A19697 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9BE1982A2909301F00A19697 /* OnboardingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViews.swift; sourceTree = "<group>"; };
-		BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PestClassifier_3.mlpackage; sourceTree = "<group>"; };
 		BD20A0C4290FF8890061ABD9 /* Biopesticide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biopesticide.swift; sourceTree = "<group>"; };
 		BD20F80D291DFB44009AD813 /* BiopesticideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiopesticideView.swift; sourceTree = "<group>"; };
 		BD792769291FE303009D56E8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		9B074DAD290112F900569B13 = {
 			isa = PBXGroup;
 			children = (
-				BD01D4DF2923F271004C1BD4 /* PestClassifier_3.mlpackage */,
+				9B57A515293DCA440090475F /* PestDetection.mlpackage */,
 				9B2134F62920FA5300107204 /* Extension */,
 				9B259865290F5A5000E15B49 /* Model */,
 				9B259860290F56A400E15B49 /* Service */,
@@ -563,6 +563,7 @@
 				9B2598722910023E00E15B49 /* Persistence.swift in Sources */,
 				172CD919290F142F00D9F471 /* CustomCameraView.swift in Sources */,
 				9B1AF932293320EE009815C8 /* BiopestBookmarkViewModel.swift in Sources */,
+				9B57A516293DCA440090475F /* PestDetection.mlpackage in Sources */,
 				172CD91B290F143F00D9F471 /* CameraResultView.swift in Sources */,
 				9B7FCFA32928927900F53676 /* TabBarView.swift in Sources */,
 				172CD913290F139000D9F471 /* Color+Extensions.swift in Sources */,
@@ -586,7 +587,6 @@
 				9B0EBC5229389C5C00924F9B /* SavedPlantsViewModel.swift in Sources */,
 				9BBDE4A6293504930036C3C2 /* TrackerLocalDefaultDataStore.swift in Sources */,
 				9B0EBC58293A27DC00924F9B /* ChoosePlantView.swift in Sources */,
-				BD01D4E02923F271004C1BD4 /* PestClassifier_3.mlpackage in Sources */,
 				BD79276C292103AC009D56E8 /* BiopesticideDetailView.swift in Sources */,
 				9B0EBC542939AFFC00924F9B /* DateFormatter.swift in Sources */,
 				9B0EBC5029389B2B00924F9B /* SavedPlantProvider.swift in Sources */,
@@ -764,7 +764,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = XNC2HL8P65;
+				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
@@ -799,7 +799,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pestless/Preview Content\"";
-				DEVELOPMENT_TEAM = XNC2HL8P65;
+				DEVELOPMENT_TEAM = DZ5KY3PP54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pestless/Info.plist;
