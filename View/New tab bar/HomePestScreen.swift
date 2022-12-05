@@ -103,7 +103,7 @@ struct HomePestScreen: View {
                                     .frame(width: 60, height: 60)
                                 VStack{
                                     Text(pest.name)
-                                        .font(.system(.caption, design: .rounded))
+                                        .font(.system(size: 16, design: .rounded))
                                         .bold()
                                         .foregroundColor(.pestGreen)
                                 }

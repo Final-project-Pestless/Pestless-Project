@@ -13,7 +13,7 @@ struct PestResultDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
-        ScrollView {
+        //ScrollView {
             VStack {
                 Image(detectedPest?.image[0] ?? "kutu")
                     .resizable()
@@ -31,7 +31,7 @@ struct PestResultDetailView: View {
                 
                 Spacer()
             }
-        }.navigationTitle(detectedPest?.name ?? "Pest")
+       // }.navigationTitle(detectedPest?.name ?? "Pest")
          .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -40,27 +40,29 @@ struct PestControlView: View {
     @Binding var detectedPest : PestData?
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5){
-            Text("Cara Pengurangan")
-                .foregroundColor(.pestTitleGreen)
-            
-            ForEach(0..<(detectedPest?.preventive.count)!) { i in
-                HStack(alignment: .top) {
-                    Text("•")
-                        .frame(width: 20)
-                    Text(detectedPest?.preventive[i] ?? "No prevention data")
-                        .foregroundColor(.grayText)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 5){
+                Text("Cara Pengurangan")
+                    .foregroundColor(.pestTitleGreen)
+                
+                ForEach(0..<(detectedPest?.preventive.count)!) { i in
+                    HStack(alignment: .top) {
+                        Text("•")
+                            .frame(width: 20)
+                        Text(detectedPest?.preventive[i] ?? "No prevention data")
+                            .foregroundColor(.grayText)
+                    }
                 }
-            }
-            Divider()
-                .foregroundColor(.orangeColor)
-                .padding(.vertical,8)
-            Text("Tanaman Musuh Alami")
-                .foregroundColor(.pestTitleGreen)
-            
-            Text(detectedPest?.eat ?? "predator")
-        }.font(.system(size: 16, design: .rounded))
-        .padding(.horizontal,25)
+                Divider()
+                    .foregroundColor(.orangeColor)
+                    .padding(.vertical,8)
+                Text("Tanaman Musuh Alami")
+                    .foregroundColor(.pestTitleGreen)
+                
+                Text(detectedPest?.eat ?? "predator")
+            }.font(.system(size: 16, design: .rounded))
+                .padding(.horizontal,25)
+        }
     }
 }
 
@@ -69,26 +71,37 @@ struct BiopestScreen: View {
     var pestControl: PestControl
     
     var body: some View {
-        VStack(alignment: .leading){
+       // VStack(alignment: .leading){
+        List{
             ForEach(pestControl.biopest!) { biopest in
-                VStack(alignment: .leading){
+               
                     NavigationLink( destination: BiopesticideDetailView(biopesticide: biopest)
                     ) {
-                        VStack(alignment: .leading){
+                        HStack{
                             ZStack{
                                 Image(biopest.image)
                                     .resizable()
-                                    .frame(width: 100, height: 100)
+                                    .frame(width: 60, height: 60)
                             }
-                            Text(biopest.name)
-                                .font(.system(.caption, design: .rounded))
-                                .bold()
-                                .foregroundColor(.pestGreen)
+                            VStack(alignment: .leading) {
+                                Text(biopest.name)
+                                    .font(.system(size: 16, design: .rounded))
+                                
+                                    .bold()
+                                
+                                HStack {
+                                    ForEach(0..<(biopest.tag.count)) { i in
+                                        Text("\(biopest.tag[i])").background(Color("SecondaryColor"))
+                                            .font(.caption)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
+       // }
     }
 }
 
