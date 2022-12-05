@@ -27,113 +27,134 @@ struct TrackerView: View {
     var body: some View {
         NavigationView{
             ScrollView {
-                VStack {
-                    Text("Catat progres pemberian biopestisidamu")
-                        .foregroundColor(.pestTitleGreen)
-                        .bold()
-                        .padding()
-                    ScrollView{
-                        
-                        ForEach(0..<tracking.count) { i in
-                            NavigationLink {
-                                TrackerDetailView(trackingData: tracking[i], arrayDate: $arrayDate)
-                                    
-                            } label: {
-                                
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .fill(LinearGradient(
-                                            gradient: .init(colors: [Color.cardGreen1, Color.cardGreen2]),
-                                            startPoint: .top,
-                                            endPoint: .bottom
-                                        ))
-                                        .frame(width: 350, height: 100)
-                                    
-                                    HStack{
-                                        VStack(alignment: .leading){
-                                            Text(tracking[i].biopestName ?? "default")
-                                            
-                                                .font(.system(.headline, design: .rounded))
-                                            
-                                            Text(tracking[i].pestName ?? "hama")
-                                                .font(.system(.body, design: .rounded))
-                                        }
-                                        .padding(.leading)
-                                        Spacer()
-                                        ZStack{
-                                            ProgressView(value: progress, total: 1.0)
-                                                .progressViewStyle(GaugeProgressStyle())
-                                                .frame(width: 50, height: 50)
-                                                .contentShape(Rectangle())
-                                                .onTapGesture {
-                                                    if progress < 1.0 {
-                                                        withAnimation {
-                                                            progress += 0.1
-                                                        }
-                                                    }
-                                                }
-                                            Text("1/14")
-                                        }
-                                        
-                        
-                                        Image(systemName: "chevron.right")
-                                            .foregroundColor(.pestGreen)
-                                            .bold()
-                                            .font(.system(size: 24))
-                                            .padding(.trailing)
-                                    }
-                                }
-                                .onAppear {
-                                    arrayDate = trackerViewModel.arrayDate(dateStarted: tracking[i].dateStarted ?? Date())
-                                    //print(arrayDate)
-                                }
-                                
-                                .frame(width: 350, height: 100)
-                            }
-                          
+                if tracking.isEmpty {
+                    ZStack{
+                        Image("cegahbg")
+                            .padding(.bottom, 510)
+                            .padding(.trailing, 180)
+                        VStack(alignment: .leading, spacing: 10){
+                            Text("Kamu dapat melihat jadwal pengobatan hama disini")
+                                .font(.system(.title, design: .rounded))
+                                .bold()
+                            
                         }
+                        .padding(.bottom, 300)
+                        .padding()
+                        
                     }
                     
-                    Divider()
-                    VStack(alignment: .leading) {
-                        
-                        
-                        Text("Resep tersimpan")
+                      .navigationTitle("Progres")
+                  .navigationBarTitleDisplayMode(.inline)
+                } else {
+                    VStack {
+                        Text("Catat progres pemberian biopestisidamu")
                             .foregroundColor(.pestTitleGreen)
                             .bold()
-
-                        ScrollView(.horizontal, showsIndicators: false){
-                            HStack{
-                                ForEach(bookmarkViewModel.biopestArray, id: \.id) { bio in
-                                    let biopest = biopesticideList.filter{$0.name == bio.name}
-                                    NavigationLink {
-                                        BiopesticideDetailView(biopesticide: biopest.first!)
-                                    } label: {
-                                        VStack{
-                                            Image(bio.image ?? "Bawang putih")
-                                                .resizable()
-                                                .frame(width: 120, height: 140)
+                            .padding()
+                        ScrollView{
+                            
+                            ForEach(0..<tracking.count) { i in
+                                NavigationLink {
+                                    TrackerDetailView(trackingData: tracking[i], arrayDate: $arrayDate)
+                                    
+                                } label: {
+                                    
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .fill(LinearGradient(
+                                                gradient: .init(colors: [Color.cardGreen1, Color.cardGreen2]),
+                                                startPoint: .top,
+                                                endPoint: .bottom
+                                            ))
+                                            .frame(width: 350, height: 100)
+                                        
+                                        HStack{
+                                            VStack(alignment: .leading){
+                                                Text(tracking[i].biopestName ?? "default")
+                                                
+                                                    .font(.system(.headline, design: .rounded))
+                                                
+                                                Text(tracking[i].pestName ?? "hama")
+                                                    .font(.system(.body, design: .rounded))
+                                            }
+                                            .padding(.leading)
+                                            Spacer()
+                                            ZStack{
+                                                ProgressView(value: progress, total: 1.0)
+                                                    .progressViewStyle(GaugeProgressStyle())
+                                                    .frame(width: 50, height: 50)
+                                                    .contentShape(Rectangle())
+                                                    .onTapGesture {
+                                                        if progress < 1.0 {
+                                                            withAnimation {
+                                                                progress += 0.1
+                                                            }
+                                                        }
+                                                    }
+                                                Text("1/14")
+                                            }
                                             
                                             
-                                            Text(bio.name!)
-                                                .font(.system(.caption, design: .rounded))
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(.pestGreen)
                                                 .bold()
-                                                .foregroundColor(.grayText)
+                                                .font(.system(size: 24))
+                                                .padding(.trailing)
                                         }
                                     }
+                                    .onAppear {
+                                        arrayDate = trackerViewModel.arrayDate(dateStarted: tracking[i].dateStarted ?? Date())
+                                        //print(arrayDate)
+                                    }
                                     
-                                    
+                                    .frame(width: 350, height: 100)
                                 }
+                                
                             }
-                           
                         }
+                        
+                        Divider()
+                        VStack(alignment: .leading) {
+                            
+                            
+                            Text("Resep tersimpan")
+                                .foregroundColor(.pestTitleGreen)
+                                .bold()
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+                                HStack{
+                                    ForEach(bookmarkViewModel.biopestArray, id: \.id) { bio in
+                                        let biopest = biopesticideList.filter{$0.name == bio.name}
+                                        NavigationLink {
+                                            BiopesticideDetailView(biopesticide: biopest.first!)
+                                        } label: {
+                                            VStack{
+                                                Image(bio.image ?? "Bawang putih")
+                                                    .resizable()
+                                                    .frame(width: 120, height: 140)
+                                                
+                                                
+                                                Text(bio.name!)
+                                                    .font(.system(.caption, design: .rounded))
+                                                    .bold()
+                                                    .foregroundColor(.grayText)
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                                
+                            }
+                            
+                        } .padding(.leading,20)
+                        Spacer()
+                    }
                     
-                    } .padding(.leading,20)
-                    Spacer()
-                }
+                      .navigationTitle("Progres")
+                  .navigationBarTitleDisplayMode(.inline)
+            }
               
-                .navigationTitle("Progres")
-            .navigationBarTitleDisplayMode(.inline)
             }
             .onAppear{
                 trackerViewModel.fetch()

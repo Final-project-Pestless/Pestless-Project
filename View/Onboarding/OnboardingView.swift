@@ -59,9 +59,9 @@ struct OnboardingView: View {
                 } label: {
                     ZStack{
                         
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.pestTitleGreen)
-                            .frame(width: 300, height: 45)
+                            .frame(width: 350, height: 45)
                         Text("Mulai")
                             .foregroundColor(.white)
                             .bold()

@@ -21,7 +21,7 @@ struct PestResultView: View {
                     
                     //harus diganti pake database
                         .resizable()
-                        .frame(width: 325, height: 300)
+                        .frame(width: 350, height: 250)
                         .padding()
                     Text(detectedPest?.name ?? "No data")
                         .font(.system(.largeTitle, design: .rounded))
