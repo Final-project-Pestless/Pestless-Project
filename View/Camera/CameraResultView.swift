@@ -20,7 +20,7 @@ struct CameraResultView: View {
     @State var percentagePrediction = String()
     @State var percentageDouble: Double = 0
     let cameraService = CameraService()
-    let model = PestClassifier_3()
+    let model = PestDetection()
 //    @Binding var selectedImage: Data?
     @State var isDetected: Bool = false
     @State var isResult: Bool = false
