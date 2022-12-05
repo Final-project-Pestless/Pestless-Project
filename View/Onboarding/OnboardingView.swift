@@ -29,7 +29,7 @@ struct OnboardingView: View {
                     .navigationBarBackButtonHidden()
             } label: {
                 Text("Lewati")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("AccentColor"))
                     .bold()
             }
             .padding(.leading, 300)
@@ -60,7 +60,7 @@ struct OnboardingView: View {
                     ZStack{
                         
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.pestTitleGreen)
+                            .foregroundColor(Color("AccentColor"))
                             .frame(width: 350, height: 45)
                         Text("Mulai")
                             .foregroundColor(.white)

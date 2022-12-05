@@ -20,8 +20,8 @@ struct CardPlantView: View {
                     .fontWeight(.semibold)
                     .lineLimit(2)
                 
-                Text("nama latin goes here")
-                    .fontWeight(.light)
+                Text(plants.latin)
+                    .fontWeight(.light).font(.caption)
             }
             
             Spacer()
