@@ -25,3 +25,16 @@ struct PestlessApp: App {
 
     }
 }
+
+#if DEBUG
+let dataStore = {
+  if (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1") {
+    return PersistenceController.preview
+  } else {
+    return PersistenceController.shared
+  }
+}()
+#else
+let dataStore = PersistenceController.shared
+#endif
+//This little code block seems to let
