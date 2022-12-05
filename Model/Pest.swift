@@ -13,6 +13,14 @@ struct PestData: Identifiable {
     
 }
 
+enum name: String {
+    case ulat = "Ulat"
+    case kutuKebul = "Kutu kebul"
+    case kutuDaun = "Kutu daun"
+    case kepik = "Kepik"
+    case belalang = "Belalang"
+}
+
 let pestList: [PestData] = [
     PestData(name: "ulat",
              description: "Ulat ini biasanya memakan daun pada tanaman, jika sudah berusia matang, ulat ini akan bertransformasi menjadi kupu-kupu",
